@@ -1,0 +1,19 @@
+ros2 run mipi_cam mipi_cam --ros-args \
+-p device_mode:=dual -p dual_combine:=1 \
+-p image_width:=1280 -p image_height:=1088 \
+-p framerate:=30.0 -p rotation:=90.0 \
+-p gdc_enable:=False -p cal_rotation:=90.0 \
+-p lpwm_enable:=True \
+-p frame_ts_type:=realtime \
+-p out_format:=nv12 \
+-p channel:=2 -p channel2:=0
+
+ros2 run mipi_cam mipi_cam --ros-args \
+-p device_mode:=dual -p dual_combine:=1 \
+-p image_width:=640 -p image_height:=480 \
+-p framerate:=30.0 -p rotation:=90.0 \
+-p gdc_enable:=False -p cal_rotation:=90.0 \
+-p lpwm_enable:=True \
+-p frame_ts_type:=realtime \
+-p out_format:=nv12 \
+-p channel:=2 -p channel2:=0
