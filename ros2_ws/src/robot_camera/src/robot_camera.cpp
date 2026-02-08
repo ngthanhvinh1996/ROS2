@@ -7,7 +7,7 @@ class RobotCameraIml : public RobotCamera
 public:
     RobotCameraIml();
     ~RobotCameraIml();
-    int init(std::shared_ptr<struct NodePara> para) override;
+    int init(std::shared_ptr<struct mipi_cam::NodePara> para) override;
     int deInit() override;
     int start() override;
     int stop() override;
@@ -25,9 +25,9 @@ public:
 private:
     bool lsInit_;
     bool is_capturing_;
-    std::shared_ptr<struct NodePara> nodePara_;
-    std::shared_ptr<HobotMipiCap> robotCap_ptr_;
-    MIPI_CAP_INFO_ST cap_info_;
+    std::shared_ptr<struct mipi_cam::NodePara> nodePara_;
+    std::shared_ptr<mipi_cam::HobotMipiCap> robotCap_ptr_;
+    mipi_cam::MIPI_CAP_INFO_ST cap_info_;
     bool getDualCamCalibrationIml(sensor_msgs::msg::CameraInfo &cam_info_l, sensor_msgs::msg::CameraInfo &cam_info_r, const std::string &file_path);
     bool getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info,const std::string &file_path);
 
@@ -46,10 +46,10 @@ private:
     } camera_image_t;
 
     camera_image_t *image_nv12_ = nullptr;
-    std::muxtex image_nv12_mtx_;
-}
+    std::mutex image_nv12_mtx_;
+};
 
-std::share_ptr<RobotCamera> RobotCamera::create_camera()
+std::shared_ptr<RobotCamera> RobotCamera::create_camera()
 {
     return std::make_shared<RobotCameraIml>();
 }
@@ -66,7 +66,7 @@ RobotCameraIml::~RobotCameraIml()
     deInit();
 }
 
-int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
+int RobotCameraIml::init(std::shared_ptr<struct mipi_cam::NodePara> para)
 {
     if(lsInit_)
     {
@@ -74,20 +74,20 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
     }
     nodePara_ = para;
 
-    auto board_type = getBoardType();
-    robotCap_ptr_ = createMipiCap();
+    auto board_type = mipi_cam::getBoardType();
+    robotCap_ptr_ = mipi_cam::createMipiCap(board_type);
     if(nullptr == robotCap_ptr_)
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "[%s]->cap %s create capture failture.\r\n", __func__, board_type.c_str());
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]->cap %s create capture failture.\r\n", __func__, board_type.c_str());
         return -1;
     }
     cap_info_.config_path = nodePara_->config_path_;
-    cap_info_.sensor_type = nodePara_->video_device_name;
+    cap_info_.sensor_type = nodePara_->video_device_name_;
     cap_info_.width = nodePara_->image_width_;
     cap_info_.height = nodePara_->image_height_;
     cap_info_.sub_width = nodePara_->sub_image_width_;
     cap_info_.sub_height = nodePara_->sub_image_height_;
-    cap_info_.fps = nodePara_->framerate;
+    cap_info_.fps = nodePara_->framerate_;
     cap_info_.channel_ = nodePara_->channel_;
     cap_info_.channel2_ = nodePara_->channel2_;
     cap_info_.device_mode_ = nodePara_->device_mode_;
@@ -97,7 +97,7 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
     cap_info_.rotation_ = nodePara_->rotation_;
     cap_info_.cal_rotation_ - nodePara_->cal_rotation_;
     cap_info_.gdc_enable_ = nodePara_->gdc_enable_;
-    cap_info_.frame_ts_type = nodePara_->frame_ts_type_;
+    cap_info_.frame_ts_type_ = nodePara_->frame_ts_type_;
     cap_info_.link_type_ = nodePara_->link_type_;
     cap_info_.link_port_ = nodePara_->link_port_;
     cap_info_.cal_alpha_ = nodePara_->cal_alpha_;
@@ -105,7 +105,7 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
 
     if(0 > robotCap_ptr_->initEnv())
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "[%s]->init %s's robot host and gpio failture.\r\n", __func__, board_type.c_str())
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]->init %s's robot host and gpio failture.\r\n", __func__, board_type.c_str());
         return -1;
     }
     
@@ -130,7 +130,7 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
 
     if(0 != robotCap_ptr_->init(cap_info_))
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "[%s]->cap capture init failture.\r\n", __func__);
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]->cap capture init failture.\r\n", __func__);
         return -5;
     }
 
@@ -140,7 +140,7 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
     nodePara_->video_device_name_ = cap_info_.sensor_type;
     nodePara_->sub_stream_flag_ = cap_info_.sub_stream_flag_;
 
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "[%s]->cap %s init success.\r\n", __func__, cap_info_.sensor_type.c_str());
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "[%s]->cap %s init success.\r\n", __func__, cap_info_.sensor_type.c_str());
     lsInit_ = true;
     return 0;
 }
@@ -148,7 +148,7 @@ int RobotCameraIml::init(std::shared_ptr<struct NodePara> para)
 int RobotCameraIml::deInit()
 {
     int ret = 0;
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "robot_cam deInit start");
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "robot_cam deInit start");
     if(lsInit_)
     {
         lsInit_ = false;
@@ -165,7 +165,7 @@ int RobotCameraIml::deInit()
         ret = robotCap_ptr_->deInit();
         robotCap_ptr_ = nullptr;
     }
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "robot_cam deInit end");
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "robot_cam deInit end");
     return ret;
 }
 
@@ -179,11 +179,11 @@ int RobotCameraIml::start()
     int ret = 0;
     if(robotCap_ptr_->start())
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "[%s]->cap capture start failture.\r\n");
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]->cap capture start failture.\r\n");
         return -1;
     }
 
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "[%s]->w:h=%d:%d.\r\n", __func__, nodePara_->image_width_, nodePara_->image_height_);
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "[%s]->w:h=%d:%d.\r\n", __func__, nodePara_->image_width_, nodePara_->image_height_);
     is_capturing_ = true;
     if("bgr8" == nodePara_->out_format_name_)
     {
@@ -205,12 +205,12 @@ int RobotCameraIml::stop()
         ret = robotCap_ptr_->stop();
     }
     is_capturing_ = false;
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "robot_cam is stoped");
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "robot_cam is stoped");
     return ret;
 }
 
 bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
-                                std::string &endcoding,
+                                std::string &encoding,
                                 uint32_t &height,
                                 uint32_t &width,
                                 uint32_t &step,
@@ -218,18 +218,18 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
 {
     if(!is_capturing_)
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "[%s][%-%d] Camera isn't capturing", __FILE__, __func__, __LINE__);
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s][%-%d] Camera isn't capturing", __FILE__, __func__, __LINE__);
         return false;
     }
 
     if((0 == nodePara_->image_width_) || (0 == nodePara_->image_height_))
     {
-        RCLCPP_ERR(rclcpp::getlogger("robot_cam"), "Invalid publish width:%d height:%d! Please check the image_width "
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "Invalid publish width:%d height:%d! Please check the image_width "
             "and image_height parameters!", nodePara_->image_width_, nodePara_->image_height_);
         return false;
     }
 
-    struct timespec time_start (0, 0);
+    struct timespec time_start = {0, 0};
     int64_t msStart (0), msEnd (0);
     {
         struct timespec ts;
@@ -279,7 +279,7 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
             clock_gettime(CLOCK_MONOTONIC, &ts);
             msEnd_bgr = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
         }
-        RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "NV12_TO_BGR24 laps ms=%d", (msEnd_bgr - msStart_bgr));
+        RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "NV12_TO_BGR24 laps ms=%ld", (msEnd_bgr - msStart_bgr));
     }
     else if("gray" == nodePara_->out_format_name_)
     {
@@ -324,15 +324,15 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
         timestamp_sys = (tv.tv_sec * 1000 + tv.tv_usec/1000);
     }
 
-    RCLCPP_INFO(rclcpp::getlogger("robot_cam"), "publish lap ms=%lu", (timestamp_sys - timestamp/10000000));
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "publish lap ms=%lu", (timestamp_sys - timestamp/10000000));
 
     {
         struct timespec ts;
         clock_gettime(CLOCK_MONOTONIC, &ts);
-        msEnd = (ts.tv_sec * 1000 + ts.ts_nsec / 1000000);
+        msEnd = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
     }
 
-    RCLCPP_INFO_STREAM(rclcpp::getlogger("robot_cam"),
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_cam"),
                         "getImage channel=" << channel.data()
                         << ", enc=" << encoding.data()
                         << ", width=" << width
@@ -350,11 +350,11 @@ bool RobotCameraIml::getCamCalibration(sensor_msgs::msg::CameraInfo& cam_info,
 {
     if(!robotCap_ptr_)
     {
-        RCPCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]-> robotCap_ptr_ is NULL", __func__);
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "[%s]-> robotCap_ptr_ is NULL", __func__);
         return false;
     }
 
-    auto cal_v_ptr = robotCap_ptr_->getCamInfo();
+    auto cal_v_ptr = robotCap_ptr_->getCalCamInfo();
     if((nullptr != cal_v_ptr) && (0 < cal_v_ptr->size()))
     {
         RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "[%s]->get calibration cam info", __func__);
@@ -368,7 +368,7 @@ bool RobotCameraIml::getCamCalibration(sensor_msgs::msg::CameraInfo& cam_info,
     }
 }
 
-int RobotCameraIml::isCapturing()
+bool RobotCameraIml::isCapturing()
 {
     return is_capturing_;
 }
@@ -381,7 +381,7 @@ bool RobotCameraIml::getDualCamCalibration(sensor_msgs::msg::CameraInfo &cam_inf
         return false;
     }
 
-    auto cal_v_ptr = robotCap_ptr_->getCamInfo();
+    auto cal_v_ptr = robotCap_ptr_->getCalCamInfo();
     if((nullptr != cal_v_ptr) && (2 == cal_v_ptr->size()))
     {
         RCLCPP_INFO(rclcpp::get_logger("robot_cap"), "get calibration camera info");
@@ -397,7 +397,7 @@ bool RobotCameraIml::getDualCamCalibration(sensor_msgs::msg::CameraInfo &cam_inf
     }
 }
 
-boot RobotCameraIml::getDualCamCalibrationIml(sensor_msgs::msg::CameraInfo &cam_info_l, 
+bool RobotCameraIml::getDualCamCalibrationIml(sensor_msgs::msg::CameraInfo &cam_info_l, 
                                                 sensor_msgs::msg::CameraInfo &cam_info_r, 
                                                 const std::string &file_path)
 {
@@ -411,7 +411,7 @@ boot RobotCameraIml::getDualCamCalibrationIml(sensor_msgs::msg::CameraInfo &cam_
         }
 
         cv::FileStorage fs(file_path.c_str(), cv::FileStorage::READ);
-        if(!fs.isOpen())
+        if(!fs.isOpened())
         {
             RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), 
                 "Camera calibration file: %s is not exist"
@@ -484,7 +484,7 @@ boot RobotCameraIml::getDualCamCalibrationIml(sensor_msgs::msg::CameraInfo &cam_
         fs.release();
         return true;
     } catch (cv::Exception &ex) {
-        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "cv_bridge exception: %s", ex.what);
+        RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "cv_bridge exception: %s", ex.what());
         return false;
     }
 }
@@ -496,20 +496,20 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
         std::string cal_file;
         if((0 == file_path.length()) || ("default" == file_path))
         {
-            MIPI_CAP_INFO_ST cap_info;
+            mipi_cam::MIPI_CAP_INFO_ST cap_info;
 
             robotCap_ptr_->getCapInfo(cap_info);
             std::string sensor_name = cap_info.sensor_type;
-            std::transform(sensor_name.begin(), sensor_name.end(), sensor_name.begin(), [](unsignred char c ){
-                return std::touper(c);
+            std::transform(sensor_name.begin(), sensor_name.end(), sensor_name.begin(), [](unsigned char c ){
+                return std::toupper(c);
             });
-            cal_file = cap_info.config_path += "/" + sensor_name + = "_calibration.yaml:";   
+            cal_file = cap_info.config_path += "/" + sensor_name + "_calibration.yaml:";   
         }
         else {
-            return std::tolower(c);
+            cal_file = file_path;
         }
         std::string camera_name;
-        std::ifstream fin(cal_file.c_str()));
+        std::ifstream fin(cal_file.c_str());
         if(!fin) {
             RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), 
                         "Camera balibration file: %s is not exist"
@@ -519,7 +519,7 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
         }
 
         YAML::Node calibration_doc = YAML::Load(fin);
-        if(calibration_doc.["camera_name"])
+        if(calibration_doc["camera_name"])
         {
             camera_name = calibration_doc["camera_name"].as<std::string>();
         }
@@ -541,22 +541,22 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
                 calibration_doc["rectification_matrix"];
         const YAML::Node &rectification_matrix_data = rectification_matrix["data"];
         for (int i = 0; i < 9; i++) {
-        cam_info.r[i] = rectification_matrix_data[i].as<double>();
+            cam_info.r[i] = rectification_matrix_data[i].as<double>();
         }
         const YAML::Node &projection_matrix = calibration_doc["projection_matrix"];
         const YAML::Node &projection_matrix_data = projection_matrix["data"];
         for (int i = 0; i < 12; i++) {
-        cam_info.p[i] = projection_matrix_data[i].as<double>();
+            cam_info.p[i] = projection_matrix_data[i].as<double>();
         }
 
         if (calibration_doc["distortion_model"]) {
-        cam_info.distortion_model =
-            calibration_doc["distortion_model"].as<std::string>();
+            cam_info.distortion_model =
+                calibration_doc["distortion_model"].as<std::string>();
         } else {
-        cam_info.distortion_model = sensor_msgs::distortion_models::PLUMB_BOB;
-        RCLCPP_INFO(rclcpp::get_logger("mipi_cam"),
-                    "Camera calibration file did not specify distortion model, "
-                    "assuming plumb bob");
+            cam_info.distortion_model = sensor_msgs::distortion_models::PLUMB_BOB;
+            RCLCPP_INFO(rclcpp::get_logger("mipi_cam"),
+                        "Camera calibration file did not specify distortion model, "
+                        "assuming plumb bob");
         }
         const YAML::Node &distortion_coefficients =
             calibration_doc["distortion_coefficients"];
@@ -567,12 +567,12 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
             distortion_coefficients["data"];
         cam_info.d.resize(d_rows * d_cols);
         for (int i = 0; i < d_rows * d_cols; ++i) {
-        cam_info.d[i] = distortion_coefficients_data[i].as<double>();
+            cam_info.d[i] = distortion_coefficients_data[i].as<double>();
         }
         RCLCPP_INFO(rclcpp::get_logger("mipi_cam"),
         "[getCamCalibration]->parse calibration file successfully");
         return true;
-      } catch (YAML::Exception &e) {
+    } catch (YAML::Exception &e) {
         RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), "Unable to parse camera calibration file normally: %s",
                         e.what());
         return false;

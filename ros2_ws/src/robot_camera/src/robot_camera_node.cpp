@@ -5,7 +5,7 @@
 namespace robot_cam
 {
 
-RobotCameraNode::RobotCameraNode(const rclcpp::Node_Options &node_options)
+RobotCameraNode::RobotCameraNode(const rclcpp::NodeOptions &node_options)
     : m_bIsInit(0),
     Node("robot_cam", node_options),
     camera_calibration_info_(new sensor_msgs::msg::CameraInfo())
