@@ -1,0 +1,46 @@
+\hypertarget{reader_8h}{}\doxysection{deps/jsoncpp/include/json/reader.h File Reference}
+\label{reader_8h}\index{deps/jsoncpp/include/json/reader.h@{deps/jsoncpp/include/json/reader.h}}
+{\ttfamily \#include \char`\"{}features.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}value.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$deque$>$}\newline
+{\ttfamily \#include $<$iosfwd$>$}\newline
+{\ttfamily \#include $<$stack$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$istream$>$}\newline
+Include dependency graph for reader.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reader_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{reader_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_json_1_1_char_reader}{Json\+::\+Char\+Reader}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_char_reader_1_1_factory}{Json\+::\+Char\+Reader\+::\+Factory}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_char_reader_builder}{Json\+::\+Char\+Reader\+Builder}}
+\begin{DoxyCompactList}\small\item\em Build a \mbox{\hyperlink{class_json_1_1_char_reader}{Char\+Reader}} implementation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_json}{Json}}
+\begin{DoxyCompactList}\small\item\em JSON (Java\+Script Object Notation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{namespace_json_a61b556ffe4c70c4492a9dbe4718ec50b}{Json\+::\+JSONCPP\+\_\+\+DEPRECATED}} (\char`\"{}Use Char\+Reader and Char\+Reader\+Builder instead\char`\"{}) JSON\+\_\+\+API Reader
+\begin{DoxyCompactList}\small\item\em Unserialize a \href{http://www.json.org}{\texttt{ JSON}} document into a \mbox{\hyperlink{class_json_1_1_value}{Value}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{JSON\+\_\+\+API}} \mbox{\hyperlink{namespace_json_aab0cf1ecf81d1aeca12be2a416a84352}{Json\+::parse\+From\+Stream}} (Char\+Reader\+::\+Factory const \&, \mbox{\hyperlink{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}{JSONCPP\+\_\+\+ISTREAM}} \&, Value $\ast$root, std\+::string $\ast$errs)
+\item 
+\mbox{\hyperlink{config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{JSON\+\_\+\+API}} \mbox{\hyperlink{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}{JSONCPP\+\_\+\+ISTREAM}} \& \mbox{\hyperlink{namespace_json_a76fc30b06621ee513b29d4ba438860e1}{Json\+::operator$>$$>$}} (\mbox{\hyperlink{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}{JSONCPP\+\_\+\+ISTREAM}} \&, Value \&)
+\begin{DoxyCompactList}\small\item\em Read from \textquotesingle{}sin\textquotesingle{} into \textquotesingle{}root\textquotesingle{}. \end{DoxyCompactList}\end{DoxyCompactItemize}

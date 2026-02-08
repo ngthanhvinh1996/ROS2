@@ -1,0 +1,4 @@
+<map id="std::swap" name="std::swap">
+<area shape="rect" id="node1" title="Specialize std::swap() for Json::Value." alt="" coords="5,5,89,32"/>
+<area shape="rect" id="node2" href="$class_json_1_1_value.html#aab841120d78e296e1bc06a373345e822" title="Swap everything." alt="" coords="137,5,272,32"/>
+</map>

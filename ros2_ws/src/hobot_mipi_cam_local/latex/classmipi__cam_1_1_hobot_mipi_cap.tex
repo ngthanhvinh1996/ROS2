@@ -1,0 +1,153 @@
+\hypertarget{classmipi__cam_1_1_hobot_mipi_cap}{}\doxysection{mipi\+\_\+cam\+::Hobot\+Mipi\+Cap Class Reference}
+\label{classmipi__cam_1_1_hobot_mipi_cap}\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+
+
+{\ttfamily \#include $<$hobot\+\_\+mipi\+\_\+cap.\+hpp$>$}
+
+
+
+Inheritance diagram for mipi\+\_\+cam\+::Hobot\+Mipi\+Cap\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{classmipi__cam_1_1_hobot_mipi_cap__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a2c9e245a718c54352efd46fba76eeb42}{Hobot\+Mipi\+Cap}} ()
+\item 
+virtual \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a126292e6ceee1b0908ac54fa29498bc7}{$\sim$\+Hobot\+Mipi\+Cap}} ()
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a0684c9fcfa53ce565a87b78fcd3054a3}{init\+Env}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a453960cf533a71afed25e052f419e6b4}{init}} (\mbox{\hyperlink{structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t}{MIPI\+\_\+\+CAP\+\_\+\+INFO\+\_\+\+ST}} \&info)=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a00fad058d49d556fbc80328016a4660c}{de\+Init}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a9c80aff4445be9bad19e55f3155a568a}{start}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_ae2e6c1a8dd27d05bcd7aacca5129186e}{stop}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a5552a5ebc921d29301485e97be18d820}{get\+Frame}} (std\+::string channel, int $\ast$n\+VOutW, int $\ast$n\+VOutH, void $\ast$buf, unsigned int bufsize, unsigned int $\ast$, uint64\+\_\+t \&, bool gray=false)=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a10220f488880ebe408a3b607a11824aa}{get\+Cap\+Info}} (\mbox{\hyperlink{structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t}{MIPI\+\_\+\+CAP\+\_\+\+INFO\+\_\+\+ST}} \&info)=0
+\item 
+virtual std\+::vector$<$ sensor\+\_\+msgs\+::msg\+::\+Camera\+Info $>$ $\ast$ \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_a8ccbb250640efbfdee39f1a651feb55d}{get\+Cal\+Cam\+Info}} ()
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_acedcc4eeb5d72f924c0b0d76083ab9dc}{set\+Cam\+Info}} (std\+::vector$<$ sensor\+\_\+msgs\+::msg\+::\+Camera\+Info $>$ info)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a2c9e245a718c54352efd46fba76eeb42}\label{classmipi__cam_1_1_hobot_mipi_cap_a2c9e245a718c54352efd46fba76eeb42}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!HobotMipiCap@{HobotMipiCap}}
+\index{HobotMipiCap@{HobotMipiCap}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{HobotMipiCap()}{HobotMipiCap()}}
+{\footnotesize\ttfamily mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::\+Hobot\+Mipi\+Cap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a126292e6ceee1b0908ac54fa29498bc7}\label{classmipi__cam_1_1_hobot_mipi_cap_a126292e6ceee1b0908ac54fa29498bc7}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!````~HobotMipiCap@{$\sim$HobotMipiCap}}
+\index{````~HobotMipiCap@{$\sim$HobotMipiCap}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{$\sim$HobotMipiCap()}{~HobotMipiCap()}}
+{\footnotesize\ttfamily virtual mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::$\sim$\+Hobot\+Mipi\+Cap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a00fad058d49d556fbc80328016a4660c}\label{classmipi__cam_1_1_hobot_mipi_cap_a00fad058d49d556fbc80328016a4660c}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!deInit@{deInit}}
+\index{deInit@{deInit}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{deInit()}{deInit()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::de\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a78547935e399338654f7485a39b93686}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a78547935e399338654f7485a39b93686}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a78547935e399338654f7485a39b93686}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a78547935e399338654f7485a39b93686}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a78547935e399338654f7485a39b93686}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a8ccbb250640efbfdee39f1a651feb55d}\label{classmipi__cam_1_1_hobot_mipi_cap_a8ccbb250640efbfdee39f1a651feb55d}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!getCalCamInfo@{getCalCamInfo}}
+\index{getCalCamInfo@{getCalCamInfo}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{getCalCamInfo()}{getCalCamInfo()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$sensor\+\_\+msgs\+::msg\+::\+Camera\+Info$>$$\ast$ mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::get\+Cal\+Cam\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa0250e1702d694ce580fb38612d39326}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa0250e1702d694ce580fb38612d39326}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa0250e1702d694ce580fb38612d39326}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a10220f488880ebe408a3b607a11824aa}\label{classmipi__cam_1_1_hobot_mipi_cap_a10220f488880ebe408a3b607a11824aa}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!getCapInfo@{getCapInfo}}
+\index{getCapInfo@{getCapInfo}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{getCapInfo()}{getCapInfo()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::get\+Cap\+Info (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t}{MIPI\+\_\+\+CAP\+\_\+\+INFO\+\_\+\+ST}} \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a5ed9514438b0423ffa4eaee748052c8c}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a5ed9514438b0423ffa4eaee748052c8c}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a5ed9514438b0423ffa4eaee748052c8c}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a5ed9514438b0423ffa4eaee748052c8c}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a5ed9514438b0423ffa4eaee748052c8c}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a5552a5ebc921d29301485e97be18d820}\label{classmipi__cam_1_1_hobot_mipi_cap_a5552a5ebc921d29301485e97be18d820}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!getFrame@{getFrame}}
+\index{getFrame@{getFrame}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{getFrame()}{getFrame()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::get\+Frame (\begin{DoxyParamCaption}\item[{std\+::string}]{channel,  }\item[{int $\ast$}]{n\+VOutW,  }\item[{int $\ast$}]{n\+VOutH,  }\item[{void $\ast$}]{buf,  }\item[{unsigned int}]{bufsize,  }\item[{unsigned int $\ast$}]{,  }\item[{uint64\+\_\+t \&}]{,  }\item[{bool}]{gray = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a62657b9565bc8da92306a4ca463b8856}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a62657b9565bc8da92306a4ca463b8856}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a62657b9565bc8da92306a4ca463b8856}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a62657b9565bc8da92306a4ca463b8856}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a62657b9565bc8da92306a4ca463b8856}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a453960cf533a71afed25e052f419e6b4}\label{classmipi__cam_1_1_hobot_mipi_cap_a453960cf533a71afed25e052f419e6b4}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!init@{init}}
+\index{init@{init}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t}{MIPI\+\_\+\+CAP\+\_\+\+INFO\+\_\+\+ST}} \&}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a940f50038baa8b1379ef612269338594}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a940f50038baa8b1379ef612269338594}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a940f50038baa8b1379ef612269338594}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a940f50038baa8b1379ef612269338594}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a940f50038baa8b1379ef612269338594}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a0684c9fcfa53ce565a87b78fcd3054a3}\label{classmipi__cam_1_1_hobot_mipi_cap_a0684c9fcfa53ce565a87b78fcd3054a3}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!initEnv@{initEnv}}
+\index{initEnv@{initEnv}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{initEnv()}{initEnv()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::init\+Env (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a1e680a7249090d97b8432eeb0090e1dc}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a1e680a7249090d97b8432eeb0090e1dc}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a1e680a7249090d97b8432eeb0090e1dc}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a1e680a7249090d97b8432eeb0090e1dc}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_r_d_k_rdkultra_ae8511eae897ebf28429b3cdb6e35e98b}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml\+RDKRdkultra}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a0bd05a094f5712cbe586205ce3aa8f86}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_acedcc4eeb5d72f924c0b0d76083ab9dc}\label{classmipi__cam_1_1_hobot_mipi_cap_acedcc4eeb5d72f924c0b0d76083ab9dc}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!setCamInfo@{setCamInfo}}
+\index{setCamInfo@{setCamInfo}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{setCamInfo()}{setCamInfo()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::set\+Cam\+Info (\begin{DoxyParamCaption}\item[{std\+::vector$<$ sensor\+\_\+msgs\+::msg\+::\+Camera\+Info $>$}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a48ab29e4845db37c03ba7b5344c444be}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a48ab29e4845db37c03ba7b5344c444be}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a48ab29e4845db37c03ba7b5344c444be}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_a9c80aff4445be9bad19e55f3155a568a}\label{classmipi__cam_1_1_hobot_mipi_cap_a9c80aff4445be9bad19e55f3155a568a}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!start@{start}}
+\index{start@{start}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a88c20ab570a6450fb16c5fe5b74237c6}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a88c20ab570a6450fb16c5fe5b74237c6}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a88c20ab570a6450fb16c5fe5b74237c6}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a88c20ab570a6450fb16c5fe5b74237c6}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_a88c20ab570a6450fb16c5fe5b74237c6}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_hobot_mipi_cap_ae2e6c1a8dd27d05bcd7aacca5129186e}\label{classmipi__cam_1_1_hobot_mipi_cap_ae2e6c1a8dd27d05bcd7aacca5129186e}} 
+\index{mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}!stop@{stop}}
+\index{stop@{stop}!mipi\_cam::HobotMipiCap@{mipi\_cam::HobotMipiCap}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa7c94d0f841b96fc119b0e1a3fa5bd3d}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa7c94d0f841b96fc119b0e1a3fa5bd3d}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa7c94d0f841b96fc119b0e1a3fa5bd3d}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa7c94d0f841b96fc119b0e1a3fa5bd3d}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}, and \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml_aa7c94d0f841b96fc119b0e1a3fa5bd3d}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hobot__mipi__cap_8hpp}{hobot\+\_\+mipi\+\_\+cap.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,127 @@
+\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md1}{}\doxysection{tros\+\_\+2.\+3.\+15 (2025-\/10-\/27)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md1}
+
+\begin{DoxyEnumerate}
+\item 更新到\+RDK X5 v3.\+4.\+0的sdk。
+\item 解决imx219，imx415,imx477,0v5647无法启动的问题。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md2}{}\doxysection{tros\+\_\+2.\+3.\+14 (2025-\/10-\/14)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md2}
+
+\begin{DoxyEnumerate}
+\item RDK S100增加gmsl的摄像机。
+\item 解决component的bug
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md3}{}\doxysection{tros\+\_\+2.\+3.\+12 (2025-\/08-\/25)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md3}
+
+\begin{DoxyEnumerate}
+\item 更新输出log的级别，较少log的输出。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md4}{}\doxysection{tros\+\_\+2.\+3.\+11 (2025-\/08-\/12)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md4}
+
+\begin{DoxyEnumerate}
+\item RDK S100增加ynr和\+GDC校正功能。
+\item RDK S100增加sc230ai双目。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md5}{}\doxysection{tros\+\_\+2.\+3.\+8 (2025-\/04-\/27)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md5}
+
+\begin{DoxyEnumerate}
+\item 增加\+X5 RDK module的硬件平台。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md6}{}\doxysection{tros\+\_\+2.\+3.\+6 (2025-\/01-\/09)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md6}
+
+\begin{DoxyEnumerate}
+\item 增加读取eeprom标定数据生成gdc bin文件功能。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md7}{}\doxysection{tros\+\_\+2.\+3.\+5 (2024-\/12-\/24)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md7}
+
+\begin{DoxyEnumerate}
+\item 增加启动lpwm的参数。
+\item 增加标定文件生成gdc bin文件功能。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md8}{}\doxysection{tros\+\_\+2.\+3.\+4 (2024-\/11-\/15)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md8}
+
+\begin{DoxyEnumerate}
+\item 依赖的\+Open\+CV版本从3.4.\+5升级到4.\+X。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md9}{}\doxysection{tros\+\_\+2.\+3.\+0 (2024-\/08-\/16)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md9}
+
+\begin{DoxyEnumerate}
+\item 增加\+X5的平台的支持。
+\item 增加双目的支持。
+\item 适配sc230ai,sc132gs,ov5647,imx219 sensor在\+X5平台。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md10}{}\doxysection{tros\+\_\+2.\+2.\+0 (2024-\/04-\/01)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md10}
+
+\begin{DoxyEnumerate}
+\item 适配ros2 humble零拷贝。
+\item 新增中英双语\+README。
+\item 新增{\ttfamily frame\+\_\+ts\+\_\+type}配置项，支持{\ttfamily realtime}和{\ttfamily sensor}（默认）配置参数，用于计算通信延迟。
+\item 零拷贝通信使用的qos的\+Reliability由\+RMW\+\_\+\+QOS\+\_\+\+POLICY\+\_\+\+RELIABILITY\+\_\+\+RELIABLE（rclcpp\+::\+Qo\+S()）变更为\+RMW\+\_\+\+QOS\+\_\+\+POLICY\+\_\+\+RELIABILITY\+\_\+\+BEST\+\_\+\+EFFORT（rclcpp\+::\+Sensor\+Data\+Qo\+S()）。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md11}{}\doxysection{tros\+\_\+2.\+1.\+8 (2024-\/3-\/6)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md11}
+
+\begin{DoxyEnumerate}
+\item 配置文件路径由{\ttfamily /opt/tros/lib}变更为{\ttfamily /opt/tros/\$\{TROS\+\_\+\+DISTRO\}/lib}。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md12}{}\doxysection{tros\+\_\+2.\+1.\+6 (2023-\/09-\/13)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item RDK Ultra支持sensor自适应选择。
+\item rgb8的image msg-\/$>$step=w$\ast$3，解决标定node的\+BUG。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md13}{}\doxysection{tros\+\_\+2.\+1.\+5 (2023-\/08-\/24)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md13}
+
+\begin{DoxyEnumerate}
+\item 修改x3 vio 模式为\+VIN\+\_\+\+OFFLINE\+\_\+\+VPS\+\_\+\+ONLINE。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md14}{}\doxysection{tros\+\_\+2.\+1.\+4 (2023-\/08-\/08)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md14}
+
+\begin{DoxyEnumerate}
+\item 输出解析出来的io\+\_\+method\+\_\+name\+\_\+配置参数。
+\item 输出发布图像的时间戳，用于分析图像数据处理和传输的延迟。
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md15}{}\doxysection{tros\+\_\+2.\+1.\+0 (2023-\/07-\/10)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md15}
+
+\begin{DoxyEnumerate}
+\item 重构hobot\+\_\+mipi\+\_\+cam框架
+\item 增加\+RDK Ultra平台的支持
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md16}{}\doxysection{tros\+\_\+2.\+0.\+0 (2023-\/05-\/11)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md16}
+
+\begin{DoxyEnumerate}
+\item 更新package.\+xml，支持应用独立打包
+\item 更新应用启动launch脚本
+\item 适配\+X3 Module板
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md17}{}\doxysection{tros\+\_\+1.\+1.\+5 (2023-\/2-\/10)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md17}
+
+\begin{DoxyEnumerate}
+\item 优化mipi\+\_\+cam图像发布时间戳，使用硬件时间戳并调整曝光时间
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md18}{}\doxysection{tros\+\_\+1.\+1.\+4rc1 (2023-\/1-\/9)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md18}
+
+\begin{DoxyEnumerate}
+\item 修复启动时sensor状态未初始化导致自适应video\+\_\+device失败的问题
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md19}{}\doxysection{tros\+\_\+1.\+1.\+4 (2022-\/11-\/28)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md19}
+
+\begin{DoxyEnumerate}
+\item mipi\+\_\+cam自适应video\+\_\+device
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md20}{}\doxysection{tros\+\_\+1.\+1.\+3rc1 (2022-\/11-\/28)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md20}
+
+\begin{DoxyEnumerate}
+\item 解决mipi\+\_\+cam重复启动，第一次启动的程序异常退出问题
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md21}{}\doxysection{tros\+\_\+1.\+1.\+3 (2022-\/11-\/16)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md21}
+
+\begin{DoxyEnumerate}
+\item mipi\+\_\+cam适配imx219, imx477, ov5647
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md22}{}\doxysection{tros\+\_\+1.\+1.\+2rc1 (2022-\/10-\/18)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md22}
+
+\begin{DoxyEnumerate}
+\item 解决mipi\+\_\+cam重复启动，log不提示相关信息问题
+\item 启动前，增加分辨率检查，不支持时输出错误日志
+\item 增加判断是否连接摄像头以及摄像头类型是否正确功能
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md23}{}\doxysection{tros\+\_\+1.\+1.\+2 (2022-\/09-\/28)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md23}
+
+\begin{DoxyEnumerate}
+\item 优化mipi\+\_\+cam输出日志
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md24}{}\doxysection{tros\+\_\+1.\+1.\+1 (2022-\/09-\/20)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md24}
+
+\begin{DoxyEnumerate}
+\item 更改相机标定文件的读取路径
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md25}{}\doxysection{hhp\+\_\+1.\+0.\+6\+RC1 (2022-\/09-\/09)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md25}
+
+\begin{DoxyEnumerate}
+\item 将默认的相机标定文件读取路径更换为绝对路径
+\item 增加launch文件中的参数：相机标定文件读取路径
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md26}{}\doxysection{hhp\+\_\+1.\+0.\+6 (2022-\/08-\/30)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md26}
+
+\begin{DoxyEnumerate}
+\item 新增\+F37和\+GC4663两款摄像头的标定文件
+\item 新增读取相机标定文件并发布相机内参的功能
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md27}{}\doxysection{hhp\+\_\+1.\+0.\+4 (2022-\/08-\/02)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md27}
+
+\begin{DoxyEnumerate}
+\item 新增imx586和gc4c33配置
+\end{DoxyEnumerate}\hypertarget{md__c_h_a_n_g_e_l_o_g_autotoc_md28}{}\doxysection{v1.\+0.\+1 (2022-\/06-\/23)}\label{md__c_h_a_n_g_e_l_o_g_autotoc_md28}

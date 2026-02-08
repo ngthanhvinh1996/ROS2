@@ -1,0 +1,189 @@
+\hypertarget{x3__vio__vin_8cpp}{}\doxysection{src/x3/x3\+\_\+sdk\+\_\+swap/src/x3\+\_\+vio\+\_\+vin.cpp File Reference}
+\label{x3__vio__vin_8cpp}\index{src/x3/x3\_sdk\_swap/src/x3\_vio\_vin.cpp@{src/x3/x3\_sdk\_swap/src/x3\_vio\_vin.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}vio/hb\+\_\+vio\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vio/hb\+\_\+mode.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x3\+\_\+vio\+\_\+vin.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x3\+\_\+vio\+\_\+vps.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+Include dependency graph for x3\+\_\+vio\+\_\+vin.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{x3__vio__vin_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structraw__t}{raw\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structdump__info__t}{dump\+\_\+info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{x3__vio__vin_8cpp_a04121d28390e5fd131f40ae4a1c27412}{HW\+\_\+\+TIMER}}~24000
+\item 
+\#define \mbox{\hyperlink{x3__vio__vin_8cpp_a74fc218cc8d685cda80d283bd840a4a9}{MAX\+\_\+\+PLANE}}~4
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_a0dbcd909e6fb6f85483c3b7396f7bc8f}{print\+\_\+sensor\+\_\+dev\+\_\+info}} (VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S $\ast$devinfo)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_a2d609195e9abf6411e42d9ea22c997f5}{print\+\_\+sensor\+\_\+pipe\+\_\+info}} (VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S $\ast$pipeinfo)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_abb2d31041f800c30a697b34bfd7919ea}{print\+\_\+sensor\+\_\+info}} (MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S $\ast$snsinfo)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_a4e18711ff34f0db0b059f84b043ef1fd}{x3\+\_\+vio\+\_\+buf\+\_\+info\+\_\+print}} (hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buf)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a58931d0ff0ca60f655b878f24b56071d}{x3\+\_\+sensor\+\_\+init}} (int dev\+Id, \mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a5e729fc427e354e2f0db01f31a900a01}{x3\+\_\+mipi\+\_\+init}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_ad1f7463723906f3d3302ea93b1114899}{dis\+\_\+crop\+\_\+set}} (uint32\+\_\+t pipe\+\_\+id, uint32\+\_\+t event, VIN\+\_\+\+DIS\+\_\+\+MV\+\_\+\+INFO\+\_\+S $\ast$data, void $\ast$userdata)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_ae6e87c1c9189e37900bc5ccca50df343}{x3\+\_\+vin\+\_\+init}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a3fcef16c448f77ac64f8924d8370a45a}{x3\+\_\+vin\+\_\+start}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_ac552b38989e8bdd10035c7b0c8b00c3e}{x3\+\_\+vin\+\_\+stop}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8cpp_a1ae2295248eb7885f9239dc09b593365}{x3\+\_\+vin\+\_\+deinit}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a0a699e5616ec0ecf153b5f1f786c4d38}{x3\+\_\+vin\+\_\+feedback}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$feedback\+\_\+buf)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a9605819bb77a7e4d5c80ac2f024782b3}{x3\+\_\+vin\+\_\+get\+\_\+ouput}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a671e3793677e76b5635c6600106e5cf7}{x3\+\_\+vin\+\_\+output\+\_\+release}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_afd0e16f89f8a0e237ba8cd65b594b277}{time\+\_\+cost\+\_\+ms}} (struct timeval $\ast$start, struct timeval $\ast$end)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a3f6af7734d21b543aa71bd2c2878f82d}{x3\+\_\+vin\+\_\+sif\+\_\+raw\+\_\+dump}} (int pipe\+Id, char $\ast$file\+\_\+name)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8cpp_a9cba9b183b3f97de3dffe57803c56f09}{x3\+\_\+vin\+\_\+isp\+\_\+yuv\+\_\+dump}} (int pipe\+Id, char $\ast$file\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a04121d28390e5fd131f40ae4a1c27412}\label{x3__vio__vin_8cpp_a04121d28390e5fd131f40ae4a1c27412}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!HW\_TIMER@{HW\_TIMER}}
+\index{HW\_TIMER@{HW\_TIMER}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{HW\_TIMER}{HW\_TIMER}}
+{\footnotesize\ttfamily \#define HW\+\_\+\+TIMER~24000}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a74fc218cc8d685cda80d283bd840a4a9}\label{x3__vio__vin_8cpp_a74fc218cc8d685cda80d283bd840a4a9}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!MAX\_PLANE@{MAX\_PLANE}}
+\index{MAX\_PLANE@{MAX\_PLANE}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{MAX\_PLANE}{MAX\_PLANE}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PLANE~4}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{x3__vio__vin_8cpp_ad1f7463723906f3d3302ea93b1114899}\label{x3__vio__vin_8cpp_ad1f7463723906f3d3302ea93b1114899}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!dis\_crop\_set@{dis\_crop\_set}}
+\index{dis\_crop\_set@{dis\_crop\_set}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{dis\_crop\_set()}{dis\_crop\_set()}}
+{\footnotesize\ttfamily void dis\+\_\+crop\+\_\+set (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{pipe\+\_\+id,  }\item[{uint32\+\_\+t}]{event,  }\item[{VIN\+\_\+\+DIS\+\_\+\+MV\+\_\+\+INFO\+\_\+S $\ast$}]{data,  }\item[{void $\ast$}]{userdata }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a0dbcd909e6fb6f85483c3b7396f7bc8f}\label{x3__vio__vin_8cpp_a0dbcd909e6fb6f85483c3b7396f7bc8f}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!print\_sensor\_dev\_info@{print\_sensor\_dev\_info}}
+\index{print\_sensor\_dev\_info@{print\_sensor\_dev\_info}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_sensor\_dev\_info()}{print\_sensor\_dev\_info()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+dev\+\_\+info (\begin{DoxyParamCaption}\item[{VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S $\ast$}]{devinfo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_abb2d31041f800c30a697b34bfd7919ea}\label{x3__vio__vin_8cpp_abb2d31041f800c30a697b34bfd7919ea}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!print\_sensor\_info@{print\_sensor\_info}}
+\index{print\_sensor\_info@{print\_sensor\_info}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_sensor\_info()}{print\_sensor\_info()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+info (\begin{DoxyParamCaption}\item[{MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S $\ast$}]{snsinfo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a2d609195e9abf6411e42d9ea22c997f5}\label{x3__vio__vin_8cpp_a2d609195e9abf6411e42d9ea22c997f5}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!print\_sensor\_pipe\_info@{print\_sensor\_pipe\_info}}
+\index{print\_sensor\_pipe\_info@{print\_sensor\_pipe\_info}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_sensor\_pipe\_info()}{print\_sensor\_pipe\_info()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+pipe\+\_\+info (\begin{DoxyParamCaption}\item[{VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S $\ast$}]{pipeinfo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_afd0e16f89f8a0e237ba8cd65b594b277}\label{x3__vio__vin_8cpp_afd0e16f89f8a0e237ba8cd65b594b277}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!time\_cost\_ms@{time\_cost\_ms}}
+\index{time\_cost\_ms@{time\_cost\_ms}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{time\_cost\_ms()}{time\_cost\_ms()}}
+{\footnotesize\ttfamily int time\+\_\+cost\+\_\+ms (\begin{DoxyParamCaption}\item[{struct timeval $\ast$}]{start,  }\item[{struct timeval $\ast$}]{end }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a5e729fc427e354e2f0db01f31a900a01}\label{x3__vio__vin_8cpp_a5e729fc427e354e2f0db01f31a900a01}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_mipi\_init@{x3\_mipi\_init}}
+\index{x3\_mipi\_init@{x3\_mipi\_init}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_mipi\_init()}{x3\_mipi\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+mipi\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a58931d0ff0ca60f655b878f24b56071d}\label{x3__vio__vin_8cpp_a58931d0ff0ca60f655b878f24b56071d}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_sensor\_init@{x3\_sensor\_init}}
+\index{x3\_sensor\_init@{x3\_sensor\_init}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_sensor\_init()}{x3\_sensor\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+sensor\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{dev\+Id,  }\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a1ae2295248eb7885f9239dc09b593365}\label{x3__vio__vin_8cpp_a1ae2295248eb7885f9239dc09b593365}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_deinit@{x3\_vin\_deinit}}
+\index{x3\_vin\_deinit@{x3\_vin\_deinit}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_deinit()}{x3\_vin\_deinit()}}
+{\footnotesize\ttfamily void x3\+\_\+vin\+\_\+deinit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a0a699e5616ec0ecf153b5f1f786c4d38}\label{x3__vio__vin_8cpp_a0a699e5616ec0ecf153b5f1f786c4d38}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_feedback@{x3\_vin\_feedback}}
+\index{x3\_vin\_feedback@{x3\_vin\_feedback}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_feedback()}{x3\_vin\_feedback()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+feedback (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{feedback\+\_\+buf }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a9605819bb77a7e4d5c80ac2f024782b3}\label{x3__vio__vin_8cpp_a9605819bb77a7e4d5c80ac2f024782b3}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_get\_ouput@{x3\_vin\_get\_ouput}}
+\index{x3\_vin\_get\_ouput@{x3\_vin\_get\_ouput}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_get\_ouput()}{x3\_vin\_get\_ouput()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+get\+\_\+ouput (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_ae6e87c1c9189e37900bc5ccca50df343}\label{x3__vio__vin_8cpp_ae6e87c1c9189e37900bc5ccca50df343}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_init@{x3\_vin\_init}}
+\index{x3\_vin\_init@{x3\_vin\_init}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_init()}{x3\_vin\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a9cba9b183b3f97de3dffe57803c56f09}\label{x3__vio__vin_8cpp_a9cba9b183b3f97de3dffe57803c56f09}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_isp\_yuv\_dump@{x3\_vin\_isp\_yuv\_dump}}
+\index{x3\_vin\_isp\_yuv\_dump@{x3\_vin\_isp\_yuv\_dump}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_isp\_yuv\_dump()}{x3\_vin\_isp\_yuv\_dump()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+isp\+\_\+yuv\+\_\+dump (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a671e3793677e76b5635c6600106e5cf7}\label{x3__vio__vin_8cpp_a671e3793677e76b5635c6600106e5cf7}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_output\_release@{x3\_vin\_output\_release}}
+\index{x3\_vin\_output\_release@{x3\_vin\_output\_release}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_output\_release()}{x3\_vin\_output\_release()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+output\+\_\+release (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a3f6af7734d21b543aa71bd2c2878f82d}\label{x3__vio__vin_8cpp_a3f6af7734d21b543aa71bd2c2878f82d}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_sif\_raw\_dump@{x3\_vin\_sif\_raw\_dump}}
+\index{x3\_vin\_sif\_raw\_dump@{x3\_vin\_sif\_raw\_dump}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_sif\_raw\_dump()}{x3\_vin\_sif\_raw\_dump()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+sif\+\_\+raw\+\_\+dump (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a3fcef16c448f77ac64f8924d8370a45a}\label{x3__vio__vin_8cpp_a3fcef16c448f77ac64f8924d8370a45a}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_start@{x3\_vin\_start}}
+\index{x3\_vin\_start@{x3\_vin\_start}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_start()}{x3\_vin\_start()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_ac552b38989e8bdd10035c7b0c8b00c3e}\label{x3__vio__vin_8cpp_ac552b38989e8bdd10035c7b0c8b00c3e}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vin\_stop@{x3\_vin\_stop}}
+\index{x3\_vin\_stop@{x3\_vin\_stop}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_stop()}{x3\_vin\_stop()}}
+{\footnotesize\ttfamily void x3\+\_\+vin\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8cpp_a4e18711ff34f0db0b059f84b043ef1fd}\label{x3__vio__vin_8cpp_a4e18711ff34f0db0b059f84b043ef1fd}} 
+\index{x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}!x3\_vio\_buf\_info\_print@{x3\_vio\_buf\_info\_print}}
+\index{x3\_vio\_buf\_info\_print@{x3\_vio\_buf\_info\_print}!x3\_vio\_vin.cpp@{x3\_vio\_vin.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vio\_buf\_info\_print()}{x3\_vio\_buf\_info\_print()}}
+{\footnotesize\ttfamily void x3\+\_\+vio\+\_\+buf\+\_\+info\+\_\+print (\begin{DoxyParamCaption}\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buf }\end{DoxyParamCaption})}
+

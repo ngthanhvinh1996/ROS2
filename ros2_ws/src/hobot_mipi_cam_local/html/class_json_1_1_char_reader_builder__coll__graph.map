@@ -1,0 +1,7 @@
+<map id="Json::CharReaderBuilder" name="Json::CharReaderBuilder">
+<area shape="rect" id="node1" title="Build a CharReader implementation." alt="" coords="31,187,210,213"/>
+<area shape="rect" id="node2" href="$class_json_1_1_char_reader_1_1_factory.html" title=" " alt="" coords="5,96,193,123"/>
+<area shape="rect" id="node3" href="$class_json_1_1_value.html" title="Represents a JSON value." alt="" coords="218,96,311,123"/>
+<area shape="rect" id="node4" href="$struct_json_1_1_value_1_1_comment_info.html" title=" " alt="" coords="65,5,256,32"/>
+<area shape="rect" id="node5" href="$union_json_1_1_value_1_1_value_holder.html" title=" " alt="" coords="280,5,460,32"/>
+</map>

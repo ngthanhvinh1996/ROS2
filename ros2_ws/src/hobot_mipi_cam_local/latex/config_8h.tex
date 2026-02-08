@@ -1,0 +1,146 @@
+\hypertarget{config_8h}{}\doxysection{deps/jsoncpp/include/json/config.h File Reference}
+\label{config_8h}\index{deps/jsoncpp/include/json/config.h@{deps/jsoncpp/include/json/config.h}}
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}version.\+h\char`\"{}}\newline
+Include dependency graph for config.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{config_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{config_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_json}{Json}}
+\begin{DoxyCompactList}\small\item\em JSON (Java\+Script Object Notation). \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{config_8h_a51968e67b1462ac893f87a0fc8b791cd}{JSON\+\_\+\+USE\+\_\+\+EXCEPTION}}~1
+\begin{DoxyCompactList}\small\item\em If defined, indicates that json library is embedded in Cpp\+TL library. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}{JSON\+\_\+\+API}}
+\item 
+\#define \mbox{\hyperlink{config_8h_a824d6199c91488107e443226fa6022c5}{JSONCPP\+\_\+\+OVERRIDE}}
+\item 
+\#define \mbox{\hyperlink{config_8h_af8418c6d82d9de6e5f3c739fcf2fe88d}{JSONCPP\+\_\+\+NOEXCEPT}}~throw()
+\item 
+\#define \mbox{\hyperlink{config_8h_a978860f0e3983ca76a4e5af28d9bccd4}{JSON\+\_\+\+HAS\+\_\+\+RVALUE\+\_\+\+REFERENCES}}~0
+\item 
+\#define \mbox{\hyperlink{config_8h_a6933a4321aa03c8a29016669073f1af6}{JSONCPP\+\_\+\+DEPRECATED}}(message)
+\item 
+\#define \mbox{\hyperlink{config_8h_a210f7d060accd6a881cd070dc7a333a4}{JSON\+\_\+\+HAS\+\_\+\+INT64}}
+\item 
+\#define \mbox{\hyperlink{config_8h_a1e723f95759de062585bc4a8fd3fa4be}{JSONCPP\+\_\+\+STRING}}~std\+::string
+\item 
+\#define \mbox{\hyperlink{config_8h_a1d06ac2ca63c8c521f41231dfda0e6b3}{JSONCPP\+\_\+\+OSTRINGSTREAM}}~std\+::ostringstream
+\item 
+\#define \mbox{\hyperlink{config_8h_a37a25be5fca174927780caeb280094ce}{JSONCPP\+\_\+\+OSTREAM}}~std\+::ostream
+\item 
+\#define \mbox{\hyperlink{config_8h_a1b5d70fe3d83273d200193177ded4c25}{JSONCPP\+\_\+\+ISTRINGSTREAM}}~std\+::istringstream
+\item 
+\#define \mbox{\hyperlink{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}{JSONCPP\+\_\+\+ISTREAM}}~std\+::istream
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{namespace_json_a08122e8005b706d982e48cca1e2119c7}{Json\+::\+Int}}
+\item 
+typedef unsigned int \mbox{\hyperlink{namespace_json_a800fb90eb6ee8d5d62b600c06f87f7d4}{Json\+::\+UInt}}
+\item 
+typedef int64\+\_\+t \mbox{\hyperlink{namespace_json_ac62566f36fd33115957b91305c9ed1dc}{Json\+::\+Int64}}
+\item 
+typedef uint64\+\_\+t \mbox{\hyperlink{namespace_json_adf3fa5cb60c619e4f02315ad355e0ca1}{Json\+::\+UInt64}}
+\item 
+typedef Int64 \mbox{\hyperlink{namespace_json_a218d880af853ce786cd985e82571d297}{Json\+::\+Largest\+Int}}
+\item 
+typedef UInt64 \mbox{\hyperlink{namespace_json_ae202ecad69725e23443f465e257456d0}{Json\+::\+Largest\+UInt}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}\label{config_8h_a1d61ffde86ce1a18fd83194ff0d9a206}} 
+\index{config.h@{config.h}!JSON\_API@{JSON\_API}}
+\index{JSON\_API@{JSON\_API}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_API}{JSON\_API}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+API}
+
+If defined, indicates that the source file is amalgamated to prevent private header inclusion. Remarks\+: it is automatically defined in the generated amalgamated header. \mbox{\Hypertarget{config_8h_a210f7d060accd6a881cd070dc7a333a4}\label{config_8h_a210f7d060accd6a881cd070dc7a333a4}} 
+\index{config.h@{config.h}!JSON\_HAS\_INT64@{JSON\_HAS\_INT64}}
+\index{JSON\_HAS\_INT64@{JSON\_HAS\_INT64}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_HAS\_INT64}{JSON\_HAS\_INT64}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+HAS\+\_\+\+INT64}
+
+\mbox{\Hypertarget{config_8h_a978860f0e3983ca76a4e5af28d9bccd4}\label{config_8h_a978860f0e3983ca76a4e5af28d9bccd4}} 
+\index{config.h@{config.h}!JSON\_HAS\_RVALUE\_REFERENCES@{JSON\_HAS\_RVALUE\_REFERENCES}}
+\index{JSON\_HAS\_RVALUE\_REFERENCES@{JSON\_HAS\_RVALUE\_REFERENCES}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_HAS\_RVALUE\_REFERENCES}{JSON\_HAS\_RVALUE\_REFERENCES}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+HAS\+\_\+\+RVALUE\+\_\+\+REFERENCES~0}
+
+\mbox{\Hypertarget{config_8h_a51968e67b1462ac893f87a0fc8b791cd}\label{config_8h_a51968e67b1462ac893f87a0fc8b791cd}} 
+\index{config.h@{config.h}!JSON\_USE\_EXCEPTION@{JSON\_USE\_EXCEPTION}}
+\index{JSON\_USE\_EXCEPTION@{JSON\_USE\_EXCEPTION}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_USE\_EXCEPTION}{JSON\_USE\_EXCEPTION}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+USE\+\_\+\+EXCEPTION~1}
+
+
+
+If defined, indicates that json library is embedded in Cpp\+TL library. 
+
+If defined, indicates that json may leverage Cpp\+TL library If defined, indicates that cpptl vector based map should be used instead of std\+::map as Value container. \mbox{\Hypertarget{config_8h_a6933a4321aa03c8a29016669073f1af6}\label{config_8h_a6933a4321aa03c8a29016669073f1af6}} 
+\index{config.h@{config.h}!JSONCPP\_DEPRECATED@{JSONCPP\_DEPRECATED}}
+\index{JSONCPP\_DEPRECATED@{JSONCPP\_DEPRECATED}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_DEPRECATED}{JSONCPP\_DEPRECATED}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+DEPRECATED(\begin{DoxyParamCaption}\item[{}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}\label{config_8h_a15f2f70b2ce0a2abd0f8112393dbc4de}} 
+\index{config.h@{config.h}!JSONCPP\_ISTREAM@{JSONCPP\_ISTREAM}}
+\index{JSONCPP\_ISTREAM@{JSONCPP\_ISTREAM}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_ISTREAM}{JSONCPP\_ISTREAM}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+ISTREAM~std\+::istream}
+
+\mbox{\Hypertarget{config_8h_a1b5d70fe3d83273d200193177ded4c25}\label{config_8h_a1b5d70fe3d83273d200193177ded4c25}} 
+\index{config.h@{config.h}!JSONCPP\_ISTRINGSTREAM@{JSONCPP\_ISTRINGSTREAM}}
+\index{JSONCPP\_ISTRINGSTREAM@{JSONCPP\_ISTRINGSTREAM}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_ISTRINGSTREAM}{JSONCPP\_ISTRINGSTREAM}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+ISTRINGSTREAM~std\+::istringstream}
+
+\mbox{\Hypertarget{config_8h_af8418c6d82d9de6e5f3c739fcf2fe88d}\label{config_8h_af8418c6d82d9de6e5f3c739fcf2fe88d}} 
+\index{config.h@{config.h}!JSONCPP\_NOEXCEPT@{JSONCPP\_NOEXCEPT}}
+\index{JSONCPP\_NOEXCEPT@{JSONCPP\_NOEXCEPT}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_NOEXCEPT}{JSONCPP\_NOEXCEPT}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+NOEXCEPT~throw()}
+
+\mbox{\Hypertarget{config_8h_a37a25be5fca174927780caeb280094ce}\label{config_8h_a37a25be5fca174927780caeb280094ce}} 
+\index{config.h@{config.h}!JSONCPP\_OSTREAM@{JSONCPP\_OSTREAM}}
+\index{JSONCPP\_OSTREAM@{JSONCPP\_OSTREAM}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_OSTREAM}{JSONCPP\_OSTREAM}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+OSTREAM~std\+::ostream}
+
+\mbox{\Hypertarget{config_8h_a1d06ac2ca63c8c521f41231dfda0e6b3}\label{config_8h_a1d06ac2ca63c8c521f41231dfda0e6b3}} 
+\index{config.h@{config.h}!JSONCPP\_OSTRINGSTREAM@{JSONCPP\_OSTRINGSTREAM}}
+\index{JSONCPP\_OSTRINGSTREAM@{JSONCPP\_OSTRINGSTREAM}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_OSTRINGSTREAM}{JSONCPP\_OSTRINGSTREAM}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+OSTRINGSTREAM~std\+::ostringstream}
+
+\mbox{\Hypertarget{config_8h_a824d6199c91488107e443226fa6022c5}\label{config_8h_a824d6199c91488107e443226fa6022c5}} 
+\index{config.h@{config.h}!JSONCPP\_OVERRIDE@{JSONCPP\_OVERRIDE}}
+\index{JSONCPP\_OVERRIDE@{JSONCPP\_OVERRIDE}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_OVERRIDE}{JSONCPP\_OVERRIDE}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+OVERRIDE}
+
+\mbox{\Hypertarget{config_8h_a1e723f95759de062585bc4a8fd3fa4be}\label{config_8h_a1e723f95759de062585bc4a8fd3fa4be}} 
+\index{config.h@{config.h}!JSONCPP\_STRING@{JSONCPP\_STRING}}
+\index{JSONCPP\_STRING@{JSONCPP\_STRING}!config.h@{config.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_STRING}{JSONCPP\_STRING}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+STRING~std\+::string}
+

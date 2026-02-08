@@ -1,0 +1,83 @@
+\hypertarget{hobot__mipi__cam_8cpp}{}\doxysection{src/hobot\+\_\+mipi\+\_\+cam.cpp File Reference}
+\label{hobot__mipi__cam_8cpp}\index{src/hobot\_mipi\_cam.cpp@{src/hobot\_mipi\_cam.cpp}}
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+comm.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+cam.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+factory.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/distortion\+\_\+models.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$malloc.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$yaml-\/cpp/yaml.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}opencv2/core/mat.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/core/types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\newline
+{\ttfamily \#include $<$arm\+\_\+neon.\+h$>$}\newline
+Include dependency graph for hobot\+\_\+mipi\+\_\+cam.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hobot__mipi__cam_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1_mipi_cam_iml_1_1camera__image__s}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml\+::camera\+\_\+image\+\_\+s}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemipi__cam}{mipi\+\_\+cam}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hobot__mipi__cam_8cpp_a786132414c30f947907be33a4c28125a}{\+\_\+\+\_\+\+STDC\+\_\+\+CONSTANT\+\_\+\+MACROS}}
+\item 
+\#define \mbox{\hyperlink{hobot__mipi__cam_8cpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}{CLEAR}}(x)~memset(\&(x), 0, sizeof(x))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemipi__cam_a6ef9c702eab87d7bf60a69b1b0521ec3}{mipi\+\_\+cam\+::exec\+\_\+cmd\+\_\+ex}} (const char $\ast$cmd, char $\ast$res, int max)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{namespacemipi__cam_a7859f76511bb1feffcd269286ab20530}{mipi\+\_\+cam\+::\+Y\+\_\+\+SUBS}} \mbox{[}8\mbox{]} = \{ 16, 16, 16, 16, 16, 16, 16, 16 \}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{namespacemipi__cam_a41da04a4307a74d41304e4889712dec5}{mipi\+\_\+cam\+::\+UV\+\_\+\+SUBS}} \mbox{[}8\mbox{]} = \{ 128, 128, 128, 128, 128, 128, 128, 128 \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hobot__mipi__cam_8cpp_a786132414c30f947907be33a4c28125a}\label{hobot__mipi__cam_8cpp_a786132414c30f947907be33a4c28125a}} 
+\index{hobot\_mipi\_cam.cpp@{hobot\_mipi\_cam.cpp}!\_\_STDC\_CONSTANT\_MACROS@{\_\_STDC\_CONSTANT\_MACROS}}
+\index{\_\_STDC\_CONSTANT\_MACROS@{\_\_STDC\_CONSTANT\_MACROS}!hobot\_mipi\_cam.cpp@{hobot\_mipi\_cam.cpp}}
+\doxysubsubsection{\texorpdfstring{\_\_STDC\_CONSTANT\_MACROS}{\_\_STDC\_CONSTANT\_MACROS}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+STDC\+\_\+\+CONSTANT\+\_\+\+MACROS}
+
+\mbox{\Hypertarget{hobot__mipi__cam_8cpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}\label{hobot__mipi__cam_8cpp_ab0ba4dd6e237b96132c0a66be2fb3bc2}} 
+\index{hobot\_mipi\_cam.cpp@{hobot\_mipi\_cam.cpp}!CLEAR@{CLEAR}}
+\index{CLEAR@{CLEAR}!hobot\_mipi\_cam.cpp@{hobot\_mipi\_cam.cpp}}
+\doxysubsubsection{\texorpdfstring{CLEAR}{CLEAR}}
+{\footnotesize\ttfamily \#define CLEAR(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~memset(\&(x), 0, sizeof(x))}
+

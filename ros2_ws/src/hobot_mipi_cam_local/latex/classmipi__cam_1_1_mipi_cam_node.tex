@@ -1,0 +1,232 @@
+\hypertarget{classmipi__cam_1_1_mipi_cam_node}{}\doxysection{mipi\+\_\+cam\+::Mipi\+Cam\+Node Class Reference}
+\label{classmipi__cam_1_1_mipi_cam_node}\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+
+
+{\ttfamily \#include $<$hobot\+\_\+mipi\+\_\+node.\+hpp$>$}
+
+
+
+Inheritance diagram for mipi\+\_\+cam\+::Mipi\+Cam\+Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classmipi__cam_1_1_mipi_cam_node__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mipi\+\_\+cam\+::Mipi\+Cam\+Node\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{classmipi__cam_1_1_mipi_cam_node__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a3ea5e6e2538a9a34537bc7be5644d01f}{Mipi\+Cam\+Node}} (const rclcpp\+::\+Node\+Options \&node\+\_\+options)
+\item 
+\mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a5d29ef5aeca7072a9c9ce6c8e34c5b96}{$\sim$\+Mipi\+Cam\+Node}} ()
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a902e17d3c5da41f9cce8035dd06adb2c}{init}} ()
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a2ddff015d8f380838c44c26620218279}{update}} (\mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}} $\ast$pub\+\_\+info)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_ac8da158d7910f42b0a679d89165ae8b1}{hbmem\+Update}} (\mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}} $\ast$pub\+\_\+info)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a74153620e9ece4cae4c71ca30fd58da2}{save\+\_\+yuv}} (const builtin\+\_\+interfaces\+::msg\+::\+Time stamp, void $\ast$data, int data\+\_\+size)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_ae394e90ad75531c9d9746fb84f46bb36}{save\+\_\+jpg}} (const builtin\+\_\+interfaces\+::msg\+::\+Time stamp, std\+::string encode, int w, int h, void $\ast$data)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a7bb9da09e9a4ba4b2ebbd699cdb16e00}{init\+\_\+publisher}} (\mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}} \&Pub\+\_\+info, std\+::string topic, std\+::string topic\+\_\+type, std\+::string frame\+\_\+id)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a2da71312097db56a4515e7bbbc6db0f3}{init\+\_\+publisher\+\_\+hbmem}} (\mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}} \&Pub\+\_\+info, std\+::string topic, std\+::string topic\+\_\+type)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a618b9c05636e528b60282a150c9444fb}{init\+\_\+\+Calibration}} (\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$Pub\+\_\+info, std\+::string info\+\_\+topic, std\+::string info\+\_\+file)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_ac5514977eb1dc687070a4805d4c3d0e8}{init\+\_\+\+Dual\+Calibration}} (\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$Pub\+\_\+info, std\+::string info\+\_\+topic, std\+::string info\+\_\+topic2, std\+::string info\+\_\+file)
+\item 
+void \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a5391b3ff3737e8e54b787919ece32be8}{init\+\_\+\+Dual\+Calibration}} (\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$Pub\+\_\+info, \mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$Pub\+\_\+info2, std\+::string info\+\_\+topic, std\+::string info\+\_\+topic2, std\+::string info\+\_\+file)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam}{Mipi\+Cam}} $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_aaa6e6695148a1b6a23946d652c51acb9}{mipi\+Cam\+\_\+ptr\+\_\+}}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ std\+::thread $>$ $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a946a3875ec124006eaf3f21c820da782}{timer\+\_\+}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a9f3b853ed4df61db04d183a9655a6915}{m\+Send\+Idx}} = 0
+\item 
+rclcpp\+::\+Timer\+Base\+::\+Shared\+Ptr \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a080a948642a62f4d78aa466ff061b44f}{timer\+\_\+tmp\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}} $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_ad112a1fe00a5f32fdf6e3bb9317a0d7c}{Pub\+\_\+info\+\_\+}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}} $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a5b746f4142576cb0ab3e1fed076dacf1}{Pub\+\_\+hbmem\+\_\+info\+\_\+}}
+\item 
+sensor\+\_\+msgs\+::msg\+::\+Camera\+Info\+::\+Unique\+Ptr \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a194ceb382d1d57d5e6395de429dbc691}{camera\+\_\+calibration\+\_\+info\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_aff9787a9d96e456d4f818d50d8f93474}{frame\+\_\+id\+\_\+}}
+\item 
+std\+::string \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a9308eb7a8c0e00f09384c45804505e26}{io\+\_\+method\+\_\+name\+\_\+}}
+\item 
+std\+::shared\+\_\+ptr$<$ struct \mbox{\hyperlink{structmipi__cam_1_1_node_para}{Node\+Para}} $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_a7d438afa67fdc66a700040b6ec390fe2}{node\+Pare\+\_\+}}
+\item 
+int \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_node_aa68a1237f63617a7fe1b3add5647aa09}{m\+\_\+b\+Is\+Init}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a3ea5e6e2538a9a34537bc7be5644d01f}\label{classmipi__cam_1_1_mipi_cam_node_a3ea5e6e2538a9a34537bc7be5644d01f}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!MipiCamNode@{MipiCamNode}}
+\index{MipiCamNode@{MipiCamNode}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{MipiCamNode()}{MipiCamNode()}}
+{\footnotesize\ttfamily mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::\+Mipi\+Cam\+Node (\begin{DoxyParamCaption}\item[{const rclcpp\+::\+Node\+Options \&}]{node\+\_\+options }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a5d29ef5aeca7072a9c9ce6c8e34c5b96}\label{classmipi__cam_1_1_mipi_cam_node_a5d29ef5aeca7072a9c9ce6c8e34c5b96}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!````~MipiCamNode@{$\sim$MipiCamNode}}
+\index{````~MipiCamNode@{$\sim$MipiCamNode}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{$\sim$MipiCamNode()}{~MipiCamNode()}}
+{\footnotesize\ttfamily mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::$\sim$\+Mipi\+Cam\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_ac8da158d7910f42b0a679d89165ae8b1}\label{classmipi__cam_1_1_mipi_cam_node_ac8da158d7910f42b0a679d89165ae8b1}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!hbmemUpdate@{hbmemUpdate}}
+\index{hbmemUpdate@{hbmemUpdate}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{hbmemUpdate()}{hbmemUpdate()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::hbmem\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}} $\ast$}]{pub\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a902e17d3c5da41f9cce8035dd06adb2c}\label{classmipi__cam_1_1_mipi_cam_node_a902e17d3c5da41f9cce8035dd06adb2c}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init@{init}}
+\index{init@{init}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a618b9c05636e528b60282a150c9444fb}\label{classmipi__cam_1_1_mipi_cam_node_a618b9c05636e528b60282a150c9444fb}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init\_Calibration@{init\_Calibration}}
+\index{init\_Calibration@{init\_Calibration}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init\_Calibration()}{init\_Calibration()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init\+\_\+\+Calibration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$}]{Pub\+\_\+info,  }\item[{std\+::string}]{info\+\_\+topic,  }\item[{std\+::string}]{info\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a5391b3ff3737e8e54b787919ece32be8}\label{classmipi__cam_1_1_mipi_cam_node_a5391b3ff3737e8e54b787919ece32be8}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init\_DualCalibration@{init\_DualCalibration}}
+\index{init\_DualCalibration@{init\_DualCalibration}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init\_DualCalibration()}{init\_DualCalibration()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init\+\_\+\+Dual\+Calibration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$}]{Pub\+\_\+info,  }\item[{\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$}]{Pub\+\_\+info2,  }\item[{std\+::string}]{info\+\_\+topic,  }\item[{std\+::string}]{info\+\_\+topic2,  }\item[{std\+::string}]{info\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_ac5514977eb1dc687070a4805d4c3d0e8}\label{classmipi__cam_1_1_mipi_cam_node_ac5514977eb1dc687070a4805d4c3d0e8}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init\_DualCalibration@{init\_DualCalibration}}
+\index{init\_DualCalibration@{init\_DualCalibration}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init\_DualCalibration()}{init\_DualCalibration()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init\+\_\+\+Dual\+Calibration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a9b80d1a70ad221e613fa2478c554d1bf}{Publisher\+\_\+info\+\_\+base\+\_\+st}} $\ast$}]{Pub\+\_\+info,  }\item[{std\+::string}]{info\+\_\+topic,  }\item[{std\+::string}]{info\+\_\+topic2,  }\item[{std\+::string}]{info\+\_\+file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a7bb9da09e9a4ba4b2ebbd699cdb16e00}\label{classmipi__cam_1_1_mipi_cam_node_a7bb9da09e9a4ba4b2ebbd699cdb16e00}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init\_publisher@{init\_publisher}}
+\index{init\_publisher@{init\_publisher}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init\_publisher()}{init\_publisher()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init\+\_\+publisher (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}} \&}]{Pub\+\_\+info,  }\item[{std\+::string}]{topic,  }\item[{std\+::string}]{topic\+\_\+type,  }\item[{std\+::string}]{frame\+\_\+id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a2da71312097db56a4515e7bbbc6db0f3}\label{classmipi__cam_1_1_mipi_cam_node_a2da71312097db56a4515e7bbbc6db0f3}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!init\_publisher\_hbmem@{init\_publisher\_hbmem}}
+\index{init\_publisher\_hbmem@{init\_publisher\_hbmem}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{init\_publisher\_hbmem()}{init\_publisher\_hbmem()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::init\+\_\+publisher\+\_\+hbmem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}} \&}]{Pub\+\_\+info,  }\item[{std\+::string}]{topic,  }\item[{std\+::string}]{topic\+\_\+type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_ae394e90ad75531c9d9746fb84f46bb36}\label{classmipi__cam_1_1_mipi_cam_node_ae394e90ad75531c9d9746fb84f46bb36}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!save\_jpg@{save\_jpg}}
+\index{save\_jpg@{save\_jpg}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{save\_jpg()}{save\_jpg()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::save\+\_\+jpg (\begin{DoxyParamCaption}\item[{const builtin\+\_\+interfaces\+::msg\+::\+Time}]{stamp,  }\item[{std\+::string}]{encode,  }\item[{int}]{w,  }\item[{int}]{h,  }\item[{void $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a74153620e9ece4cae4c71ca30fd58da2}\label{classmipi__cam_1_1_mipi_cam_node_a74153620e9ece4cae4c71ca30fd58da2}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!save\_yuv@{save\_yuv}}
+\index{save\_yuv@{save\_yuv}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{save\_yuv()}{save\_yuv()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::save\+\_\+yuv (\begin{DoxyParamCaption}\item[{const builtin\+\_\+interfaces\+::msg\+::\+Time}]{stamp,  }\item[{void $\ast$}]{data,  }\item[{int}]{data\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a2ddff015d8f380838c44c26620218279}\label{classmipi__cam_1_1_mipi_cam_node_a2ddff015d8f380838c44c26620218279}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!update@{update}}
+\index{update@{update}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}} $\ast$}]{pub\+\_\+info }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a194ceb382d1d57d5e6395de429dbc691}\label{classmipi__cam_1_1_mipi_cam_node_a194ceb382d1d57d5e6395de429dbc691}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!camera\_calibration\_info\_@{camera\_calibration\_info\_}}
+\index{camera\_calibration\_info\_@{camera\_calibration\_info\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{camera\_calibration\_info\_}{camera\_calibration\_info\_}}
+{\footnotesize\ttfamily sensor\+\_\+msgs\+::msg\+::\+Camera\+Info\+::\+Unique\+Ptr mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::camera\+\_\+calibration\+\_\+info\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_aff9787a9d96e456d4f818d50d8f93474}\label{classmipi__cam_1_1_mipi_cam_node_aff9787a9d96e456d4f818d50d8f93474}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!frame\_id\_@{frame\_id\_}}
+\index{frame\_id\_@{frame\_id\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{frame\_id\_}{frame\_id\_}}
+{\footnotesize\ttfamily std\+::string mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::frame\+\_\+id\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a9308eb7a8c0e00f09384c45804505e26}\label{classmipi__cam_1_1_mipi_cam_node_a9308eb7a8c0e00f09384c45804505e26}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!io\_method\_name\_@{io\_method\_name\_}}
+\index{io\_method\_name\_@{io\_method\_name\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{io\_method\_name\_}{io\_method\_name\_}}
+{\footnotesize\ttfamily std\+::string mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::io\+\_\+method\+\_\+name\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_aa68a1237f63617a7fe1b3add5647aa09}\label{classmipi__cam_1_1_mipi_cam_node_aa68a1237f63617a7fe1b3add5647aa09}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!m\_bIsInit@{m\_bIsInit}}
+\index{m\_bIsInit@{m\_bIsInit}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{m\_bIsInit}{m\_bIsInit}}
+{\footnotesize\ttfamily int mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::m\+\_\+b\+Is\+Init\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_aaa6e6695148a1b6a23946d652c51acb9}\label{classmipi__cam_1_1_mipi_cam_node_aaa6e6695148a1b6a23946d652c51acb9}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!mipiCam\_ptr\_@{mipiCam\_ptr\_}}
+\index{mipiCam\_ptr\_@{mipiCam\_ptr\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{mipiCam\_ptr\_}{mipiCam\_ptr\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classmipi__cam_1_1_mipi_cam}{Mipi\+Cam}}$>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::mipi\+Cam\+\_\+ptr\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a9f3b853ed4df61db04d183a9655a6915}\label{classmipi__cam_1_1_mipi_cam_node_a9f3b853ed4df61db04d183a9655a6915}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!mSendIdx@{mSendIdx}}
+\index{mSendIdx@{mSendIdx}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{mSendIdx}{mSendIdx}}
+{\footnotesize\ttfamily int32\+\_\+t mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::m\+Send\+Idx = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a7d438afa67fdc66a700040b6ec390fe2}\label{classmipi__cam_1_1_mipi_cam_node_a7d438afa67fdc66a700040b6ec390fe2}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!nodePare\_@{nodePare\_}}
+\index{nodePare\_@{nodePare\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{nodePare\_}{nodePare\_}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$struct \mbox{\hyperlink{structmipi__cam_1_1_node_para}{Node\+Para}}$>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::node\+Pare\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a5b746f4142576cb0ab3e1fed076dacf1}\label{classmipi__cam_1_1_mipi_cam_node_a5b746f4142576cb0ab3e1fed076dacf1}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!Pub\_hbmem\_info\_@{Pub\_hbmem\_info\_}}
+\index{Pub\_hbmem\_info\_@{Pub\_hbmem\_info\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{Pub\_hbmem\_info\_}{Pub\_hbmem\_info\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespacemipi__cam_a6ac90ecd1764e63813fd58f06192b7c5}{Publisher\+\_\+hbmem\+\_\+info\+\_\+st}}$>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::\+Pub\+\_\+hbmem\+\_\+info\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_ad112a1fe00a5f32fdf6e3bb9317a0d7c}\label{classmipi__cam_1_1_mipi_cam_node_ad112a1fe00a5f32fdf6e3bb9317a0d7c}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!Pub\_info\_@{Pub\_info\_}}
+\index{Pub\_info\_@{Pub\_info\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{Pub\_info\_}{Pub\_info\_}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{namespacemipi__cam_a535517720933cea21925d32d28921b42}{Publisher\+\_\+info\+\_\+st}}$>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::\+Pub\+\_\+info\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a946a3875ec124006eaf3f21c820da782}\label{classmipi__cam_1_1_mipi_cam_node_a946a3875ec124006eaf3f21c820da782}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!timer\_@{timer\_}}
+\index{timer\_@{timer\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{timer\_}{timer\_}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$std\+::thread$>$ $>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::timer\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_node_a080a948642a62f4d78aa466ff061b44f}\label{classmipi__cam_1_1_mipi_cam_node_a080a948642a62f4d78aa466ff061b44f}} 
+\index{mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}!timer\_tmp\_@{timer\_tmp\_}}
+\index{timer\_tmp\_@{timer\_tmp\_}!mipi\_cam::MipiCamNode@{mipi\_cam::MipiCamNode}}
+\doxysubsubsection{\texorpdfstring{timer\_tmp\_}{timer\_tmp\_}}
+{\footnotesize\ttfamily rclcpp\+::\+Timer\+Base\+::\+Shared\+Ptr mipi\+\_\+cam\+::\+Mipi\+Cam\+Node\+::timer\+\_\+tmp\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hobot__mipi__node_8hpp}{hobot\+\_\+mipi\+\_\+node.\+hpp}}\item 
+src/\mbox{\hyperlink{hobot__mipi__node_8cpp}{hobot\+\_\+mipi\+\_\+node.\+cpp}}\end{DoxyCompactItemize}

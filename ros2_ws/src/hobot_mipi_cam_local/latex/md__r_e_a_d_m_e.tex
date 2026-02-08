@@ -1,0 +1,256 @@
+English$\vert$ \mbox{\hyperlink{md__r_e_a_d_m_e_cn}{简体中文}}\hypertarget{md__r_e_a_d_m_e_autotoc_md29}{}\doxysection{Function Introduction}\label{md__r_e_a_d_m_e_autotoc_md29}
+Configure the MIPI interface camera that has been adapted, and publish the collected image data in the form of ROS standard image messages or zero-\/copy (hbmem) image messages for other modules that need to use image data to subscribe to.\hypertarget{md__r_e_a_d_m_e_autotoc_md30}{}\doxysection{Bill of Materials}\label{md__r_e_a_d_m_e_autotoc_md30}
+Currently supported MIPI cameras
+
+$\vert$ Index $\vert$ Name $\vert$ Representational Image $\vert$ Parameters $\vert$ Reference Link $\vert$ $\vert$ -\/-\/--- $\vert$ -\/-\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- $\vert$ $\vert$ 1 $\vert$ F37 $\vert$  $\vert$ 200W Pixel $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963}{\texttt{ F37}} $\vert$ $\vert$ 2 $\vert$ GC4663 $\vert$  $\vert$ 400W Pixel $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963}{\texttt{ GC4663}} $\vert$ $\vert$ 3 $\vert$ IMX219 $\vert$  $\vert$ 800W Pixel $\vert$ RDK X3, RDK X3 Module, RDK Ultra, RDK X5 $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi}{\texttt{ IMX219}} $\vert$ $\vert$ 4 $\vert$ IMX477 $\vert$  $\vert$ 200W Pixel $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm}{\texttt{ IMX477}} $\vert$ $\vert$ 5 $\vert$ OV5647 $\vert$  $\vert$ 200W Pixel $\vert$ RDK X3, RDK X3 Module, RDK X5 $\vert$ \href{https://www.waveshare.net/shop/RPi-Camera-G.htm}{\texttt{ OV5647}} $\vert$\hypertarget{md__r_e_a_d_m_e_autotoc_md31}{}\doxysection{Usage}\label{md__r_e_a_d_m_e_autotoc_md31}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md32}{}\doxysubsection{Hardware Connection}\label{md__r_e_a_d_m_e_autotoc_md32}
+Taking the F37 camera as an example, the connection method with RDK X3 is as follows\+:
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md33}{}\doxysubsection{Function Installation}\label{md__r_e_a_d_m_e_autotoc_md33}
+Run the following commands in the terminal of the RDK system to quickly install\+:
+
+tros foxy\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt install -\/y tros-\/mipi-\/cam}
+
+\end{DoxyCode}
+
+
+tros humble\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt install -\/y tros-\/humble-\/mipi-\/cam}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md34}{}\doxysubsection{Start Camera}\label{md__r_e_a_d_m_e_autotoc_md34}
+Run the following commands in the terminal of the RDK system to use the default camera configuration and adaptively start the connected camera\+:
+
+tros foxy\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Configure the tros.b environment:}
+\DoxyCodeLine{source /opt/tros/setup.bash}
+\DoxyCodeLine{\# Launch to start}
+\DoxyCodeLine{ros2 launch mipi\_cam mipi\_cam.launch.py}
+
+\end{DoxyCode}
+
+
+tros humble\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Configure the tros.b humble environment:}
+\DoxyCodeLine{source /opt/tros/humble/setup.bash}
+\DoxyCodeLine{\# Launch to start}
+\DoxyCodeLine{ros2 launch mipi\_cam mipi\_cam.launch.py}
+
+\end{DoxyCode}
+
+
+\mbox{\hyperlink{mipi__cam_8launch_8py}{mipi\+\_\+cam.\+launch.\+py}} configures the default output of 960$\ast$544 resolution NV12 image, and the topic name published is /hbmem\+\_\+img.
+
+If you need to use other resolutions or image formats, you can use the corresponding launch file, such as\+:-\/ \mbox{\hyperlink{mipi__cam__640x480__bgr8_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+bgr8.\+launch.\+py}} provides image data with a resolution of 640$\ast$480, in BGR8 format
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{mipi__cam__640x480__bgr8__hbmem_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+bgr8\+\_\+hbmem.\+launch.\+py}} provides zero-\/copy transmission image data with a resolution of 640$\ast$480, in BGR8 format
+\item \mbox{\hyperlink{mipi__cam__640x480__nv12__hbmem_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+nv12\+\_\+hbmem.\+launch.\+py}} provides zero-\/copy transmission image data with a resolution of 640$\ast$480, in NV12 format
+\end{DoxyItemize}
+
+If the program outputs the following information, it indicates that the node has started successfully
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[INFO] [launch]: All log files can be found below /root/.ros/log/2022-\/06-\/11-\/15-\/16-\/13-\/641715-\/ubuntu-\/8852}
+\DoxyCodeLine{[INFO] [launch]: Default logging verbosity is set to INFO}
+\DoxyCodeLine{[INFO] [mipi\_cam-\/1]: process started with pid [8854]}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md35}{}\doxysubsection{Image Visualization}\label{md__r_e_a_d_m_e_autotoc_md35}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md36}{}\doxysubsubsection{Using ROS rqt\+\_\+image\+\_\+view}\label{md__r_e_a_d_m_e_autotoc_md36}
+Here, image visualization is achieved using the rqt\+\_\+image\+\_\+view in ROS2 Humble version installed on the PC side. Since raw data is being published, encoding the data into JPEG images can improve transmission efficiency. Open another terminal to subscribe to MIPI data and encode it as JPEG.\hypertarget{md__r_e_a_d_m_e_autotoc_md37}{}\doxyparagraph{tros foxy}\label{md__r_e_a_d_m_e_autotoc_md37}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/setup.bash}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py codec\_out\_format:=jpeg codec\_pub\_topic:=/image\_raw/compressed}
+
+\end{DoxyCode}
+
+
+Ensure that the PC and RDK X3 are on the same network segment. For the Foxy version, execute the following command on the PC\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Set up ROS2 environment}
+\DoxyCodeLine{source /opt/ros/foxy/local\_setup.bash}
+\DoxyCodeLine{ros2 run rqt\_image\_view rqt\_image\_view}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md38}{}\doxyparagraph{tros humble}\label{md__r_e_a_d_m_e_autotoc_md38}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/setup.bash}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py codec\_out\_format:=jpeg codec\_pub\_topic:=/image\_raw/compressed}
+
+\end{DoxyCode}
+
+
+Ensure that the PC and RDK X3 are on the same network segment. For the humble version, execute the following command on the PC\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# Set up ROS2 environment}
+\DoxyCodeLine{source /opt/ros/humble/local\_setup.bash}
+\DoxyCodeLine{ros2 run rqt\_image\_view rqt\_image\_view}
+
+\end{DoxyCode}
+
+
+Select the topic /image\+\_\+raw/compressed to view the image as shown below\+:
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md39}{}\doxysubsubsection{Using a Web Browser}\label{md__r_e_a_d_m_e_autotoc_md39}
+Here, image visualization is achieved through a web interface. Since raw data is published, encoding the data into JPEG images is necessary. Open two separate terminals\+: one for subscribing to MIPI data and encoding it as JPEG, and another for publishing the webservice.\hypertarget{md__r_e_a_d_m_e_autotoc_md40}{}\doxyparagraph{tros foxy}\label{md__r_e_a_d_m_e_autotoc_md40}
+Open a new terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/local\_setup.bash}
+\DoxyCodeLine{\# Start encoding}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py}
+
+\end{DoxyCode}
+ Open another terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/local\_setup.bash}
+\DoxyCodeLine{\# Start the websocket}
+\DoxyCodeLine{ros2 launch websocket websocket.launch.py websocket\_image\_topic:=/image\_jpeg websocket\_only\_show\_image:=true}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md41}{}\doxyparagraph{tros humble}\label{md__r_e_a_d_m_e_autotoc_md41}
+Open a new terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/local\_setup.bash}
+\DoxyCodeLine{\# Start encoding}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py}
+
+\end{DoxyCode}
+ Open another terminal 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/local\_setup.bash}
+\DoxyCodeLine{\# Start the websocket}
+\DoxyCodeLine{ros2 launch websocket websocket.launch.py websocket\_image\_topic:=/image\_jpeg websocket\_only\_show\_image:=true}
+
+\end{DoxyCode}
+
+
+Open a browser (chrome/firefox/edge) on your PC and enter \href{http://IP:8000}{\texttt{ http\+://\+IP\+:8000}} (where IP is the RDK IP address), then click on the Web display in the top left corner to see the real-\/time image output by the MIPI camera. \hypertarget{md__r_e_a_d_m_e_autotoc_md42}{}\doxysection{Interface Explanation}\label{md__r_e_a_d_m_e_autotoc_md42}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md43}{}\doxysubsection{Topics}\label{md__r_e_a_d_m_e_autotoc_md43}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md44}{}\doxysubsubsection{Published Topics}\label{md__r_e_a_d_m_e_autotoc_md44}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Message Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Message Type   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+/camera\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &Camera intrinsic topic, published based on the camera calibration file settings    \\\cline{1-3}
+/image\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &Periodically published image topic, in rgb8 format    \\\cline{1-3}
+/hbmem\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &Image topic based on shared memory (share mem)   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md45}{}\doxysubsubsection{Dual camera published Topics}\label{md__r_e_a_d_m_e_autotoc_md45}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endhead
+/camera\+\_\+left\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &Left camera intrinsic topic, published based on the camera calibration file settings    \\\cline{1-3}
+/camera\+\_\+right\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &Right Camera intrinsic topic, published based on the camera calibration file settings    \\\cline{1-3}
+/image\+\_\+left\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &Left camera periodically published image toplic, in rgb8 format    \\\cline{1-3}
+/image\+\_\+right\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &Right camera periodically published image topic, in rgb8 format    \\\cline{1-3}
+/image\+\_\+combine\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &Combine camera periodically published image topic, in rgb8 format    \\\cline{1-3}
+/hbmem\+\_\+left\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &Image topic based on shared memory (share mem), left camera    \\\cline{1-3}
+/hbmem\+\_\+right\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &Image topic based on shared memory (share mem), right camera    \\\cline{1-3}
+/hbmem\+\_\+combine\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &Image topic based on shared memory (share mem), combine camera   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md46}{}\doxysubsection{Parameters}\label{md__r_e_a_d_m_e_autotoc_md46}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Parameter Values   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Name   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Parameter Values   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Description    }\\\cline{1-3}
+\endhead
+video\+\_\+device   &Auto (default)~\newline
+F37~\newline
+GC4663~\newline
+IMX415   &Camera device number, supports adaptive adaptation    \\\cline{1-3}
+image\+\_\+width   &1920 (default)   &Relevant to the camera used    \\\cline{1-3}
+image\+\_\+height   &1080 (default)   &Relevant to the camera used    \\\cline{1-3}
+out\+\_\+format   &bgr8 (default)~\newline
+nv12   &Image encoding method    \\\cline{1-3}
+io\+\_\+method   &None (default)~\newline
+shared\+\_\+mem   &Image transfer method, enabling shared\+\_\+mem will use zero-\/copy mechanism for transfer    \\\cline{1-3}
+camera\+\_\+calibration\+\_\+file\+\_\+path   &None (default)   &Path to the camera calibration file    \\\cline{1-3}
+device\+\_\+mode   &single（default）~\newline
+single~\newline
+dual   &device mode is single or dual    \\\cline{1-3}
+dual\+\_\+combine   &0（default）~\newline
+1 ~\newline
+2   &When device\+\_\+mode\+\_\+ == \char`\"{}dual\char`\"{} is effective, 0\+: publish left and right image;1\+: publish left, right and combine images;2\+: only publish combine image    \\\cline{1-3}
+channel   &0（default）   &mipi host number,rang 0$\sim$3    \\\cline{1-3}
+channel2   &2（default）   &When device\+\_\+mode\+\_\+ == \char`\"{}dual\char`\"{} is effective, mipi\+\_\+host number of the right camera    \\\cline{1-3}
+gdc\+\_\+bin\+\_\+file   &None（default）   &Path to the GDC file   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md47}{}\doxysection{FAQ}\label{md__r_e_a_d_m_e_autotoc_md47}
+
+\begin{DoxyEnumerate}
+\item Do I need to set different video\+\_\+device parameters for different cameras?
+
+No, this Node supports camera adaptation. If you use the camera models listed in the \char`\"{}\+Supported Cameras\char`\"{} section, it will automatically adapt at runtime.
+\item Notes on plugging and unplugging the camera\+:
+
+{\bfseries{It is strictly forbidden to plug or unplug the camera module without powering off the development board, as it can easily damage the camera module.}}
+\item If encountering abnormal startup of the hobot\+\_\+sensor node, follow these steps for troubleshooting\+:
+\begin{DoxyItemize}
+\item Check the hardware connections
+\item Confirm the tros.\+b environment settings
+\item Verify the parameters, refer to Hobot\+\_\+\+Sensors \mbox{\hyperlink{_r_e_a_d_m_e_8md}{README.\+md}} for specifics
+\end{DoxyItemize}
+\item If the PC-\/side ros2 topic list does not recognize the camera topics, troubleshoot as follows\+:-\/ Check if the RDK is publishing images normally
+\end{DoxyEnumerate}
+
+\begin{DoxyVerb} tros foxy:
+  ```shell
+  source /opt/tros/setup.bash
+  ros2 topic list
+  ```
+
+ tros humble:
+  ```shell
+  source /opt/tros/humble/setup.bash
+  ros2 topic list
+  ```
+
+  Output:
+
+  ```text
+  /camera_info
+  /hbmem_img000b0c26001301040202012020122406
+  /image_raw
+  /image_raw/compressed
+  /parameter_events
+  /rosout
+  ```
+\end{DoxyVerb}
+
+\begin{DoxyItemize}
+\item Check if the PC can ping the RDK successfully;
+\item Check if the IP addresses of the PC and RDK share the same first three segments; 
+\end{DoxyItemize}

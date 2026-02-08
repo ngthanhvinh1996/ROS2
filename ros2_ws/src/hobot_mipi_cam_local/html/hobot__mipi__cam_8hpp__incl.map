@@ -1,0 +1,12 @@
+<map id="include/hobot_mipi_cam.hpp" name="include/hobot_mipi_cam.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="300,5,446,47"/>
+<area shape="rect" id="node2" title=" " alt="" coords="25,169,217,211"/>
+<area shape="rect" id="node3" title=" " alt="" coords="225,259,284,285"/>
+<area shape="rect" id="node4" title=" " alt="" coords="487,177,550,203"/>
+<area shape="rect" id="node5" title=" " alt="" coords="461,95,536,121"/>
+<area shape="rect" id="node6" title=" " alt="" coords="560,95,637,121"/>
+<area shape="rect" id="node7" href="$hobot__mipi__comm_8hpp.html" title=" " alt="" coords="292,177,462,203"/>
+<area shape="rect" id="node10" href="$hobot__mipi__cap_8hpp.html" title=" " alt="" coords="182,95,335,121"/>
+<area shape="rect" id="node8" title=" " alt="" coords="419,259,490,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="324,259,395,285"/>
+</map>

@@ -1,0 +1,85 @@
+\hypertarget{s600_2hobot__mipi__cap__iml_8hpp}{}\doxysection{include/s600/hobot\+\_\+mipi\+\_\+cap\+\_\+iml.hpp File Reference}
+\label{s600_2hobot__mipi__cap__iml_8hpp}\index{include/s600/hobot\_mipi\_cap\_iml.hpp@{include/s600/hobot\_mipi\_cap\_iml.hpp}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+cap.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+comm.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+camera\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+vpf\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vp\+\_\+sensors.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+gdc\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}gdc\+\_\+cfg.\+h\char`\"{}}\newline
+Include dependency graph for hobot\+\_\+mipi\+\_\+cap\+\_\+iml.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{s600_2hobot__mipi__cap__iml_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1gdc__binbuf__s}{mipi\+\_\+cam\+::gdc\+\_\+binbuf\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1pipeline__channel__info__t}{mipi\+\_\+cam\+::pipeline\+\_\+channel\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1pipe__contex__s}{mipi\+\_\+cam\+::pipe\+\_\+contex\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1video__buffer__s}{mipi\+\_\+cam\+::video\+\_\+buffer\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1eeprom__id}{mipi\+\_\+cam\+::eeprom\+\_\+id}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1eeprom__detect}{mipi\+\_\+cam\+::eeprom\+\_\+detect}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1eeprom__drobot__head__st}{mipi\+\_\+cam\+::eeprom\+\_\+drobot\+\_\+head\+\_\+st}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1cal__dualcam__info__st}{mipi\+\_\+cam\+::cal\+\_\+dualcam\+\_\+info\+\_\+st}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1cal__dual___m___d__st}{mipi\+\_\+cam\+::cal\+\_\+dual\+\_\+\+M\+\_\+\+D\+\_\+st}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1cal__dual___r___t__info__st}{mipi\+\_\+cam\+::cal\+\_\+dual\+\_\+\+R\+\_\+\+T\+\_\+info\+\_\+st}}
+\item 
+class \mbox{\hyperlink{classmipi__cam_1_1_hobot_mipi_cap_iml}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1_hobot_mipi_cap_iml_1_1gdc__cfg}{mipi\+\_\+cam\+::\+Hobot\+Mipi\+Cap\+Iml\+::gdc\+\_\+cfg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemipi__cam}{mipi\+\_\+cam}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{s600_2hobot__mipi__cap__iml_8hpp_a5ca828b36d42c443629c7bd8242e2f25}{PIPES\+\_\+\+TOTAL}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61e}{mipi\+\_\+cam\+::pipeline\+\_\+usage\+\_\+scene\+\_\+type\+\_\+t}} \{ \newline
+\mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaf721374835f189ce94e78f836d46b11e}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+BYPASS}} = 0
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61ea19ecffa770c854e3d1f9ba5855e09e5d}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+ONLY}} = 1
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaae84d341d0b4d5a582ddc5c1f69c8076}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+YNR}} = 2
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaa52befd1c9f4fd00d6f2ed9ad7983514}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+MAX}}
+, \newline
+\mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaf721374835f189ce94e78f836d46b11e}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+BYPASS}} = 0
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61ea19ecffa770c854e3d1f9ba5855e09e5d}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+ONLY}} = 1
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaae84d341d0b4d5a582ddc5c1f69c8076}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+ISP\+\_\+\+YNR}} = 2
+, \mbox{\hyperlink{namespacemipi__cam_a6556b555257e1570b5e33f0f56d6f61eaa52befd1c9f4fd00d6f2ed9ad7983514}{mipi\+\_\+cam\+::\+PIPELINE\+\_\+\+SCENE\+\_\+\+MAX}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{s600_2hobot__mipi__cap__iml_8hpp_a5ca828b36d42c443629c7bd8242e2f25}\label{s600_2hobot__mipi__cap__iml_8hpp_a5ca828b36d42c443629c7bd8242e2f25}} 
+\index{hobot\_mipi\_cap\_iml.hpp@{hobot\_mipi\_cap\_iml.hpp}!PIPES\_TOTAL@{PIPES\_TOTAL}}
+\index{PIPES\_TOTAL@{PIPES\_TOTAL}!hobot\_mipi\_cap\_iml.hpp@{hobot\_mipi\_cap\_iml.hpp}}
+\doxysubsubsection{\texorpdfstring{PIPES\_TOTAL}{PIPES\_TOTAL}}
+{\footnotesize\ttfamily \#define PIPES\+\_\+\+TOTAL~1}
+

@@ -1,0 +1,75 @@
+\hypertarget{hobot__mipi__comm_8hpp}{}\doxysection{include/hobot\+\_\+mipi\+\_\+comm.hpp File Reference}
+\label{hobot__mipi__comm_8hpp}\index{include/hobot\_mipi\_comm.hpp@{include/hobot\_mipi\_comm.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for hobot\+\_\+mipi\+\_\+comm.\+hpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{hobot__mipi__comm_8hpp__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hobot__mipi__comm_8hpp__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1_node_para}{mipi\+\_\+cam\+::\+Node\+Para}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t}{mipi\+\_\+cam\+::\+MIPI\+\_\+\+CAP\+\_\+\+INFO\+\_\+\+ST}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1sensor__id}{mipi\+\_\+cam\+::sensor\+\_\+id}}
+\item 
+struct \mbox{\hyperlink{structmipi__cam_1_1_b_o_a_r_d___c_o_n_f_i_g___s_t}{mipi\+\_\+cam\+::\+BOARD\+\_\+\+CONFIG\+\_\+\+ST}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemipi__cam}{mipi\+\_\+cam}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hobot__mipi__comm_8hpp_a20ea57b83ec2791499070de354080c27}{I2\+C\+\_\+\+ADDR\+\_\+8}}~1
+\item 
+\#define \mbox{\hyperlink{hobot__mipi__comm_8hpp_a6728b56275638ebafa4c631461a7c622}{I2\+C\+\_\+\+ADDR\+\_\+16}}~2
+\item 
+\#define \mbox{\hyperlink{hobot__mipi__comm_8hpp_a25f003de16c08a4888b69f619d70f427}{ARRAY\+\_\+\+SIZE}}(a)~((sizeof(a) / sizeof(a\mbox{[}0\mbox{]})))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structmipi__cam_1_1sensor__id}{mipi\+\_\+cam\+::sensor\+\_\+id}} \mbox{\hyperlink{namespacemipi__cam_a795222889a7e091dd14ab0cbc4e7930b}{mipi\+\_\+cam\+::\+SENSOR\+\_\+\+ID\+\_\+T}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemipi__cam_a6ef9c702eab87d7bf60a69b1b0521ec3}{mipi\+\_\+cam\+::exec\+\_\+cmd\+\_\+ex}} (const char $\ast$cmd, char $\ast$res, int max)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hobot__mipi__comm_8hpp_a25f003de16c08a4888b69f619d70f427}\label{hobot__mipi__comm_8hpp_a25f003de16c08a4888b69f619d70f427}} 
+\index{hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}!ARRAY\_SIZE@{ARRAY\_SIZE}}
+\index{ARRAY\_SIZE@{ARRAY\_SIZE}!hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}}
+\doxysubsubsection{\texorpdfstring{ARRAY\_SIZE}{ARRAY\_SIZE}}
+{\footnotesize\ttfamily \#define ARRAY\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{a }\end{DoxyParamCaption})~((sizeof(a) / sizeof(a\mbox{[}0\mbox{]})))}
+
+\mbox{\Hypertarget{hobot__mipi__comm_8hpp_a6728b56275638ebafa4c631461a7c622}\label{hobot__mipi__comm_8hpp_a6728b56275638ebafa4c631461a7c622}} 
+\index{hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}!I2C\_ADDR\_16@{I2C\_ADDR\_16}}
+\index{I2C\_ADDR\_16@{I2C\_ADDR\_16}!hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_16}{I2C\_ADDR\_16}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+ADDR\+\_\+16~2}
+
+\mbox{\Hypertarget{hobot__mipi__comm_8hpp_a20ea57b83ec2791499070de354080c27}\label{hobot__mipi__comm_8hpp_a20ea57b83ec2791499070de354080c27}} 
+\index{hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}!I2C\_ADDR\_8@{I2C\_ADDR\_8}}
+\index{I2C\_ADDR\_8@{I2C\_ADDR\_8}!hobot\_mipi\_comm.hpp@{hobot\_mipi\_comm.hpp}}
+\doxysubsubsection{\texorpdfstring{I2C\_ADDR\_8}{I2C\_ADDR\_8}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+ADDR\+\_\+8~1}
+

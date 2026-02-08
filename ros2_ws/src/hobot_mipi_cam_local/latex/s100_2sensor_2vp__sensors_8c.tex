@@ -1,0 +1,250 @@
+\hypertarget{s100_2sensor_2vp__sensors_8c}{}\doxysection{src/s100/sensor/vp\+\_\+sensors.c File Reference}
+\label{s100_2sensor_2vp__sensors_8c}\index{src/s100/sensor/vp\_sensors.c@{src/s100/sensor/vp\_sensors.c}}
+{\ttfamily \#include \char`\"{}vp\+\_\+sensors.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$dirent.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$ctype.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for vp\+\_\+sensors.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{s100_2sensor_2vp__sensors_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a06730639b5a231cacc35b5f562ea4d83}{GPIO\+\_\+\+EXPORT\+\_\+\+PATH}}~\char`\"{}/sys/class/gpio/export\char`\"{}
+\item 
+\#define \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a4eb45312d98e2daa23a63620096fad80}{GPIO\+\_\+\+UNEXPORT\+\_\+\+PATH}}~\char`\"{}/sys/class/gpio/unexport\char`\"{}
+\item 
+\#define \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_ae41cc829e0d4731ab9568af0ae7d0b65}{MIPI\+\_\+\+DEVICE\+\_\+\+COUNT}}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_af40deb854bf814b42aa5e4642fe65836}{vp\+\_\+get\+\_\+sensors\+\_\+list\+\_\+number}} ()
+\item 
+void \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a3b5ab7e79f9424717ead7e4a15a65d4f}{vp\+\_\+show\+\_\+sensors\+\_\+list}} ()
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a4ccd7ceeeca262c403bebe4f38c30799}{vp\+\_\+get\+\_\+sensor\+\_\+config\+\_\+by\+\_\+name}} (char $\ast$sensor\+\_\+name)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a4b29cb4be91a5fde10d4e6e21098c0b1}{vp\+\_\+get\+\_\+gmsl\+\_\+list\+\_\+number}} ()
+\item 
+void \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_abb47c5d1e77e0e28cfd35bef5c6c9709}{vp\+\_\+show\+\_\+gmsl\+\_\+list}} ()
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a3e2057ea295b0074b2c9f8cc3749f69e}{vp\+\_\+get\+\_\+gmsl\+\_\+config\+\_\+by\+\_\+name}} (char $\ast$sensor\+\_\+name)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a99efa6cab1ea3f461829f5d4851976fb}{check\+\_\+sensor\+\_\+reg\+\_\+value}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}{vcon\+\_\+propertie\+\_\+t}} vcon\+\_\+props, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config)
+\item 
+int \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a06acc7ec09fd0e2ed38653af81323bf4}{get\+\_\+board\+\_\+id}} (char $\ast$data, size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_ae07550cca12acc6b9d4c0bc489324a7c}{vp\+\_\+sensor\+\_\+detect\+\_\+structed}} (\mbox{\hyperlink{structcsi__list__info__t}{csi\+\_\+list\+\_\+info\+\_\+t}} $\ast$csi\+\_\+list\+\_\+info)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a151306328d4d7a286ad07f088dc20c11}{vp\+\_\+sensor\+\_\+multi\+\_\+fixed\+\_\+mipi\+\_\+host}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, int used\+\_\+mipi\+\_\+host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$csi\+\_\+config)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_abbfd8b0a4e56a779cbffa776d51680cb}{vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$csi\+\_\+config)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a5c7b28c6f471dcf5edc723db741c87fa}{vp\+\_\+sensor\+\_\+detect\+\_\+2}} (int host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}} $\ast$host\+\_\+info)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a9c9397932c746aaedc20c36f4b646fbe}{vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host\+\_\+1}} (int host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$csi\+\_\+config)
+\item 
+int \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a7c5949a741fadcec3ccf0f8267974e45}{copy\+\_\+config}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$dest, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$src)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a68ae063b7fb3ae1cd748ec82a9468459}{imx219\+\_\+linear\+\_\+1920x1080\+\_\+raw10\+\_\+30fps\+\_\+2lane}}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a4e82204259697d3a78cb1633c9c6b10e}{sc132gs\+\_\+linear\+\_\+1088x1280\+\_\+raw10\+\_\+30fps\+\_\+1lane}}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a6cfe9324fb2c917f6ac7b738437a774d}{sc230ai\+\_\+linear\+\_\+1920x1080\+\_\+raw10\+\_\+30fps\+\_\+1lane}}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_af2d6f3f4dc82418d2e06e99622c467d5}{vp\+\_\+sensor\+\_\+config\+\_\+list}} \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a52b7bca47202648cbcdfcd4f99803223}{ovx3cstd\+\_\+linear\+\_\+1920x1080\+\_\+raw12\+\_\+30fps\+\_\+1lane}}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a07d93ccd6fdb0192e12c95d82e67d48e}{ar0820std\+\_\+linear\+\_\+1920x1080\+\_\+yuv\+\_\+30fps\+\_\+1lane}}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a2d1f9f63f4594040a9ab53556d048f53}{vp\+\_\+gmsl\+\_\+config\+\_\+list}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a06730639b5a231cacc35b5f562ea4d83}\label{s100_2sensor_2vp__sensors_8c_a06730639b5a231cacc35b5f562ea4d83}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!GPIO\_EXPORT\_PATH@{GPIO\_EXPORT\_PATH}}
+\index{GPIO\_EXPORT\_PATH@{GPIO\_EXPORT\_PATH}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_EXPORT\_PATH}{GPIO\_EXPORT\_PATH}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+EXPORT\+\_\+\+PATH~\char`\"{}/sys/class/gpio/export\char`\"{}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a4eb45312d98e2daa23a63620096fad80}\label{s100_2sensor_2vp__sensors_8c_a4eb45312d98e2daa23a63620096fad80}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!GPIO\_UNEXPORT\_PATH@{GPIO\_UNEXPORT\_PATH}}
+\index{GPIO\_UNEXPORT\_PATH@{GPIO\_UNEXPORT\_PATH}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{GPIO\_UNEXPORT\_PATH}{GPIO\_UNEXPORT\_PATH}}
+{\footnotesize\ttfamily \#define GPIO\+\_\+\+UNEXPORT\+\_\+\+PATH~\char`\"{}/sys/class/gpio/unexport\char`\"{}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_ae41cc829e0d4731ab9568af0ae7d0b65}\label{s100_2sensor_2vp__sensors_8c_ae41cc829e0d4731ab9568af0ae7d0b65}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!MIPI\_DEVICE\_COUNT@{MIPI\_DEVICE\_COUNT}}
+\index{MIPI\_DEVICE\_COUNT@{MIPI\_DEVICE\_COUNT}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{MIPI\_DEVICE\_COUNT}{MIPI\_DEVICE\_COUNT}}
+{\footnotesize\ttfamily \#define MIPI\+\_\+\+DEVICE\+\_\+\+COUNT~3}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a99efa6cab1ea3f461829f5d4851976fb}\label{s100_2sensor_2vp__sensors_8c_a99efa6cab1ea3f461829f5d4851976fb}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!check\_sensor\_reg\_value@{check\_sensor\_reg\_value}}
+\index{check\_sensor\_reg\_value@{check\_sensor\_reg\_value}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{check\_sensor\_reg\_value()}{check\_sensor\_reg\_value()}}
+{\footnotesize\ttfamily int32\+\_\+t check\+\_\+sensor\+\_\+reg\+\_\+value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}{vcon\+\_\+propertie\+\_\+t}}}]{vcon\+\_\+props,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a7c5949a741fadcec3ccf0f8267974e45}\label{s100_2sensor_2vp__sensors_8c_a7c5949a741fadcec3ccf0f8267974e45}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!copy\_config@{copy\_config}}
+\index{copy\_config@{copy\_config}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{copy\_config()}{copy\_config()}}
+{\footnotesize\ttfamily int copy\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a06acc7ec09fd0e2ed38653af81323bf4}\label{s100_2sensor_2vp__sensors_8c_a06acc7ec09fd0e2ed38653af81323bf4}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!get\_board\_id@{get\_board\_id}}
+\index{get\_board\_id@{get\_board\_id}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{get\_board\_id()}{get\_board\_id()}}
+{\footnotesize\ttfamily int get\+\_\+board\+\_\+id (\begin{DoxyParamCaption}\item[{char $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a3e2057ea295b0074b2c9f8cc3749f69e}\label{s100_2sensor_2vp__sensors_8c_a3e2057ea295b0074b2c9f8cc3749f69e}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_get\_gmsl\_config\_by\_name@{vp\_get\_gmsl\_config\_by\_name}}
+\index{vp\_get\_gmsl\_config\_by\_name@{vp\_get\_gmsl\_config\_by\_name}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_gmsl\_config\_by\_name()}{vp\_get\_gmsl\_config\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+get\+\_\+gmsl\+\_\+config\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{sensor\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a4b29cb4be91a5fde10d4e6e21098c0b1}\label{s100_2sensor_2vp__sensors_8c_a4b29cb4be91a5fde10d4e6e21098c0b1}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_get\_gmsl\_list\_number@{vp\_get\_gmsl\_list\_number}}
+\index{vp\_get\_gmsl\_list\_number@{vp\_get\_gmsl\_list\_number}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_gmsl\_list\_number()}{vp\_get\_gmsl\_list\_number()}}
+{\footnotesize\ttfamily uint32\+\_\+t vp\+\_\+get\+\_\+gmsl\+\_\+list\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a4ccd7ceeeca262c403bebe4f38c30799}\label{s100_2sensor_2vp__sensors_8c_a4ccd7ceeeca262c403bebe4f38c30799}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_get\_sensor\_config\_by\_name@{vp\_get\_sensor\_config\_by\_name}}
+\index{vp\_get\_sensor\_config\_by\_name@{vp\_get\_sensor\_config\_by\_name}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_sensor\_config\_by\_name()}{vp\_get\_sensor\_config\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+get\+\_\+sensor\+\_\+config\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{sensor\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_af40deb854bf814b42aa5e4642fe65836}\label{s100_2sensor_2vp__sensors_8c_af40deb854bf814b42aa5e4642fe65836}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_get\_sensors\_list\_number@{vp\_get\_sensors\_list\_number}}
+\index{vp\_get\_sensors\_list\_number@{vp\_get\_sensors\_list\_number}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_sensors\_list\_number()}{vp\_get\_sensors\_list\_number()}}
+{\footnotesize\ttfamily uint32\+\_\+t vp\+\_\+get\+\_\+sensors\+\_\+list\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a5c7b28c6f471dcf5edc723db741c87fa}\label{s100_2sensor_2vp__sensors_8c_a5c7b28c6f471dcf5edc723db741c87fa}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_detect\_2@{vp\_sensor\_detect\_2}}
+\index{vp\_sensor\_detect\_2@{vp\_sensor\_detect\_2}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_detect\_2()}{vp\_sensor\_detect\_2()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+detect\+\_\+2 (\begin{DoxyParamCaption}\item[{int}]{host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}} $\ast$}]{host\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_ae07550cca12acc6b9d4c0bc489324a7c}\label{s100_2sensor_2vp__sensors_8c_ae07550cca12acc6b9d4c0bc489324a7c}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_detect\_structed@{vp\_sensor\_detect\_structed}}
+\index{vp\_sensor\_detect\_structed@{vp\_sensor\_detect\_structed}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_detect\_structed()}{vp\_sensor\_detect\_structed()}}
+{\footnotesize\ttfamily void vp\+\_\+sensor\+\_\+detect\+\_\+structed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcsi__list__info__t}{csi\+\_\+list\+\_\+info\+\_\+t}} $\ast$}]{csi\+\_\+list\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_abbfd8b0a4e56a779cbffa776d51680cb}\label{s100_2sensor_2vp__sensors_8c_abbfd8b0a4e56a779cbffa776d51680cb}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_fixed\_mipi\_host@{vp\_sensor\_fixed\_mipi\_host}}
+\index{vp\_sensor\_fixed\_mipi\_host@{vp\_sensor\_fixed\_mipi\_host}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_fixed\_mipi\_host()}{vp\_sensor\_fixed\_mipi\_host()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{csi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a9c9397932c746aaedc20c36f4b646fbe}\label{s100_2sensor_2vp__sensors_8c_a9c9397932c746aaedc20c36f4b646fbe}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_fixed\_mipi\_host\_1@{vp\_sensor\_fixed\_mipi\_host\_1}}
+\index{vp\_sensor\_fixed\_mipi\_host\_1@{vp\_sensor\_fixed\_mipi\_host\_1}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_fixed\_mipi\_host\_1()}{vp\_sensor\_fixed\_mipi\_host\_1()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host\+\_\+1 (\begin{DoxyParamCaption}\item[{int}]{host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{csi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a151306328d4d7a286ad07f088dc20c11}\label{s100_2sensor_2vp__sensors_8c_a151306328d4d7a286ad07f088dc20c11}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_multi\_fixed\_mipi\_host@{vp\_sensor\_multi\_fixed\_mipi\_host}}
+\index{vp\_sensor\_multi\_fixed\_mipi\_host@{vp\_sensor\_multi\_fixed\_mipi\_host}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_multi\_fixed\_mipi\_host()}{vp\_sensor\_multi\_fixed\_mipi\_host()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+multi\+\_\+fixed\+\_\+mipi\+\_\+host (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{int}]{used\+\_\+mipi\+\_\+host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{csi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_abb47c5d1e77e0e28cfd35bef5c6c9709}\label{s100_2sensor_2vp__sensors_8c_abb47c5d1e77e0e28cfd35bef5c6c9709}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_show\_gmsl\_list@{vp\_show\_gmsl\_list}}
+\index{vp\_show\_gmsl\_list@{vp\_show\_gmsl\_list}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_show\_gmsl\_list()}{vp\_show\_gmsl\_list()}}
+{\footnotesize\ttfamily void vp\+\_\+show\+\_\+gmsl\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a3b5ab7e79f9424717ead7e4a15a65d4f}\label{s100_2sensor_2vp__sensors_8c_a3b5ab7e79f9424717ead7e4a15a65d4f}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_show\_sensors\_list@{vp\_show\_sensors\_list}}
+\index{vp\_show\_sensors\_list@{vp\_show\_sensors\_list}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_show\_sensors\_list()}{vp\_show\_sensors\_list()}}
+{\footnotesize\ttfamily void vp\+\_\+show\+\_\+sensors\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a07d93ccd6fdb0192e12c95d82e67d48e}\label{s100_2sensor_2vp__sensors_8c_a07d93ccd6fdb0192e12c95d82e67d48e}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane@{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane}}
+\index{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane@{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane}{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} ar0820std\+\_\+linear\+\_\+1920x1080\+\_\+yuv\+\_\+30fps\+\_\+1lane\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a68ae063b7fb3ae1cd748ec82a9468459}\label{s100_2sensor_2vp__sensors_8c_a68ae063b7fb3ae1cd748ec82a9468459}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!imx219\_linear\_1920x1080\_raw10\_30fps\_2lane@{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane}}
+\index{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane@{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane}{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} imx219\+\_\+linear\+\_\+1920x1080\+\_\+raw10\+\_\+30fps\+\_\+2lane\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a52b7bca47202648cbcdfcd4f99803223}\label{s100_2sensor_2vp__sensors_8c_a52b7bca47202648cbcdfcd4f99803223}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane@{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane}}
+\index{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane@{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane}{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} ovx3cstd\+\_\+linear\+\_\+1920x1080\+\_\+raw12\+\_\+30fps\+\_\+1lane\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a4e82204259697d3a78cb1633c9c6b10e}\label{s100_2sensor_2vp__sensors_8c_a4e82204259697d3a78cb1633c9c6b10e}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane@{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane}}
+\index{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane@{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane}{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} sc132gs\+\_\+linear\+\_\+1088x1280\+\_\+raw10\+\_\+30fps\+\_\+1lane\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a6cfe9324fb2c917f6ac7b738437a774d}\label{s100_2sensor_2vp__sensors_8c_a6cfe9324fb2c917f6ac7b738437a774d}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane@{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane}}
+\index{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane@{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane}{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} sc230ai\+\_\+linear\+\_\+1920x1080\+\_\+raw10\+\_\+30fps\+\_\+1lane\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_a2d1f9f63f4594040a9ab53556d048f53}\label{s100_2sensor_2vp__sensors_8c_a2d1f9f63f4594040a9ab53556d048f53}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_gmsl\_config\_list@{vp\_gmsl\_config\_list}}
+\index{vp\_gmsl\_config\_list@{vp\_gmsl\_config\_list}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_gmsl\_config\_list}{vp\_gmsl\_config\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+gmsl\+\_\+config\+\_\+list\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \&\mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a52b7bca47202648cbcdfcd4f99803223}{ovx3cstd\_linear\_1920x1080\_raw12\_30fps\_1lane}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a07d93ccd6fdb0192e12c95d82e67d48e}{ar0820std\_linear\_1920x1080\_yuv\_30fps\_1lane}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{s100_2sensor_2vp__sensors_8c_af2d6f3f4dc82418d2e06e99622c467d5}\label{s100_2sensor_2vp__sensors_8c_af2d6f3f4dc82418d2e06e99622c467d5}} 
+\index{vp\_sensors.c@{vp\_sensors.c}!vp\_sensor\_config\_list@{vp\_sensor\_config\_list}}
+\index{vp\_sensor\_config\_list@{vp\_sensor\_config\_list}!vp\_sensors.c@{vp\_sensors.c}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_config\_list}{vp\_sensor\_config\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+sensor\+\_\+config\+\_\+list\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \&\mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a68ae063b7fb3ae1cd748ec82a9468459}{imx219\_linear\_1920x1080\_raw10\_30fps\_2lane}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a4e82204259697d3a78cb1633c9c6b10e}{sc132gs\_linear\_1088x1280\_raw10\_30fps\_1lane}},}
+\DoxyCodeLine{    \&\mbox{\hyperlink{s100_2sensor_2vp__sensors_8c_a6cfe9324fb2c917f6ac7b738437a774d}{sc230ai\_linear\_1920x1080\_raw10\_30fps\_1lane}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

@@ -1,0 +1,58 @@
+\hypertarget{assertions_8h}{}\doxysection{deps/jsoncpp/include/json/assertions.h File Reference}
+\label{assertions_8h}\index{deps/jsoncpp/include/json/assertions.h@{deps/jsoncpp/include/json/assertions.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+Include dependency graph for assertions.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{assertions_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{assertions_8h_a188941dcc789ccb6539c3d6f41405582}{JSON\+\_\+\+ASSERT}}(condition)~  \{if (!(condition)) \{\mbox{\hyperlink{namespace_json_a27790f21f17922fac81e7cd72a5659a5}{Json\+::throw\+Logic\+Error}}( \char`\"{}assert json failed\char`\"{} );\}\}
+\item 
+\#define \mbox{\hyperlink{assertions_8h_a67007439f94bc6afc465923f56147ba1}{JSON\+\_\+\+FAIL\+\_\+\+MESSAGE}}(message)
+\item 
+\#define \mbox{\hyperlink{assertions_8h_ad7facdeeca0f495765e3b204c265eadb}{JSON\+\_\+\+ASSERT\+\_\+\+MESSAGE}}(condition,  message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{assertions_8h_a188941dcc789ccb6539c3d6f41405582}\label{assertions_8h_a188941dcc789ccb6539c3d6f41405582}} 
+\index{assertions.h@{assertions.h}!JSON\_ASSERT@{JSON\_ASSERT}}
+\index{JSON\_ASSERT@{JSON\_ASSERT}!assertions.h@{assertions.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_ASSERT}{JSON\_ASSERT}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+ASSERT(\begin{DoxyParamCaption}\item[{}]{condition }\end{DoxyParamCaption})~  \{if (!(condition)) \{\mbox{\hyperlink{namespace_json_a27790f21f17922fac81e7cd72a5659a5}{Json\+::throw\+Logic\+Error}}( \char`\"{}assert json failed\char`\"{} );\}\}}
+
+It should not be possible for a maliciously designed file to cause an abort() or seg-\/fault, so these macros are used only for pre-\/condition violations and internal logic errors. \mbox{\Hypertarget{assertions_8h_ad7facdeeca0f495765e3b204c265eadb}\label{assertions_8h_ad7facdeeca0f495765e3b204c265eadb}} 
+\index{assertions.h@{assertions.h}!JSON\_ASSERT\_MESSAGE@{JSON\_ASSERT\_MESSAGE}}
+\index{JSON\_ASSERT\_MESSAGE@{JSON\_ASSERT\_MESSAGE}!assertions.h@{assertions.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_ASSERT\_MESSAGE}{JSON\_ASSERT\_MESSAGE}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+ASSERT\+\_\+\+MESSAGE(\begin{DoxyParamCaption}\item[{}]{condition,  }\item[{}]{message }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (!(condition)) \{                                                          \(\backslash\)}
+\DoxyCodeLine{    JSON\_FAIL\_MESSAGE(message);                                                \(\backslash\)}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{assertions_8h_a67007439f94bc6afc465923f56147ba1}\label{assertions_8h_a67007439f94bc6afc465923f56147ba1}} 
+\index{assertions.h@{assertions.h}!JSON\_FAIL\_MESSAGE@{JSON\_FAIL\_MESSAGE}}
+\index{JSON\_FAIL\_MESSAGE@{JSON\_FAIL\_MESSAGE}!assertions.h@{assertions.h}}
+\doxysubsubsection{\texorpdfstring{JSON\_FAIL\_MESSAGE}{JSON\_FAIL\_MESSAGE}}
+{\footnotesize\ttfamily \#define JSON\+\_\+\+FAIL\+\_\+\+MESSAGE(\begin{DoxyParamCaption}\item[{}]{message }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{                                                                            \(\backslash\)}
+\DoxyCodeLine{    JSONCPP\_OSTRINGSTREAM oss; oss << message;                                    \mbox{\hyperlink{namespace_json_a27790f21f17922fac81e7cd72a5659a5}{\(\backslash\)}}}
+\DoxyCodeLine{\mbox{\hyperlink{namespace_json_a27790f21f17922fac81e7cd72a5659a5}{    Json::throwLogicError}}(oss.str());                                          \(\backslash\)}
+\DoxyCodeLine{    abort();                                                                   \(\backslash\)}
+\DoxyCodeLine{  \}}
+
+\end{DoxyCode}

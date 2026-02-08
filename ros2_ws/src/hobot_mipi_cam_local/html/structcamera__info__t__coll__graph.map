@@ -1,0 +1,16 @@
+<map id="camera_info_t" name="camera_info_t">
+<area shape="rect" id="node1" title=" " alt="" coords="361,363,475,389"/>
+<area shape="rect" id="node2" href="$structsnap__info__t.html" title=" " alt="" coords="5,273,103,300"/>
+<area shape="rect" id="node3" href="$structvenc__infos__t.html" title=" " alt="" coords="127,273,231,300"/>
+<area shape="rect" id="node4" href="$structvenc__info__t.html" title=" " alt="" coords="129,184,227,211"/>
+<area shape="rect" id="node5" href="$structosd__info__t.html" title=" " alt="" coords="256,273,345,300"/>
+<area shape="rect" id="node6" href="$structosd__region__t.html" title=" " alt="" coords="251,184,356,211"/>
+<area shape="rect" id="node7" href="$structaenc__info__t.html" title=" " alt="" coords="369,273,467,300"/>
+<area shape="rect" id="node8" href="$structadec__info__t.html" title=" " alt="" coords="491,273,588,300"/>
+<area shape="rect" id="node9" href="$structmotion__info__t.html" title=" " alt="" coords="613,273,725,300"/>
+<area shape="rect" id="node10" href="$structmd__rect.html" title=" " alt="" coords="627,184,702,211"/>
+<area shape="rect" id="node11" href="$structisp__info__t.html" title=" " alt="" coords="755,273,841,300"/>
+<area shape="rect" id="node12" href="$structisp__exposure__info__t.html" title=" " alt="" coords="726,184,878,211"/>
+<area shape="rect" id="node13" href="$structae__info__t.html" title=" " alt="" coords="761,95,843,121"/>
+<area shape="rect" id="node14" href="$structae__antiflicker__t.html" title=" " alt="" coords="741,5,863,32"/>
+</map>

@@ -1,0 +1,143 @@
+\hypertarget{x3__vio__vps_8cpp}{}\doxysection{src/x3/x3\+\_\+sdk\+\_\+swap/src/x3\+\_\+vio\+\_\+vps.cpp File Reference}
+\label{x3__vio__vps_8cpp}\index{src/x3/x3\_sdk\_swap/src/x3\_vio\_vps.cpp@{src/x3/x3\_sdk\_swap/src/x3\_vio\_vps.cpp}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}x3\+\_\+vio\+\_\+vin.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x3\+\_\+vio\+\_\+vps.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+Include dependency graph for x3\+\_\+vio\+\_\+vps.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{x3__vio__vps_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{x3__vio__vps_8cpp_afea4a529e1867bd7fc3c047bae4e77f5}{print\+\_\+vps\+\_\+chn\+\_\+attr}} (VPS\+\_\+\+CHN\+\_\+\+ATTR\+\_\+S $\ast$chn\+\_\+attr)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a17e53558abecf6d7acefa2fa2df63116}{x3\+\_\+vps\+\_\+group\+\_\+init}} (int vps\+\_\+grp\+\_\+id, VPS\+\_\+\+GRP\+\_\+\+ATTR\+\_\+S $\ast$vps\+\_\+grp\+\_\+attr)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a9c4a5569de1021a564589ae7118ec3cd}{x3\+\_\+setpu\+\_\+gdc}} (int vps\+\_\+grp\+\_\+id, char $\ast$gdc\+\_\+config\+\_\+file, ROTATION\+\_\+E en\+Rotation)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_ae4e41510bc9271293d5e86c63027e0e7}{x3\+\_\+vps\+\_\+chn\+\_\+init}} (int vps\+\_\+grp\+\_\+id, int vps\+\_\+chn\+\_\+id, VPS\+\_\+\+CHN\+\_\+\+ATTR\+\_\+S $\ast$chn\+\_\+attr)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_aa8458221f5020cb4ad0d5f66581a85af}{x3\+\_\+vps\+\_\+start}} (uint32\+\_\+t vps\+Grp\+Id)
+\item 
+void \mbox{\hyperlink{x3__vio__vps_8cpp_a1c91fd672aae5ebf099dd4d063ae7ccc}{x3\+\_\+vps\+\_\+stop}} (int vps\+Grp\+Id)
+\item 
+void \mbox{\hyperlink{x3__vio__vps_8cpp_aa5a7e89be67b15ed5165ef37e4295676}{x3\+\_\+vps\+\_\+deinit}} (int vps\+Grp\+Id)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a64ee520bdc5825c71b98f4cf304a347b}{x3\+\_\+vps\+\_\+input}} (uint32\+\_\+t vps\+Grp\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_ab332f51e0f4435d66d6678a710011eb3}{x3\+\_\+vps\+\_\+get\+\_\+output}} (uint32\+\_\+t vps\+Grp\+Id, int channel, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a60c161fc79fd62616bbc134a120011c9}{x3\+\_\+vps\+\_\+output\+\_\+release}} (uint32\+\_\+t vps\+Grp\+Id, int channel, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+void \mbox{\hyperlink{x3__vio__vps_8cpp_a31e15fba31862ebfab088f38e1412f47}{x3\+\_\+normal\+\_\+buf\+\_\+info\+\_\+print}} (hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buf)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_aaf668234a3d22386b7b51124f7b0c4fb}{x3\+\_\+dump\+\_\+nv12}} (char $\ast$filename, char $\ast$src\+Buf, char $\ast$src\+Buf1, unsigned int size, unsigned int size1)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_af880b3d3cb786d3754f0973cab29e093}{x3\+\_\+dump\+\_\+vio\+\_\+buf\+\_\+to\+\_\+nv12}} (char $\ast$filename, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$vio\+\_\+buf)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a4f91c6dc93914c5ff04c4f93273b0db9}{x3\+\_\+save\+\_\+jpeg}} (char $\ast$filename, char $\ast$src\+Buf, unsigned int size)
+\item 
+int \mbox{\hyperlink{x3__vio__vps_8cpp_a066992dc2dbc507cf9474811e7c41be4}{x3\+\_\+dump\+To\+File}} (char $\ast$filename, char $\ast$src\+Buf, unsigned int size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{x3__vio__vps_8cpp_afea4a529e1867bd7fc3c047bae4e77f5}\label{x3__vio__vps_8cpp_afea4a529e1867bd7fc3c047bae4e77f5}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!print\_vps\_chn\_attr@{print\_vps\_chn\_attr}}
+\index{print\_vps\_chn\_attr@{print\_vps\_chn\_attr}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_vps\_chn\_attr()}{print\_vps\_chn\_attr()}}
+{\footnotesize\ttfamily void print\+\_\+vps\+\_\+chn\+\_\+attr (\begin{DoxyParamCaption}\item[{VPS\+\_\+\+CHN\+\_\+\+ATTR\+\_\+S $\ast$}]{chn\+\_\+attr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_aaf668234a3d22386b7b51124f7b0c4fb}\label{x3__vio__vps_8cpp_aaf668234a3d22386b7b51124f7b0c4fb}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_dump\_nv12@{x3\_dump\_nv12}}
+\index{x3\_dump\_nv12@{x3\_dump\_nv12}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_dump\_nv12()}{x3\_dump\_nv12()}}
+{\footnotesize\ttfamily int x3\+\_\+dump\+\_\+nv12 (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{char $\ast$}]{src\+Buf,  }\item[{char $\ast$}]{src\+Buf1,  }\item[{unsigned int}]{size,  }\item[{unsigned int}]{size1 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_af880b3d3cb786d3754f0973cab29e093}\label{x3__vio__vps_8cpp_af880b3d3cb786d3754f0973cab29e093}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_dump\_vio\_buf\_to\_nv12@{x3\_dump\_vio\_buf\_to\_nv12}}
+\index{x3\_dump\_vio\_buf\_to\_nv12@{x3\_dump\_vio\_buf\_to\_nv12}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_dump\_vio\_buf\_to\_nv12()}{x3\_dump\_vio\_buf\_to\_nv12()}}
+{\footnotesize\ttfamily int x3\+\_\+dump\+\_\+vio\+\_\+buf\+\_\+to\+\_\+nv12 (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{vio\+\_\+buf }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a066992dc2dbc507cf9474811e7c41be4}\label{x3__vio__vps_8cpp_a066992dc2dbc507cf9474811e7c41be4}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_dumpToFile@{x3\_dumpToFile}}
+\index{x3\_dumpToFile@{x3\_dumpToFile}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_dumpToFile()}{x3\_dumpToFile()}}
+{\footnotesize\ttfamily int x3\+\_\+dump\+To\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{char $\ast$}]{src\+Buf,  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a31e15fba31862ebfab088f38e1412f47}\label{x3__vio__vps_8cpp_a31e15fba31862ebfab088f38e1412f47}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_normal\_buf\_info\_print@{x3\_normal\_buf\_info\_print}}
+\index{x3\_normal\_buf\_info\_print@{x3\_normal\_buf\_info\_print}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_normal\_buf\_info\_print()}{x3\_normal\_buf\_info\_print()}}
+{\footnotesize\ttfamily void x3\+\_\+normal\+\_\+buf\+\_\+info\+\_\+print (\begin{DoxyParamCaption}\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buf }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a4f91c6dc93914c5ff04c4f93273b0db9}\label{x3__vio__vps_8cpp_a4f91c6dc93914c5ff04c4f93273b0db9}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_save\_jpeg@{x3\_save\_jpeg}}
+\index{x3\_save\_jpeg@{x3\_save\_jpeg}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_save\_jpeg()}{x3\_save\_jpeg()}}
+{\footnotesize\ttfamily int x3\+\_\+save\+\_\+jpeg (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename,  }\item[{char $\ast$}]{src\+Buf,  }\item[{unsigned int}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a9c4a5569de1021a564589ae7118ec3cd}\label{x3__vio__vps_8cpp_a9c4a5569de1021a564589ae7118ec3cd}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_setpu\_gdc@{x3\_setpu\_gdc}}
+\index{x3\_setpu\_gdc@{x3\_setpu\_gdc}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_setpu\_gdc()}{x3\_setpu\_gdc()}}
+{\footnotesize\ttfamily int x3\+\_\+setpu\+\_\+gdc (\begin{DoxyParamCaption}\item[{int}]{vps\+\_\+grp\+\_\+id,  }\item[{char $\ast$}]{gdc\+\_\+config\+\_\+file,  }\item[{ROTATION\+\_\+E}]{en\+Rotation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_ae4e41510bc9271293d5e86c63027e0e7}\label{x3__vio__vps_8cpp_ae4e41510bc9271293d5e86c63027e0e7}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_chn\_init@{x3\_vps\_chn\_init}}
+\index{x3\_vps\_chn\_init@{x3\_vps\_chn\_init}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_chn\_init()}{x3\_vps\_chn\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+chn\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{vps\+\_\+grp\+\_\+id,  }\item[{int}]{vps\+\_\+chn\+\_\+id,  }\item[{VPS\+\_\+\+CHN\+\_\+\+ATTR\+\_\+S $\ast$}]{chn\+\_\+attr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_aa5a7e89be67b15ed5165ef37e4295676}\label{x3__vio__vps_8cpp_aa5a7e89be67b15ed5165ef37e4295676}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_deinit@{x3\_vps\_deinit}}
+\index{x3\_vps\_deinit@{x3\_vps\_deinit}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_deinit()}{x3\_vps\_deinit()}}
+{\footnotesize\ttfamily void x3\+\_\+vps\+\_\+deinit (\begin{DoxyParamCaption}\item[{int}]{vps\+Grp\+Id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_ab332f51e0f4435d66d6678a710011eb3}\label{x3__vio__vps_8cpp_ab332f51e0f4435d66d6678a710011eb3}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_get\_output@{x3\_vps\_get\_output}}
+\index{x3\_vps\_get\_output@{x3\_vps\_get\_output}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_get\_output()}{x3\_vps\_get\_output()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+get\+\_\+output (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{vps\+Grp\+Id,  }\item[{int}]{channel,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a17e53558abecf6d7acefa2fa2df63116}\label{x3__vio__vps_8cpp_a17e53558abecf6d7acefa2fa2df63116}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_group\_init@{x3\_vps\_group\_init}}
+\index{x3\_vps\_group\_init@{x3\_vps\_group\_init}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_group\_init()}{x3\_vps\_group\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+group\+\_\+init (\begin{DoxyParamCaption}\item[{int}]{vps\+\_\+grp\+\_\+id,  }\item[{VPS\+\_\+\+GRP\+\_\+\+ATTR\+\_\+S $\ast$}]{vps\+\_\+grp\+\_\+attr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a64ee520bdc5825c71b98f4cf304a347b}\label{x3__vio__vps_8cpp_a64ee520bdc5825c71b98f4cf304a347b}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_input@{x3\_vps\_input}}
+\index{x3\_vps\_input@{x3\_vps\_input}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_input()}{x3\_vps\_input()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+input (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{vps\+Grp\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a60c161fc79fd62616bbc134a120011c9}\label{x3__vio__vps_8cpp_a60c161fc79fd62616bbc134a120011c9}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_output\_release@{x3\_vps\_output\_release}}
+\index{x3\_vps\_output\_release@{x3\_vps\_output\_release}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_output\_release()}{x3\_vps\_output\_release()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+output\+\_\+release (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{vps\+Grp\+Id,  }\item[{int}]{channel,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_aa8458221f5020cb4ad0d5f66581a85af}\label{x3__vio__vps_8cpp_aa8458221f5020cb4ad0d5f66581a85af}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_start@{x3\_vps\_start}}
+\index{x3\_vps\_start@{x3\_vps\_start}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_start()}{x3\_vps\_start()}}
+{\footnotesize\ttfamily int x3\+\_\+vps\+\_\+start (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{vps\+Grp\+Id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vps_8cpp_a1c91fd672aae5ebf099dd4d063ae7ccc}\label{x3__vio__vps_8cpp_a1c91fd672aae5ebf099dd4d063ae7ccc}} 
+\index{x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}!x3\_vps\_stop@{x3\_vps\_stop}}
+\index{x3\_vps\_stop@{x3\_vps\_stop}!x3\_vio\_vps.cpp@{x3\_vio\_vps.cpp}}
+\doxysubsubsection{\texorpdfstring{x3\_vps\_stop()}{x3\_vps\_stop()}}
+{\footnotesize\ttfamily void x3\+\_\+vps\+\_\+stop (\begin{DoxyParamCaption}\item[{int}]{vps\+Grp\+Id }\end{DoxyParamCaption})}
+

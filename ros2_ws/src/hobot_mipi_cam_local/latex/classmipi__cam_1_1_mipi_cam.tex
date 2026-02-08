@@ -1,0 +1,165 @@
+\hypertarget{classmipi__cam_1_1_mipi_cam}{}\doxysection{mipi\+\_\+cam\+::Mipi\+Cam Class Reference}
+\label{classmipi__cam_1_1_mipi_cam}\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+
+
+{\ttfamily \#include $<$hobot\+\_\+mipi\+\_\+cam.\+hpp$>$}
+
+
+
+Inheritance diagram for mipi\+\_\+cam\+::Mipi\+Cam\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classmipi__cam_1_1_mipi_cam__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a2daa9d0fb7e30a7325c132dc706bcfb3}{Mipi\+Cam}} ()
+\item 
+virtual \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a47c3972cf7475c9369789f75b91f27b3}{$\sim$\+Mipi\+Cam}} ()
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a2701b8d918146b0d4051e2c2b87f95fe}{init}} (std\+::shared\+\_\+ptr$<$ struct \mbox{\hyperlink{structmipi__cam_1_1_node_para}{Node\+Para}} $>$ para)=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a9e5183bbe4553da9f9451038f30fe114}{de\+Init}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a8739fe3c1273e5dd4d21d5d540ba79ff}{start}} ()=0
+\item 
+virtual int \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_aa7c6e687d212bdb7fef6c3b8053f0c37}{stop}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_ae5b98553416b9e42a81c563b46d7b840}{get\+Image}} (builtin\+\_\+interfaces\+::msg\+::\+Time \&stamp, std\+::string \&encoding, uint32\+\_\+t \&height, uint32\+\_\+t \&width, uint32\+\_\+t \&step, std\+::vector$<$ uint8\+\_\+t $>$ \&data, std\+::string channel)=0
+\item 
+virtual bool \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a37c14d02b36a4745bb89338a4a5c8e39}{get\+Image\+Mem}} (builtin\+\_\+interfaces\+::msg\+::\+Time \&stamp, std\+::array$<$ uint8\+\_\+t, 12 $>$ \&encoding, uint32\+\_\+t \&height, uint32\+\_\+t \&width, uint32\+\_\+t \&step, std\+::array$<$ uint8\+\_\+t, 6220800 $>$ \&data, uint32\+\_\+t \&data\+\_\+size, std\+::string channel)=0
+\item 
+virtual bool \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a5e8d5cee7a9fcfa013cea2c31260a276}{get\+Cam\+Calibration}} (sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&cam\+\_\+info, const std\+::string \&file\+\_\+path)=0
+\item 
+virtual bool \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_adaab3fffac31e0db452214a9099e1ec6}{get\+Dual\+Cam\+Calibration}} (sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&cam\+\_\+info\+\_\+l, sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&cam\+\_\+info\+\_\+r, const std\+::string \&file\+\_\+path)=0
+\item 
+virtual bool \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a59debdca32e1f45d4ed137489f56904f}{is\+Capturing}} ()=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam}{Mipi\+Cam}} $>$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_a8825242548e688d35ff2c6ccf7af4119}{create\+\_\+mipicam}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a2daa9d0fb7e30a7325c132dc706bcfb3}\label{classmipi__cam_1_1_mipi_cam_a2daa9d0fb7e30a7325c132dc706bcfb3}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!MipiCam@{MipiCam}}
+\index{MipiCam@{MipiCam}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{MipiCam()}{MipiCam()}}
+{\footnotesize\ttfamily mipi\+\_\+cam\+::\+Mipi\+Cam\+::\+Mipi\+Cam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a47c3972cf7475c9369789f75b91f27b3}\label{classmipi__cam_1_1_mipi_cam_a47c3972cf7475c9369789f75b91f27b3}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!````~MipiCam@{$\sim$MipiCam}}
+\index{````~MipiCam@{$\sim$MipiCam}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{$\sim$MipiCam()}{~MipiCam()}}
+{\footnotesize\ttfamily virtual mipi\+\_\+cam\+::\+Mipi\+Cam\+::$\sim$\+Mipi\+Cam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a8825242548e688d35ff2c6ccf7af4119}\label{classmipi__cam_1_1_mipi_cam_a8825242548e688d35ff2c6ccf7af4119}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!create\_mipicam@{create\_mipicam}}
+\index{create\_mipicam@{create\_mipicam}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{create\_mipicam()}{create\_mipicam()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam}{Mipi\+Cam}} $>$ mipi\+\_\+cam\+::\+Mipi\+Cam\+::create\+\_\+mipicam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a9e5183bbe4553da9f9451038f30fe114}\label{classmipi__cam_1_1_mipi_cam_a9e5183bbe4553da9f9451038f30fe114}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!deInit@{deInit}}
+\index{deInit@{deInit}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{deInit()}{deInit()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Mipi\+Cam\+::de\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a452517a2feb594bac4e6f214ffde99d8}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a5e8d5cee7a9fcfa013cea2c31260a276}\label{classmipi__cam_1_1_mipi_cam_a5e8d5cee7a9fcfa013cea2c31260a276}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!getCamCalibration@{getCamCalibration}}
+\index{getCamCalibration@{getCamCalibration}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{getCamCalibration()}{getCamCalibration()}}
+{\footnotesize\ttfamily virtual bool mipi\+\_\+cam\+::\+Mipi\+Cam\+::get\+Cam\+Calibration (\begin{DoxyParamCaption}\item[{sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&}]{cam\+\_\+info,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a9332fed36356caa2dcd4e1a30929af7a}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_adaab3fffac31e0db452214a9099e1ec6}\label{classmipi__cam_1_1_mipi_cam_adaab3fffac31e0db452214a9099e1ec6}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!getDualCamCalibration@{getDualCamCalibration}}
+\index{getDualCamCalibration@{getDualCamCalibration}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{getDualCamCalibration()}{getDualCamCalibration()}}
+{\footnotesize\ttfamily virtual bool mipi\+\_\+cam\+::\+Mipi\+Cam\+::get\+Dual\+Cam\+Calibration (\begin{DoxyParamCaption}\item[{sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&}]{cam\+\_\+info\+\_\+l,  }\item[{sensor\+\_\+msgs\+::msg\+::\+Camera\+Info \&}]{cam\+\_\+info\+\_\+r,  }\item[{const std\+::string \&}]{file\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_ad9afb1e71b62c1f5e3cf72db8eab2aa8}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_ae5b98553416b9e42a81c563b46d7b840}\label{classmipi__cam_1_1_mipi_cam_ae5b98553416b9e42a81c563b46d7b840}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!getImage@{getImage}}
+\index{getImage@{getImage}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{getImage()}{getImage()}}
+{\footnotesize\ttfamily virtual bool mipi\+\_\+cam\+::\+Mipi\+Cam\+::get\+Image (\begin{DoxyParamCaption}\item[{builtin\+\_\+interfaces\+::msg\+::\+Time \&}]{stamp,  }\item[{std\+::string \&}]{encoding,  }\item[{uint32\+\_\+t \&}]{height,  }\item[{uint32\+\_\+t \&}]{width,  }\item[{uint32\+\_\+t \&}]{step,  }\item[{std\+::vector$<$ uint8\+\_\+t $>$ \&}]{data,  }\item[{std\+::string}]{channel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_addbe36eeb53a2e78b7442707e5574285}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a37c14d02b36a4745bb89338a4a5c8e39}\label{classmipi__cam_1_1_mipi_cam_a37c14d02b36a4745bb89338a4a5c8e39}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!getImageMem@{getImageMem}}
+\index{getImageMem@{getImageMem}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{getImageMem()}{getImageMem()}}
+{\footnotesize\ttfamily virtual bool mipi\+\_\+cam\+::\+Mipi\+Cam\+::get\+Image\+Mem (\begin{DoxyParamCaption}\item[{builtin\+\_\+interfaces\+::msg\+::\+Time \&}]{stamp,  }\item[{std\+::array$<$ uint8\+\_\+t, 12 $>$ \&}]{encoding,  }\item[{uint32\+\_\+t \&}]{height,  }\item[{uint32\+\_\+t \&}]{width,  }\item[{uint32\+\_\+t \&}]{step,  }\item[{std\+::array$<$ uint8\+\_\+t, 6220800 $>$ \&}]{data,  }\item[{uint32\+\_\+t \&}]{data\+\_\+size,  }\item[{std\+::string}]{channel }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a216cdeeb61523e1904266325b5d19260}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a2701b8d918146b0d4051e2c2b87f95fe}\label{classmipi__cam_1_1_mipi_cam_a2701b8d918146b0d4051e2c2b87f95fe}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!init@{init}}
+\index{init@{init}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Mipi\+Cam\+::init (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ struct \mbox{\hyperlink{structmipi__cam_1_1_node_para}{Node\+Para}} $>$}]{para }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_ad400ee18ff39507175040751d63ec988}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a59debdca32e1f45d4ed137489f56904f}\label{classmipi__cam_1_1_mipi_cam_a59debdca32e1f45d4ed137489f56904f}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!isCapturing@{isCapturing}}
+\index{isCapturing@{isCapturing}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{isCapturing()}{isCapturing()}}
+{\footnotesize\ttfamily virtual bool mipi\+\_\+cam\+::\+Mipi\+Cam\+::is\+Capturing (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a5dc6cfcb29d595b1885845f99b864a68}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_a8739fe3c1273e5dd4d21d5d540ba79ff}\label{classmipi__cam_1_1_mipi_cam_a8739fe3c1273e5dd4d21d5d540ba79ff}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!start@{start}}
+\index{start@{start}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Mipi\+Cam\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a06e5b1d527bec76e554ee3e4fc10df38}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+\mbox{\Hypertarget{classmipi__cam_1_1_mipi_cam_aa7c6e687d212bdb7fef6c3b8053f0c37}\label{classmipi__cam_1_1_mipi_cam_aa7c6e687d212bdb7fef6c3b8053f0c37}} 
+\index{mipi\_cam::MipiCam@{mipi\_cam::MipiCam}!stop@{stop}}
+\index{stop@{stop}!mipi\_cam::MipiCam@{mipi\_cam::MipiCam}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily virtual int mipi\+\_\+cam\+::\+Mipi\+Cam\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classmipi__cam_1_1_mipi_cam_iml_a2511005da9af3283fa9daba07b8397b6}{mipi\+\_\+cam\+::\+Mipi\+Cam\+Iml}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{hobot__mipi__cam_8hpp}{hobot\+\_\+mipi\+\_\+cam.\+hpp}}\item 
+src/\mbox{\hyperlink{hobot__mipi__cam_8cpp}{hobot\+\_\+mipi\+\_\+cam.\+cpp}}\end{DoxyCompactItemize}

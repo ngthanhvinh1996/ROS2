@@ -1,0 +1,5 @@
+<map id="mipi_cam::HobotMipiCapIml::analysis_board_config" name="mipi_cam::HobotMipiCapIml::analysis_board_config">
+<area shape="rect" id="node1" title=" " alt="" coords="5,23,212,65"/>
+<area shape="rect" id="node2" href="$class_json_1_1_value.html#a84b5e68092217af6b7fc6d256ef232c1" title=" " alt="" coords="271,5,404,32"/>
+<area shape="rect" id="node3" href="$class_json_1_1_value.html#ae3f9b0d38f820ccdd8888aa92ea6e792" title="Embedded zeroes are possible." alt="" coords="260,56,415,83"/>
+</map>

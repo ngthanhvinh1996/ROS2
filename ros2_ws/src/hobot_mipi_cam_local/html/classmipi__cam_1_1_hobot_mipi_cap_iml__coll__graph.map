@@ -1,0 +1,10 @@
+<map id="mipi_cam::HobotMipiCapIml" name="mipi_cam::HobotMipiCapIml">
+<area shape="rect" id="node1" title=" " alt="" coords="876,28,1083,55"/>
+<area shape="rect" id="node2" href="$classmipi__cam_1_1_hobot_mipi_cap.html" title=" " alt="" coords="558,28,745,55"/>
+<area shape="rect" id="node3" href="$structmipi__cam_1_1_hobot_mipi_cap_iml_1_1hbn__cfg.html" title=" " alt="" coords="548,90,755,132"/>
+<area shape="rect" id="node4" href="$structx3__vin__info.html" title=" " alt="" coords="603,156,700,183"/>
+<area shape="rect" id="node5" href="$structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t.html" title=" " alt="" coords="574,208,729,249"/>
+<area shape="rect" id="node6" href="$structx3__vps__infos__t.html" title=" " alt="" coords="592,274,711,300"/>
+<area shape="rect" id="node7" href="$structx3__vps__info__t.html" title=" " alt="" coords="308,274,420,300"/>
+<area shape="rect" id="node8" href="$structx3__vps__chn__attr__t.html" title=" " alt="" coords="5,274,145,300"/>
+</map>

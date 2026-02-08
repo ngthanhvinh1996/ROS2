@@ -1,0 +1,99 @@
+\hypertarget{s100_2hobot__mipi__cap__iml_8cpp}{}\doxysection{src/s100/hobot\+\_\+mipi\+\_\+cap\+\_\+iml.cpp File Reference}
+\label{s100_2hobot__mipi__cap__iml_8cpp}\index{src/s100/hobot\_mipi\_cap\_iml.cpp@{src/s100/hobot\_mipi\_cap\_iml.cpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$regex$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/select.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+comm.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hobot\+\_\+mipi\+\_\+cap\+\_\+iml.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/msg/camera\+\_\+info.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opencv2/opencv.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+media\+\_\+codec.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+media\+\_\+error.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$rclcpp/rclcpp.\+hpp$>$}\newline
+{\ttfamily \#include $<$json/json.\+h$>$}\newline
+Include dependency graph for hobot\+\_\+mipi\+\_\+cap\+\_\+iml.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{s100_2hobot__mipi__cap__iml_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacemipi__cam}{mipi\+\_\+cam}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{s100_2hobot__mipi__cap__iml_8cpp_a95d60a69a700f0509c236db1a017b0cb}{ERR\+\_\+\+CON\+\_\+\+EQ}}(ret,  a)
+\item 
+\#define \mbox{\hyperlink{s100_2hobot__mipi__cap__iml_8cpp_acf984d8e248859335686de3c439651f8}{ERR\+\_\+\+CON\+\_\+\+NE}}(ret,  a)
+\item 
+\#define \mbox{\hyperlink{s100_2hobot__mipi__cap__iml_8cpp_a1e56707d77cddb6c91bdaea114e4af2f}{ALIGN\+\_\+16}}(x)~(((x) + 15) \& $\sim$15)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{namespacemipi__cam_a79f122dfde38e20d2329c38fccc40456}{mipi\+\_\+cam\+::get\+\_\+link\+\_\+mode\+\_\+string}} (int is\+\_\+online)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespacemipi__cam_a84a3f756156b9ad92a5df0fd91805c17}{mipi\+\_\+cam\+::width\+\_\+tmp}}
+\item 
+double \mbox{\hyperlink{namespacemipi__cam_a957ad523a0a719d470b03ce4fbce95f2}{mipi\+\_\+cam\+::heigh\+\_\+tmp}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{s100_2hobot__mipi__cap__iml_8cpp_a1e56707d77cddb6c91bdaea114e4af2f}\label{s100_2hobot__mipi__cap__iml_8cpp_a1e56707d77cddb6c91bdaea114e4af2f}} 
+\index{hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}!ALIGN\_16@{ALIGN\_16}}
+\index{ALIGN\_16@{ALIGN\_16}!hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}}
+\doxysubsubsection{\texorpdfstring{ALIGN\_16}{ALIGN\_16}}
+{\footnotesize\ttfamily \#define ALIGN\+\_\+16(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~(((x) + 15) \& $\sim$15)}
+
+\mbox{\Hypertarget{s100_2hobot__mipi__cap__iml_8cpp_a95d60a69a700f0509c236db1a017b0cb}\label{s100_2hobot__mipi__cap__iml_8cpp_a95d60a69a700f0509c236db1a017b0cb}} 
+\index{hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}!ERR\_CON\_EQ@{ERR\_CON\_EQ}}
+\index{ERR\_CON\_EQ@{ERR\_CON\_EQ}!hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}}
+\doxysubsubsection{\texorpdfstring{ERR\_CON\_EQ}{ERR\_CON\_EQ}}
+{\footnotesize\ttfamily \#define ERR\+\_\+\+CON\+\_\+\+EQ(\begin{DoxyParamCaption}\item[{}]{ret,  }\item[{}]{a }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \textcolor{keywordflow}{do} \{\(\backslash\)}
+\DoxyCodeLine{        if ((ret) != (a)) \{\(\backslash\)}
+\DoxyCodeLine{            RCLCPP\_ERROR(rclcpp::get\_logger(\textcolor{stringliteral}{"{}mipi\_cam"{}}), \textcolor{stringliteral}{"{}\%s(\%d) failed, ret \%d\(\backslash\)n"{}}, \_\_func\_\_, \_\_LINE\_\_, (int32\_t)(ret));\(\backslash\)}
+\DoxyCodeLine{            return (ret);\(\backslash\)}
+\DoxyCodeLine{        \}\(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while}(0)\(\backslash\)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{s100_2hobot__mipi__cap__iml_8cpp_acf984d8e248859335686de3c439651f8}\label{s100_2hobot__mipi__cap__iml_8cpp_acf984d8e248859335686de3c439651f8}} 
+\index{hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}!ERR\_CON\_NE@{ERR\_CON\_NE}}
+\index{ERR\_CON\_NE@{ERR\_CON\_NE}!hobot\_mipi\_cap\_iml.cpp@{hobot\_mipi\_cap\_iml.cpp}}
+\doxysubsubsection{\texorpdfstring{ERR\_CON\_NE}{ERR\_CON\_NE}}
+{\footnotesize\ttfamily \#define ERR\+\_\+\+CON\+\_\+\+NE(\begin{DoxyParamCaption}\item[{}]{ret,  }\item[{}]{a }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \textcolor{keywordflow}{do} \{\(\backslash\)}
+\DoxyCodeLine{        if ((ret) == (a)) \{\(\backslash\)}
+\DoxyCodeLine{            RCLCPP\_ERROR(rclcpp::get\_logger(\textcolor{stringliteral}{"{}mipi\_cam"{}}), \textcolor{stringliteral}{"{}\%s(\%d) failed, ret \%ld\(\backslash\)n"{}}, \_\_func\_\_, \_\_LINE\_\_, (ret));\(\backslash\)}
+\DoxyCodeLine{            return (ret);\(\backslash\)}
+\DoxyCodeLine{        \}\(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while}(0)\(\backslash\)}
+
+\end{DoxyCode}

@@ -1,0 +1,587 @@
+\hypertarget{camera__struct__define_8h}{}\doxysection{src/x3/sensor/camera\+\_\+struct\+\_\+define.h File Reference}
+\label{camera__struct__define_8h}\index{src/x3/sensor/camera\_struct\_define.h@{src/x3/sensor/camera\_struct\_define.h}}
+{\ttfamily \#include $<$time.\+h$>$}\newline
+Include dependency graph for camera\+\_\+struct\+\_\+define.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{camera__struct__define_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structvenc__info__t}{venc\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structvenc__infos__t}{venc\+\_\+infos\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structaenc__info__t}{aenc\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structadec__info__t}{adec\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structosd__region__t}{osd\+\_\+region\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structosd__info__t}{osd\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structsnap__info__t}{snap\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structmd__rect}{md\+\_\+rect}}
+\item 
+struct \mbox{\hyperlink{structmotion__info__t}{motion\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structae__antiflicker__t}{ae\+\_\+antiflicker\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structae__info__t}{ae\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structisp__exposure__info__t}{isp\+\_\+exposure\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structisp__info__t}{isp\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcamera__info__t}{camera\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcam__forceidr__t}{cam\+\_\+forceidr\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcam__yuv__buffer__t}{cam\+\_\+yuv\+\_\+buffer\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcam__gpoi__ctrl__t}{cam\+\_\+gpoi\+\_\+ctrl\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcam__adc__ctrl__t}{cam\+\_\+adc\+\_\+ctrl\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a4337ab3a652ae611078386bea3cf3172}{CAM\+\_\+\+ACODEC\+\_\+\+FILE}}~\char`\"{}/dev/acodec\char`\"{}
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}{CAM\+\_\+\+CONF\+\_\+\+PATH}}~\char`\"{}/mnt/config/\char`\"{}
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a01025cc1d5a50df1ce553c4027377a44}{CAM\+\_\+\+CONF\+\_\+\+FILE}}~\mbox{\hyperlink{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}{CAM\+\_\+\+CONF\+\_\+\+PATH}}\char`\"{}camera.\+json\char`\"{}
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a93f8664db4b0fb23ce53c963b17af037}{CAM\+\_\+\+CONF\+\_\+\+DEFAULT}}~\mbox{\hyperlink{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}{CAM\+\_\+\+CONF\+\_\+\+PATH}}\char`\"{}camera.\+json.\+default\char`\"{}
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a9e78362588dd0c471061c7d0f2f978eb}{VENC\+\_\+\+MAX\+\_\+\+CHANNLES}}~(2)
+\item 
+\#define \mbox{\hyperlink{camera__struct__define_8h_a9aa4f2a9de032652563a10fbafbb6851}{MAX\+\_\+\+MD\+\_\+\+RECT}}~16
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \mbox{\hyperlink{camera__struct__define_8h_a819380f905d168f41f3dd5cd5bf02076}{cam\+\_\+motion\+\_\+effect\+\_\+call}}) (int type, time\+\_\+t time, int duration)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349f}{CAM\+\_\+\+PARAM\+\_\+E}} \{ \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faae245cd5b7d98ca280aa93b187f8163c}{CAM\+\_\+\+PARAM\+\_\+\+NULL}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa9d53b01a2ad2e0e4329c2718d14535b}{CAM\+\_\+\+GET\+\_\+\+CHIP\+\_\+\+TYPE}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa7ed928e6e48965fe2f9f80a191807f40}{CAM\+\_\+\+PARAM\+\_\+\+STATE\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa85f61c74e9993eaa89dfed09e59bc9b2}{CAM\+\_\+\+PARAM\+\_\+\+ALL\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa9e009a12185c815ce2b2680060749ccc}{CAM\+\_\+\+PARAM\+\_\+\+ALL\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fabe61535c78352a0683a9d3ac83756992}{CAM\+\_\+\+DEC\+\_\+\+DATA\+\_\+\+PUSH}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4f9d1977342b35a08d28ce30732c88fb}{CAM\+\_\+\+DEC\+\_\+\+DATA\+\_\+\+CLEAR}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa61cafa07ee82ab68a2785c13b00ed792}{CAM\+\_\+\+DEC\+\_\+\+FILE\+\_\+\+PUSH}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faefe164861a31ddaf82277e09de643760}{CAM\+\_\+\+MOTION\+\_\+\+CALLBACK\+\_\+\+REG}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa4fb765c29b0587f715c36aa09fb4ed8}{CAM\+\_\+\+MOTION\+\_\+\+CALLBACK\+\_\+\+UNREG}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa889e98f372bc943148e8ad3a414cfd3}{CAM\+\_\+\+VENC\+\_\+\+FRAMERATE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafcbd6bf6d57ac63c64b8810da4c07fb3}{CAM\+\_\+\+VENC\+\_\+\+BITRATE\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faab1213a32bf0260b884e749a14be5981}{CAM\+\_\+\+VENC\+\_\+\+GOP\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa45bf1cbe76b844bff1942e69b1b9a28e}{CAM\+\_\+\+VENC\+\_\+\+CVBR\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafedca00063ebbe3da125ed749b50d517}{CAM\+\_\+\+VENC\+\_\+\+FORCEIDR}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa145ddabcd671d036c3a00215f0cd2f09}{CAM\+\_\+\+VENC\+\_\+\+MIRROR\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf25f49f93c5970fb43724fe9342ea113}{CAM\+\_\+\+VENC\+\_\+\+NTSC\+\_\+\+PAL\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa788bdea1a0c58f25067e97f9938fcc97}{CAM\+\_\+\+VENC\+\_\+\+NTSC\+\_\+\+PAL\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa5fd5625e57311f04ea644acd99fcca1a}{CAM\+\_\+\+AENC\+\_\+\+PARAM\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fad9743247762689debdcf7bc31b639520}{CAM\+\_\+\+AENC\+\_\+\+VOLUME\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa19542736bbe071082dd2033306d058d8}{CAM\+\_\+\+AENC\+\_\+\+MUTE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadcd8afef132e76fd2991c18805706dd7}{CAM\+\_\+\+AENC\+\_\+\+SAMPLERATE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa372262715a3add8fc2235125612b7905}{CAM\+\_\+\+AENC\+\_\+\+BITRATE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8e2a64d7006ac68690311b3504bb0512}{CAM\+\_\+\+AENC\+\_\+\+CHANNLES\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4ea08b13e00d58133239aeadbf713560}{CAM\+\_\+\+AENC\+\_\+\+AEC\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab02528a27a6b212171b30d4e7ec6e6cf}{CAM\+\_\+\+AENC\+\_\+\+AGC\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa738c22a0806232f2d9384c54623a7f79}{CAM\+\_\+\+AENC\+\_\+\+ANR\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1feb8eaeb3f989a1466089804ceeda5a}{CAM\+\_\+\+ADEC\+\_\+\+VOLUME\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab0fc17a7b70bc7a891a963d70a8aeb5c}{CAM\+\_\+\+ADEC\+\_\+\+SAMPLERATE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1b81b0aaff9f1c2c5b9b844ba1bb6011}{CAM\+\_\+\+ADEC\+\_\+\+BITRATE\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faca266615f59d43cea5ac70e1e227b24f}{CAM\+\_\+\+ADEC\+\_\+\+CHANNLES\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fae260d40232efbef7c8631be828c79360}{CAM\+\_\+\+OSD\+\_\+\+TIMEENABLE\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa15e4f5b55d7b71e542567952479f8c4b}{CAM\+\_\+\+SNAP\+\_\+\+PATH\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1e5cdea5f1858c199c02d08a726c8b83}{CAM\+\_\+\+SNAP\+\_\+\+ONCE}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2763173dfde53b86534167b76e31e005}{CAM\+\_\+\+MOTION\+\_\+\+PARAM\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2876ba765ad6beecd017b475063f1052}{CAM\+\_\+\+MOTION\+\_\+\+PARAM\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa817f59be7f50cc808722a273ef5bcf1a}{CAM\+\_\+\+YUV\+\_\+\+BUFFER\+\_\+\+START}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4087695939c370ec30eace38fc2b898c}{CAM\+\_\+\+YUV\+\_\+\+BUFFER\+\_\+\+STOP}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa920d4e061c093eef19de31d3f3698314}{CAM\+\_\+\+MOTION\+\_\+\+SENSITIVITY\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1bf57ff3fea03bb660f85fe647b60a76}{CAM\+\_\+\+MOTION\+\_\+\+AREA\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa834ce5bd7d1e756fa2efbdb6160c1034}{CAM\+\_\+\+GPIO\+\_\+\+CTRL\+\_\+\+SET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa756daa5589ffde9f18d2da4393fb098c}{CAM\+\_\+\+GPIO\+\_\+\+CTRL\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab35d2b5bdba0c8206d579c6b2072d266}{CAM\+\_\+\+ADC\+\_\+\+CTRL\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fac08cfe48e9567a6c765b6fe8c4db0807}{CAM\+\_\+\+ISP\+\_\+\+CTRL\+\_\+\+MODE\+\_\+\+SET}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faef04a5de98b0969657599e637df2eed0}{CAM\+\_\+\+RINGBUFFER\+\_\+\+CREATE}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa95a1ee4d4b38b695568aa9419db25e06}{CAM\+\_\+\+RINGBUFFER\+\_\+\+DATA\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2a7e6255642a7e24490270a19f90466a}{CAM\+\_\+\+RINGBUFFER\+\_\+\+DATA\+\_\+\+SYNC}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa02931c646e394ba6f3fd88ca606e5c9b}{CAM\+\_\+\+RINGBUFFER\+\_\+\+DESTORY}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadb662de9e9efe74efd7c122b9c16a1d6}{CAM\+\_\+\+VENC\+\_\+\+ALL\+\_\+\+PARAM\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa41c39ffbd22d6aa5d38b9890771d9cb3}{CAM\+\_\+\+VENC\+\_\+\+CHN\+\_\+\+PARAM\+\_\+\+GET}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa6457d7e2cd7ea59662ce9d3669fe1a33}{CAM\+\_\+\+GET\+\_\+\+VENC\+\_\+\+CHN\+\_\+\+STATUS}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadd86d69395398fa2f655da35677035f4}{CAM\+\_\+\+GET\+\_\+\+RAW\+\_\+\+FRAME}}
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa22e1ebc362c5e36ecfb16c699171f87e}{CAM\+\_\+\+GET\+\_\+\+YUV\+\_\+\+FRAME}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8baf343c15e57b684a383e29f1df125d}{CAM\+\_\+\+JPEG\+\_\+\+SNAP}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1790e14a20909dd952e1cd28ddd91598}{CAM\+\_\+\+START\+\_\+\+RECORDER}}
+, \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf2c2c11d3c64de1ee295b960afb4015b}{CAM\+\_\+\+STOP\+\_\+\+RECORDER}}
+ \}
+\item 
+enum \mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5}{CAM\+\_\+\+PAYLOAD\+\_\+\+TYPE\+\_\+E}} \{ \newline
+\mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a3e770b8fbe643999c2f277cde1513619}{CAM\+\_\+\+AENC\+\_\+\+TYPE\+\_\+\+G711A}} = 19
+, \mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5affdb1b3c29b8cf18e99f195aef98cc5c}{CAM\+\_\+\+AENC\+\_\+\+TYPE\+\_\+\+AAC}} = 37
+, \mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5ab28aee054a4c11173efa593c061b915f}{CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+H264}} = 96
+, \mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a4aace2e375354d2fe16f64f3600a8c25}{CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+H265}} = 265
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a748ce4029ae2d1dfb116a70cc6188f27}{CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+MJPEG}} = 1002
+ \}
+\item 
+enum \mbox{\hyperlink{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440f}{CAM\+\_\+\+RC\+\_\+\+TYPE\+\_\+E}} \{ \mbox{\hyperlink{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa828aacd1054236df04d1a350f28dce85}{CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+CBR}} = 0
+, \mbox{\hyperlink{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fad42547d33fc3df920bb3b81d7cc470dc}{CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+VBR}} = 1
+, \mbox{\hyperlink{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa189363db6edf30efc06a34b4e6bbbe80}{CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+BUTT}}
+ \}
+\item 
+enum \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+E}} \{ \newline
+\mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63af0b904dbf47f8cd94f6d02f46f1d4970}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+8000}} = 8000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a96ead28dbe6eed56e7728f8b8b7030c0}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+12000}} = 12000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a04260fa04f74af600439c2448049072d}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+11025}} = 11025
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aab5b8857a1a1b86aabc2091ef2fc9237}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+16000}} = 16000
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aef06c780f02d8bbbddbd2cecb98b73f6}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+22050}} = 22050
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63adc8aa3038770be270c0e5519b4858f07}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+24000}} = 24000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa99977751599a1fc007987c593e78970}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+32000}} = 32000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8d914e908033cf5e8a1d8c17e92ab52e}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+44100}} = 44100
+, \newline
+\mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a1300dd61c06ace5f08334bdb466f96a2}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+48000}} = 48000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa61d0818c7aabced0ac5f7a025a02a6e}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+64000}} = 64000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8834ce3e7d45483635c3848256a305f3}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+96000}} = 96000
+, \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a9c12900fdbe88b95191bf21c121c2fe9}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+\+BUTT}}
+ \}
+\item 
+enum \mbox{\hyperlink{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706}{CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+E}} \{ \mbox{\hyperlink{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a5c0ed42e8af9a123bf1f6221c9d6c25b}{CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+MONO}} =0
+, \mbox{\hyperlink{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a77a3b9a4f9e33c31ef8a9b409ed09123}{CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+STEREO}} =1
+, \mbox{\hyperlink{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706ae03dc9ce7e2e4ac7eba828e52d776311}{CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+BUTT}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{camera__struct__define_8h_a4337ab3a652ae611078386bea3cf3172}\label{camera__struct__define_8h_a4337ab3a652ae611078386bea3cf3172}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ACODEC\_FILE@{CAM\_ACODEC\_FILE}}
+\index{CAM\_ACODEC\_FILE@{CAM\_ACODEC\_FILE}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_ACODEC\_FILE}{CAM\_ACODEC\_FILE}}
+{\footnotesize\ttfamily \#define CAM\+\_\+\+ACODEC\+\_\+\+FILE~\char`\"{}/dev/acodec\char`\"{}}
+
+\mbox{\Hypertarget{camera__struct__define_8h_a93f8664db4b0fb23ce53c963b17af037}\label{camera__struct__define_8h_a93f8664db4b0fb23ce53c963b17af037}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_CONF\_DEFAULT@{CAM\_CONF\_DEFAULT}}
+\index{CAM\_CONF\_DEFAULT@{CAM\_CONF\_DEFAULT}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_CONF\_DEFAULT}{CAM\_CONF\_DEFAULT}}
+{\footnotesize\ttfamily \#define CAM\+\_\+\+CONF\+\_\+\+DEFAULT~\mbox{\hyperlink{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}{CAM\+\_\+\+CONF\+\_\+\+PATH}}\char`\"{}camera.\+json.\+default\char`\"{}}
+
+\mbox{\Hypertarget{camera__struct__define_8h_a01025cc1d5a50df1ce553c4027377a44}\label{camera__struct__define_8h_a01025cc1d5a50df1ce553c4027377a44}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_CONF\_FILE@{CAM\_CONF\_FILE}}
+\index{CAM\_CONF\_FILE@{CAM\_CONF\_FILE}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_CONF\_FILE}{CAM\_CONF\_FILE}}
+{\footnotesize\ttfamily \#define CAM\+\_\+\+CONF\+\_\+\+FILE~\mbox{\hyperlink{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}{CAM\+\_\+\+CONF\+\_\+\+PATH}}\char`\"{}camera.\+json\char`\"{}}
+
+\mbox{\Hypertarget{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}\label{camera__struct__define_8h_a6be675e3487d2e3078405f2bbaf7235c}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_CONF\_PATH@{CAM\_CONF\_PATH}}
+\index{CAM\_CONF\_PATH@{CAM\_CONF\_PATH}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_CONF\_PATH}{CAM\_CONF\_PATH}}
+{\footnotesize\ttfamily \#define CAM\+\_\+\+CONF\+\_\+\+PATH~\char`\"{}/mnt/config/\char`\"{}}
+
+\mbox{\Hypertarget{camera__struct__define_8h_a9aa4f2a9de032652563a10fbafbb6851}\label{camera__struct__define_8h_a9aa4f2a9de032652563a10fbafbb6851}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!MAX\_MD\_RECT@{MAX\_MD\_RECT}}
+\index{MAX\_MD\_RECT@{MAX\_MD\_RECT}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_MD\_RECT}{MAX\_MD\_RECT}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MD\+\_\+\+RECT~16}
+
+\mbox{\Hypertarget{camera__struct__define_8h_a9e78362588dd0c471061c7d0f2f978eb}\label{camera__struct__define_8h_a9e78362588dd0c471061c7d0f2f978eb}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!VENC\_MAX\_CHANNLES@{VENC\_MAX\_CHANNLES}}
+\index{VENC\_MAX\_CHANNLES@{VENC\_MAX\_CHANNLES}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{VENC\_MAX\_CHANNLES}{VENC\_MAX\_CHANNLES}}
+{\footnotesize\ttfamily \#define VENC\+\_\+\+MAX\+\_\+\+CHANNLES~(2)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{camera__struct__define_8h_a819380f905d168f41f3dd5cd5bf02076}\label{camera__struct__define_8h_a819380f905d168f41f3dd5cd5bf02076}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!cam\_motion\_effect\_call@{cam\_motion\_effect\_call}}
+\index{cam\_motion\_effect\_call@{cam\_motion\_effect\_call}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{cam\_motion\_effect\_call}{cam\_motion\_effect\_call}}
+{\footnotesize\ttfamily typedef int($\ast$ cam\+\_\+motion\+\_\+effect\+\_\+call) (int type, time\+\_\+t time, int duration)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_E@{CAM\_AUDIO\_SAMPLE\_RATE\_E}}
+\index{CAM\_AUDIO\_SAMPLE\_RATE\_E@{CAM\_AUDIO\_SAMPLE\_RATE\_E}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_AUDIO\_SAMPLE\_RATE\_E}{CAM\_AUDIO\_SAMPLE\_RATE\_E}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63}{CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+E}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_8000@{CAM\_AUDIO\_SAMPLE\_RATE\_8000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_8000@{CAM\_AUDIO\_SAMPLE\_RATE\_8000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63af0b904dbf47f8cd94f6d02f46f1d4970}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63af0b904dbf47f8cd94f6d02f46f1d4970}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+8000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_12000@{CAM\_AUDIO\_SAMPLE\_RATE\_12000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_12000@{CAM\_AUDIO\_SAMPLE\_RATE\_12000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a96ead28dbe6eed56e7728f8b8b7030c0}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a96ead28dbe6eed56e7728f8b8b7030c0}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+12000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_11025@{CAM\_AUDIO\_SAMPLE\_RATE\_11025}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_11025@{CAM\_AUDIO\_SAMPLE\_RATE\_11025}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a04260fa04f74af600439c2448049072d}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a04260fa04f74af600439c2448049072d}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+11025&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_16000@{CAM\_AUDIO\_SAMPLE\_RATE\_16000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_16000@{CAM\_AUDIO\_SAMPLE\_RATE\_16000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aab5b8857a1a1b86aabc2091ef2fc9237}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aab5b8857a1a1b86aabc2091ef2fc9237}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+16000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_22050@{CAM\_AUDIO\_SAMPLE\_RATE\_22050}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_22050@{CAM\_AUDIO\_SAMPLE\_RATE\_22050}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aef06c780f02d8bbbddbd2cecb98b73f6}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aef06c780f02d8bbbddbd2cecb98b73f6}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+22050&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_24000@{CAM\_AUDIO\_SAMPLE\_RATE\_24000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_24000@{CAM\_AUDIO\_SAMPLE\_RATE\_24000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63adc8aa3038770be270c0e5519b4858f07}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63adc8aa3038770be270c0e5519b4858f07}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+24000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_32000@{CAM\_AUDIO\_SAMPLE\_RATE\_32000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_32000@{CAM\_AUDIO\_SAMPLE\_RATE\_32000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa99977751599a1fc007987c593e78970}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa99977751599a1fc007987c593e78970}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+32000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_44100@{CAM\_AUDIO\_SAMPLE\_RATE\_44100}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_44100@{CAM\_AUDIO\_SAMPLE\_RATE\_44100}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8d914e908033cf5e8a1d8c17e92ab52e}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8d914e908033cf5e8a1d8c17e92ab52e}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+44100&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_48000@{CAM\_AUDIO\_SAMPLE\_RATE\_48000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_48000@{CAM\_AUDIO\_SAMPLE\_RATE\_48000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a1300dd61c06ace5f08334bdb466f96a2}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a1300dd61c06ace5f08334bdb466f96a2}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+48000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_64000@{CAM\_AUDIO\_SAMPLE\_RATE\_64000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_64000@{CAM\_AUDIO\_SAMPLE\_RATE\_64000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa61d0818c7aabced0ac5f7a025a02a6e}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63aa61d0818c7aabced0ac5f7a025a02a6e}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+64000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_96000@{CAM\_AUDIO\_SAMPLE\_RATE\_96000}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_96000@{CAM\_AUDIO\_SAMPLE\_RATE\_96000}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8834ce3e7d45483635c3848256a305f3}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a8834ce3e7d45483635c3848256a305f3}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+96000&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SAMPLE\_RATE\_BUTT@{CAM\_AUDIO\_SAMPLE\_RATE\_BUTT}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SAMPLE\_RATE\_BUTT@{CAM\_AUDIO\_SAMPLE\_RATE\_BUTT}}}\mbox{\Hypertarget{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a9c12900fdbe88b95191bf21c121c2fe9}\label{camera__struct__define_8h_afc593fd0f409357252adb99a79805c63a9c12900fdbe88b95191bf21c121c2fe9}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SAMPLE\+\_\+\+RATE\+\_\+\+BUTT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706}\label{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SOUND\_MODE\_E@{CAM\_AUDIO\_SOUND\_MODE\_E}}
+\index{CAM\_AUDIO\_SOUND\_MODE\_E@{CAM\_AUDIO\_SOUND\_MODE\_E}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_AUDIO\_SOUND\_MODE\_E}{CAM\_AUDIO\_SOUND\_MODE\_E}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706}{CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+E}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SOUND\_MODE\_MONO@{CAM\_AUDIO\_SOUND\_MODE\_MONO}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SOUND\_MODE\_MONO@{CAM\_AUDIO\_SOUND\_MODE\_MONO}}}\mbox{\Hypertarget{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a5c0ed42e8af9a123bf1f6221c9d6c25b}\label{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a5c0ed42e8af9a123bf1f6221c9d6c25b}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+MONO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SOUND\_MODE\_STEREO@{CAM\_AUDIO\_SOUND\_MODE\_STEREO}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SOUND\_MODE\_STEREO@{CAM\_AUDIO\_SOUND\_MODE\_STEREO}}}\mbox{\Hypertarget{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a77a3b9a4f9e33c31ef8a9b409ed09123}\label{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706a77a3b9a4f9e33c31ef8a9b409ed09123}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+STEREO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AUDIO\_SOUND\_MODE\_BUTT@{CAM\_AUDIO\_SOUND\_MODE\_BUTT}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AUDIO\_SOUND\_MODE\_BUTT@{CAM\_AUDIO\_SOUND\_MODE\_BUTT}}}\mbox{\Hypertarget{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706ae03dc9ce7e2e4ac7eba828e52d776311}\label{camera__struct__define_8h_a853cc6fa29cf8208a2f5b2a0c1cd7706ae03dc9ce7e2e4ac7eba828e52d776311}} 
+CAM\+\_\+\+AUDIO\+\_\+\+SOUND\+\_\+\+MODE\+\_\+\+BUTT&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349f}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349f}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PARAM\_E@{CAM\_PARAM\_E}}
+\index{CAM\_PARAM\_E@{CAM\_PARAM\_E}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_PARAM\_E}{CAM\_PARAM\_E}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{camera__struct__define_8h_a084c9c825a50d624088d972252b6349f}{CAM\+\_\+\+PARAM\+\_\+E}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_PARAM\_NULL@{CAM\_PARAM\_NULL}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PARAM\_NULL@{CAM\_PARAM\_NULL}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faae245cd5b7d98ca280aa93b187f8163c}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faae245cd5b7d98ca280aa93b187f8163c}} 
+CAM\+\_\+\+PARAM\+\_\+\+NULL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GET\_CHIP\_TYPE@{CAM\_GET\_CHIP\_TYPE}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GET\_CHIP\_TYPE@{CAM\_GET\_CHIP\_TYPE}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa9d53b01a2ad2e0e4329c2718d14535b}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa9d53b01a2ad2e0e4329c2718d14535b}} 
+CAM\+\_\+\+GET\+\_\+\+CHIP\+\_\+\+TYPE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_PARAM\_STATE\_GET@{CAM\_PARAM\_STATE\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PARAM\_STATE\_GET@{CAM\_PARAM\_STATE\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa7ed928e6e48965fe2f9f80a191807f40}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa7ed928e6e48965fe2f9f80a191807f40}} 
+CAM\+\_\+\+PARAM\+\_\+\+STATE\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_PARAM\_ALL\_SET@{CAM\_PARAM\_ALL\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PARAM\_ALL\_SET@{CAM\_PARAM\_ALL\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa85f61c74e9993eaa89dfed09e59bc9b2}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa85f61c74e9993eaa89dfed09e59bc9b2}} 
+CAM\+\_\+\+PARAM\+\_\+\+ALL\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_PARAM\_ALL\_GET@{CAM\_PARAM\_ALL\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PARAM\_ALL\_GET@{CAM\_PARAM\_ALL\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa9e009a12185c815ce2b2680060749ccc}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa9e009a12185c815ce2b2680060749ccc}} 
+CAM\+\_\+\+PARAM\+\_\+\+ALL\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_DEC\_DATA\_PUSH@{CAM\_DEC\_DATA\_PUSH}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_DEC\_DATA\_PUSH@{CAM\_DEC\_DATA\_PUSH}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fabe61535c78352a0683a9d3ac83756992}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fabe61535c78352a0683a9d3ac83756992}} 
+CAM\+\_\+\+DEC\+\_\+\+DATA\+\_\+\+PUSH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_DEC\_DATA\_CLEAR@{CAM\_DEC\_DATA\_CLEAR}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_DEC\_DATA\_CLEAR@{CAM\_DEC\_DATA\_CLEAR}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4f9d1977342b35a08d28ce30732c88fb}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4f9d1977342b35a08d28ce30732c88fb}} 
+CAM\+\_\+\+DEC\+\_\+\+DATA\+\_\+\+CLEAR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_DEC\_FILE\_PUSH@{CAM\_DEC\_FILE\_PUSH}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_DEC\_FILE\_PUSH@{CAM\_DEC\_FILE\_PUSH}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa61cafa07ee82ab68a2785c13b00ed792}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa61cafa07ee82ab68a2785c13b00ed792}} 
+CAM\+\_\+\+DEC\+\_\+\+FILE\+\_\+\+PUSH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_CALLBACK\_REG@{CAM\_MOTION\_CALLBACK\_REG}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_CALLBACK\_REG@{CAM\_MOTION\_CALLBACK\_REG}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faefe164861a31ddaf82277e09de643760}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faefe164861a31ddaf82277e09de643760}} 
+CAM\+\_\+\+MOTION\+\_\+\+CALLBACK\+\_\+\+REG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_CALLBACK\_UNREG@{CAM\_MOTION\_CALLBACK\_UNREG}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_CALLBACK\_UNREG@{CAM\_MOTION\_CALLBACK\_UNREG}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa4fb765c29b0587f715c36aa09fb4ed8}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa4fb765c29b0587f715c36aa09fb4ed8}} 
+CAM\+\_\+\+MOTION\+\_\+\+CALLBACK\+\_\+\+UNREG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_FRAMERATE\_SET@{CAM\_VENC\_FRAMERATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_FRAMERATE\_SET@{CAM\_VENC\_FRAMERATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa889e98f372bc943148e8ad3a414cfd3}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faa889e98f372bc943148e8ad3a414cfd3}} 
+CAM\+\_\+\+VENC\+\_\+\+FRAMERATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_BITRATE\_SET@{CAM\_VENC\_BITRATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_BITRATE\_SET@{CAM\_VENC\_BITRATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafcbd6bf6d57ac63c64b8810da4c07fb3}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafcbd6bf6d57ac63c64b8810da4c07fb3}} 
+CAM\+\_\+\+VENC\+\_\+\+BITRATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_GOP\_SET@{CAM\_VENC\_GOP\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_GOP\_SET@{CAM\_VENC\_GOP\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faab1213a32bf0260b884e749a14be5981}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faab1213a32bf0260b884e749a14be5981}} 
+CAM\+\_\+\+VENC\+\_\+\+GOP\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_CVBR\_SET@{CAM\_VENC\_CVBR\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_CVBR\_SET@{CAM\_VENC\_CVBR\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa45bf1cbe76b844bff1942e69b1b9a28e}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa45bf1cbe76b844bff1942e69b1b9a28e}} 
+CAM\+\_\+\+VENC\+\_\+\+CVBR\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_FORCEIDR@{CAM\_VENC\_FORCEIDR}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_FORCEIDR@{CAM\_VENC\_FORCEIDR}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafedca00063ebbe3da125ed749b50d517}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fafedca00063ebbe3da125ed749b50d517}} 
+CAM\+\_\+\+VENC\+\_\+\+FORCEIDR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_MIRROR\_SET@{CAM\_VENC\_MIRROR\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_MIRROR\_SET@{CAM\_VENC\_MIRROR\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa145ddabcd671d036c3a00215f0cd2f09}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa145ddabcd671d036c3a00215f0cd2f09}} 
+CAM\+\_\+\+VENC\+\_\+\+MIRROR\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_NTSC\_PAL\_SET@{CAM\_VENC\_NTSC\_PAL\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_NTSC\_PAL\_SET@{CAM\_VENC\_NTSC\_PAL\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf25f49f93c5970fb43724fe9342ea113}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf25f49f93c5970fb43724fe9342ea113}} 
+CAM\+\_\+\+VENC\+\_\+\+NTSC\+\_\+\+PAL\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_NTSC\_PAL\_GET@{CAM\_VENC\_NTSC\_PAL\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_NTSC\_PAL\_GET@{CAM\_VENC\_NTSC\_PAL\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa788bdea1a0c58f25067e97f9938fcc97}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa788bdea1a0c58f25067e97f9938fcc97}} 
+CAM\+\_\+\+VENC\+\_\+\+NTSC\+\_\+\+PAL\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_PARAM\_GET@{CAM\_AENC\_PARAM\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_PARAM\_GET@{CAM\_AENC\_PARAM\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa5fd5625e57311f04ea644acd99fcca1a}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa5fd5625e57311f04ea644acd99fcca1a}} 
+CAM\+\_\+\+AENC\+\_\+\+PARAM\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_VOLUME\_SET@{CAM\_AENC\_VOLUME\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_VOLUME\_SET@{CAM\_AENC\_VOLUME\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fad9743247762689debdcf7bc31b639520}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fad9743247762689debdcf7bc31b639520}} 
+CAM\+\_\+\+AENC\+\_\+\+VOLUME\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_MUTE\_SET@{CAM\_AENC\_MUTE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_MUTE\_SET@{CAM\_AENC\_MUTE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa19542736bbe071082dd2033306d058d8}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa19542736bbe071082dd2033306d058d8}} 
+CAM\+\_\+\+AENC\+\_\+\+MUTE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_SAMPLERATE\_SET@{CAM\_AENC\_SAMPLERATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_SAMPLERATE\_SET@{CAM\_AENC\_SAMPLERATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadcd8afef132e76fd2991c18805706dd7}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadcd8afef132e76fd2991c18805706dd7}} 
+CAM\+\_\+\+AENC\+\_\+\+SAMPLERATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_BITRATE\_SET@{CAM\_AENC\_BITRATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_BITRATE\_SET@{CAM\_AENC\_BITRATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa372262715a3add8fc2235125612b7905}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa372262715a3add8fc2235125612b7905}} 
+CAM\+\_\+\+AENC\+\_\+\+BITRATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_CHANNLES\_SET@{CAM\_AENC\_CHANNLES\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_CHANNLES\_SET@{CAM\_AENC\_CHANNLES\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8e2a64d7006ac68690311b3504bb0512}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8e2a64d7006ac68690311b3504bb0512}} 
+CAM\+\_\+\+AENC\+\_\+\+CHANNLES\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_AEC\_SET@{CAM\_AENC\_AEC\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_AEC\_SET@{CAM\_AENC\_AEC\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4ea08b13e00d58133239aeadbf713560}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4ea08b13e00d58133239aeadbf713560}} 
+CAM\+\_\+\+AENC\+\_\+\+AEC\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_AGC\_SET@{CAM\_AENC\_AGC\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_AGC\_SET@{CAM\_AENC\_AGC\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab02528a27a6b212171b30d4e7ec6e6cf}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab02528a27a6b212171b30d4e7ec6e6cf}} 
+CAM\+\_\+\+AENC\+\_\+\+AGC\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_ANR\_SET@{CAM\_AENC\_ANR\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_ANR\_SET@{CAM\_AENC\_ANR\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa738c22a0806232f2d9384c54623a7f79}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa738c22a0806232f2d9384c54623a7f79}} 
+CAM\+\_\+\+AENC\+\_\+\+ANR\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ADEC\_VOLUME\_SET@{CAM\_ADEC\_VOLUME\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ADEC\_VOLUME\_SET@{CAM\_ADEC\_VOLUME\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1feb8eaeb3f989a1466089804ceeda5a}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1feb8eaeb3f989a1466089804ceeda5a}} 
+CAM\+\_\+\+ADEC\+\_\+\+VOLUME\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ADEC\_SAMPLERATE\_SET@{CAM\_ADEC\_SAMPLERATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ADEC\_SAMPLERATE\_SET@{CAM\_ADEC\_SAMPLERATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab0fc17a7b70bc7a891a963d70a8aeb5c}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab0fc17a7b70bc7a891a963d70a8aeb5c}} 
+CAM\+\_\+\+ADEC\+\_\+\+SAMPLERATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ADEC\_BITRATE\_SET@{CAM\_ADEC\_BITRATE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ADEC\_BITRATE\_SET@{CAM\_ADEC\_BITRATE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1b81b0aaff9f1c2c5b9b844ba1bb6011}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1b81b0aaff9f1c2c5b9b844ba1bb6011}} 
+CAM\+\_\+\+ADEC\+\_\+\+BITRATE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ADEC\_CHANNLES\_SET@{CAM\_ADEC\_CHANNLES\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ADEC\_CHANNLES\_SET@{CAM\_ADEC\_CHANNLES\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faca266615f59d43cea5ac70e1e227b24f}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faca266615f59d43cea5ac70e1e227b24f}} 
+CAM\+\_\+\+ADEC\+\_\+\+CHANNLES\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_OSD\_TIMEENABLE\_SET@{CAM\_OSD\_TIMEENABLE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_OSD\_TIMEENABLE\_SET@{CAM\_OSD\_TIMEENABLE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fae260d40232efbef7c8631be828c79360}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fae260d40232efbef7c8631be828c79360}} 
+CAM\+\_\+\+OSD\+\_\+\+TIMEENABLE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_SNAP\_PATH\_SET@{CAM\_SNAP\_PATH\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_SNAP\_PATH\_SET@{CAM\_SNAP\_PATH\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa15e4f5b55d7b71e542567952479f8c4b}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa15e4f5b55d7b71e542567952479f8c4b}} 
+CAM\+\_\+\+SNAP\+\_\+\+PATH\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_SNAP\_ONCE@{CAM\_SNAP\_ONCE}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_SNAP\_ONCE@{CAM\_SNAP\_ONCE}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1e5cdea5f1858c199c02d08a726c8b83}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1e5cdea5f1858c199c02d08a726c8b83}} 
+CAM\+\_\+\+SNAP\+\_\+\+ONCE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_PARAM\_GET@{CAM\_MOTION\_PARAM\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_PARAM\_GET@{CAM\_MOTION\_PARAM\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2763173dfde53b86534167b76e31e005}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2763173dfde53b86534167b76e31e005}} 
+CAM\+\_\+\+MOTION\+\_\+\+PARAM\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_PARAM\_SET@{CAM\_MOTION\_PARAM\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_PARAM\_SET@{CAM\_MOTION\_PARAM\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2876ba765ad6beecd017b475063f1052}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2876ba765ad6beecd017b475063f1052}} 
+CAM\+\_\+\+MOTION\+\_\+\+PARAM\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_YUV\_BUFFER\_START@{CAM\_YUV\_BUFFER\_START}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_YUV\_BUFFER\_START@{CAM\_YUV\_BUFFER\_START}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa817f59be7f50cc808722a273ef5bcf1a}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa817f59be7f50cc808722a273ef5bcf1a}} 
+CAM\+\_\+\+YUV\+\_\+\+BUFFER\+\_\+\+START&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_YUV\_BUFFER\_STOP@{CAM\_YUV\_BUFFER\_STOP}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_YUV\_BUFFER\_STOP@{CAM\_YUV\_BUFFER\_STOP}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4087695939c370ec30eace38fc2b898c}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa4087695939c370ec30eace38fc2b898c}} 
+CAM\+\_\+\+YUV\+\_\+\+BUFFER\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_SENSITIVITY\_SET@{CAM\_MOTION\_SENSITIVITY\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_SENSITIVITY\_SET@{CAM\_MOTION\_SENSITIVITY\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa920d4e061c093eef19de31d3f3698314}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa920d4e061c093eef19de31d3f3698314}} 
+CAM\+\_\+\+MOTION\+\_\+\+SENSITIVITY\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_MOTION\_AREA\_SET@{CAM\_MOTION\_AREA\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_MOTION\_AREA\_SET@{CAM\_MOTION\_AREA\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1bf57ff3fea03bb660f85fe647b60a76}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1bf57ff3fea03bb660f85fe647b60a76}} 
+CAM\+\_\+\+MOTION\+\_\+\+AREA\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GPIO\_CTRL\_SET@{CAM\_GPIO\_CTRL\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GPIO\_CTRL\_SET@{CAM\_GPIO\_CTRL\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa834ce5bd7d1e756fa2efbdb6160c1034}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa834ce5bd7d1e756fa2efbdb6160c1034}} 
+CAM\+\_\+\+GPIO\+\_\+\+CTRL\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GPIO\_CTRL\_GET@{CAM\_GPIO\_CTRL\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GPIO\_CTRL\_GET@{CAM\_GPIO\_CTRL\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa756daa5589ffde9f18d2da4393fb098c}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa756daa5589ffde9f18d2da4393fb098c}} 
+CAM\+\_\+\+GPIO\+\_\+\+CTRL\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ADC\_CTRL\_GET@{CAM\_ADC\_CTRL\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ADC\_CTRL\_GET@{CAM\_ADC\_CTRL\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab35d2b5bdba0c8206d579c6b2072d266}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fab35d2b5bdba0c8206d579c6b2072d266}} 
+CAM\+\_\+\+ADC\+\_\+\+CTRL\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_ISP\_CTRL\_MODE\_SET@{CAM\_ISP\_CTRL\_MODE\_SET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_ISP\_CTRL\_MODE\_SET@{CAM\_ISP\_CTRL\_MODE\_SET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fac08cfe48e9567a6c765b6fe8c4db0807}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fac08cfe48e9567a6c765b6fe8c4db0807}} 
+CAM\+\_\+\+ISP\+\_\+\+CTRL\+\_\+\+MODE\+\_\+\+SET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_RINGBUFFER\_CREATE@{CAM\_RINGBUFFER\_CREATE}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_RINGBUFFER\_CREATE@{CAM\_RINGBUFFER\_CREATE}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faef04a5de98b0969657599e637df2eed0}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faef04a5de98b0969657599e637df2eed0}} 
+CAM\+\_\+\+RINGBUFFER\+\_\+\+CREATE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_RINGBUFFER\_DATA\_GET@{CAM\_RINGBUFFER\_DATA\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_RINGBUFFER\_DATA\_GET@{CAM\_RINGBUFFER\_DATA\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa95a1ee4d4b38b695568aa9419db25e06}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa95a1ee4d4b38b695568aa9419db25e06}} 
+CAM\+\_\+\+RINGBUFFER\+\_\+\+DATA\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_RINGBUFFER\_DATA\_SYNC@{CAM\_RINGBUFFER\_DATA\_SYNC}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_RINGBUFFER\_DATA\_SYNC@{CAM\_RINGBUFFER\_DATA\_SYNC}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2a7e6255642a7e24490270a19f90466a}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa2a7e6255642a7e24490270a19f90466a}} 
+CAM\+\_\+\+RINGBUFFER\+\_\+\+DATA\+\_\+\+SYNC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_RINGBUFFER\_DESTORY@{CAM\_RINGBUFFER\_DESTORY}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_RINGBUFFER\_DESTORY@{CAM\_RINGBUFFER\_DESTORY}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa02931c646e394ba6f3fd88ca606e5c9b}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa02931c646e394ba6f3fd88ca606e5c9b}} 
+CAM\+\_\+\+RINGBUFFER\+\_\+\+DESTORY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_ALL\_PARAM\_GET@{CAM\_VENC\_ALL\_PARAM\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_ALL\_PARAM\_GET@{CAM\_VENC\_ALL\_PARAM\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadb662de9e9efe74efd7c122b9c16a1d6}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadb662de9e9efe74efd7c122b9c16a1d6}} 
+CAM\+\_\+\+VENC\+\_\+\+ALL\+\_\+\+PARAM\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_CHN\_PARAM\_GET@{CAM\_VENC\_CHN\_PARAM\_GET}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_CHN\_PARAM\_GET@{CAM\_VENC\_CHN\_PARAM\_GET}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa41c39ffbd22d6aa5d38b9890771d9cb3}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa41c39ffbd22d6aa5d38b9890771d9cb3}} 
+CAM\+\_\+\+VENC\+\_\+\+CHN\+\_\+\+PARAM\+\_\+\+GET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GET\_VENC\_CHN\_STATUS@{CAM\_GET\_VENC\_CHN\_STATUS}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GET\_VENC\_CHN\_STATUS@{CAM\_GET\_VENC\_CHN\_STATUS}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa6457d7e2cd7ea59662ce9d3669fe1a33}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa6457d7e2cd7ea59662ce9d3669fe1a33}} 
+CAM\+\_\+\+GET\+\_\+\+VENC\+\_\+\+CHN\+\_\+\+STATUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GET\_RAW\_FRAME@{CAM\_GET\_RAW\_FRAME}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GET\_RAW\_FRAME@{CAM\_GET\_RAW\_FRAME}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadd86d69395398fa2f655da35677035f4}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fadd86d69395398fa2f655da35677035f4}} 
+CAM\+\_\+\+GET\+\_\+\+RAW\+\_\+\+FRAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_GET\_YUV\_FRAME@{CAM\_GET\_YUV\_FRAME}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_GET\_YUV\_FRAME@{CAM\_GET\_YUV\_FRAME}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa22e1ebc362c5e36ecfb16c699171f87e}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa22e1ebc362c5e36ecfb16c699171f87e}} 
+CAM\+\_\+\+GET\+\_\+\+YUV\+\_\+\+FRAME&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_JPEG\_SNAP@{CAM\_JPEG\_SNAP}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_JPEG\_SNAP@{CAM\_JPEG\_SNAP}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8baf343c15e57b684a383e29f1df125d}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa8baf343c15e57b684a383e29f1df125d}} 
+CAM\+\_\+\+JPEG\+\_\+\+SNAP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_START\_RECORDER@{CAM\_START\_RECORDER}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_START\_RECORDER@{CAM\_START\_RECORDER}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1790e14a20909dd952e1cd28ddd91598}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349fa1790e14a20909dd952e1cd28ddd91598}} 
+CAM\+\_\+\+START\+\_\+\+RECORDER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_STOP\_RECORDER@{CAM\_STOP\_RECORDER}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_STOP\_RECORDER@{CAM\_STOP\_RECORDER}}}\mbox{\Hypertarget{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf2c2c11d3c64de1ee295b960afb4015b}\label{camera__struct__define_8h_a084c9c825a50d624088d972252b6349faf2c2c11d3c64de1ee295b960afb4015b}} 
+CAM\+\_\+\+STOP\+\_\+\+RECORDER&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_PAYLOAD\_TYPE\_E@{CAM\_PAYLOAD\_TYPE\_E}}
+\index{CAM\_PAYLOAD\_TYPE\_E@{CAM\_PAYLOAD\_TYPE\_E}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_PAYLOAD\_TYPE\_E}{CAM\_PAYLOAD\_TYPE\_E}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5}{CAM\+\_\+\+PAYLOAD\+\_\+\+TYPE\+\_\+E}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_TYPE\_G711A@{CAM\_AENC\_TYPE\_G711A}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_TYPE\_G711A@{CAM\_AENC\_TYPE\_G711A}}}\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a3e770b8fbe643999c2f277cde1513619}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a3e770b8fbe643999c2f277cde1513619}} 
+CAM\+\_\+\+AENC\+\_\+\+TYPE\+\_\+\+G711A&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_AENC\_TYPE\_AAC@{CAM\_AENC\_TYPE\_AAC}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_AENC\_TYPE\_AAC@{CAM\_AENC\_TYPE\_AAC}}}\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5affdb1b3c29b8cf18e99f195aef98cc5c}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5affdb1b3c29b8cf18e99f195aef98cc5c}} 
+CAM\+\_\+\+AENC\+\_\+\+TYPE\+\_\+\+AAC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_TYPE\_H264@{CAM\_VENC\_TYPE\_H264}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_TYPE\_H264@{CAM\_VENC\_TYPE\_H264}}}\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5ab28aee054a4c11173efa593c061b915f}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5ab28aee054a4c11173efa593c061b915f}} 
+CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+H264&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_TYPE\_H265@{CAM\_VENC\_TYPE\_H265}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_TYPE\_H265@{CAM\_VENC\_TYPE\_H265}}}\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a4aace2e375354d2fe16f64f3600a8c25}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a4aace2e375354d2fe16f64f3600a8c25}} 
+CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+H265&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_TYPE\_MJPEG@{CAM\_VENC\_TYPE\_MJPEG}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_TYPE\_MJPEG@{CAM\_VENC\_TYPE\_MJPEG}}}\mbox{\Hypertarget{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a748ce4029ae2d1dfb116a70cc6188f27}\label{camera__struct__define_8h_a18775985df400fd2486f51b248ab41f5a748ce4029ae2d1dfb116a70cc6188f27}} 
+CAM\+\_\+\+VENC\+\_\+\+TYPE\+\_\+\+MJPEG&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440f}\label{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440f}} 
+\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_RC\_TYPE\_E@{CAM\_RC\_TYPE\_E}}
+\index{CAM\_RC\_TYPE\_E@{CAM\_RC\_TYPE\_E}!camera\_struct\_define.h@{camera\_struct\_define.h}}
+\doxysubsubsection{\texorpdfstring{CAM\_RC\_TYPE\_E}{CAM\_RC\_TYPE\_E}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440f}{CAM\+\_\+\+RC\+\_\+\+TYPE\+\_\+E}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_RC\_CBR@{CAM\_VENC\_RC\_CBR}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_RC\_CBR@{CAM\_VENC\_RC\_CBR}}}\mbox{\Hypertarget{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa828aacd1054236df04d1a350f28dce85}\label{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa828aacd1054236df04d1a350f28dce85}} 
+CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+CBR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_RC\_VBR@{CAM\_VENC\_RC\_VBR}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_RC\_VBR@{CAM\_VENC\_RC\_VBR}}}\mbox{\Hypertarget{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fad42547d33fc3df920bb3b81d7cc470dc}\label{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fad42547d33fc3df920bb3b81d7cc470dc}} 
+CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+VBR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CAM\_VENC\_RC\_BUTT@{CAM\_VENC\_RC\_BUTT}!camera\_struct\_define.h@{camera\_struct\_define.h}}\index{camera\_struct\_define.h@{camera\_struct\_define.h}!CAM\_VENC\_RC\_BUTT@{CAM\_VENC\_RC\_BUTT}}}\mbox{\Hypertarget{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa189363db6edf30efc06a34b4e6bbbe80}\label{camera__struct__define_8h_ab01f7bd6a51d80e27041d322e802440fa189363db6edf30efc06a34b4e6bbbe80}} 
+CAM\+\_\+\+VENC\+\_\+\+RC\+\_\+\+BUTT&\\
+\hline
+
+\end{DoxyEnumFields}

@@ -1,0 +1,270 @@
+\mbox{\hyperlink{md__r_e_a_d_m_e}{English}} $\vert$ 简体中文\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md48}{}\doxysection{功能介绍}\label{md__r_e_a_d_m_e_cn_autotoc_md48}
+对已适配的\+MIPI接口摄像头进行配置，并将采集的图像数据以\+ROS标准图像消息或者零拷贝（hbmem）图像消息进行发布，供需要使用图像数据的其他模块订阅。\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md49}{}\doxysection{物料清单}\label{md__r_e_a_d_m_e_cn_autotoc_md49}
+当前已支持以下\+MIPI摄像头
+
+$\vert$ 序号 $\vert$ 名称 $\vert$ 示意图片 $\vert$ 参数 $\vert$ 参考链接 $\vert$ $\vert$ -\/--- $\vert$ -\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/--- $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/--- $\vert$ $\vert$ 1 $\vert$ F37 $\vert$  $\vert$ 200W像素 $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963}{\texttt{ F37}} $\vert$ $\vert$ 2 $\vert$ GC4663 $\vert$  $\vert$ 400W像素 $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=12&id=683310105141&ns=1&spm=a230r.1.14.28.1dd135f0wI2LwA&skuId=4897731532963}{\texttt{ GC4663}} $\vert$ $\vert$ 3 $\vert$ IMX219 $\vert$  $\vert$ 800W像素 $\vert$ RDK X3, RDK X3 Module, RDK Ultra, RDK X5 $\vert$ \href{https://detail.tmall.com/item.htm?abbucket=9&id=710344235988&rn=259e73f46059c2e6fc9de133ba9ddddf&spm=a1z10.5-b-s.w4011-22651484606.159.55df6a83NWrGPi}{\texttt{ IMX219}} $\vert$ $\vert$ 4 $\vert$ IMX477 $\vert$  $\vert$ 200W像素 $\vert$ RDK X3, RDK X3 Module $\vert$ \href{https://www.waveshare.net/shop/IMX477-160-12.3MP-Camera.htm}{\texttt{ IMX477}} $\vert$ $\vert$ 5 $\vert$ OV5647 $\vert$  $\vert$ 200W像素 $\vert$ RDK X3, RDK X3 Module, RDK X5 $\vert$ \href{https://www.waveshare.net/shop/RPi-Camera-G.htm}{\texttt{ OV5647}} $\vert$\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md50}{}\doxysection{使用方法}\label{md__r_e_a_d_m_e_cn_autotoc_md50}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md51}{}\doxysubsection{硬件连接}\label{md__r_e_a_d_m_e_cn_autotoc_md51}
+以\+F37摄像头为例，与\+RDK X3连接方式如下图：
+
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md52}{}\doxysubsection{功能安装}\label{md__r_e_a_d_m_e_cn_autotoc_md52}
+在\+RDK系统的终端中运行如下指令，即可快速安装：
+
+tros foxy 版本 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt install -\/y tros-\/mipi-\/cam}
+
+\end{DoxyCode}
+ tros humbel 版本 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt update}
+\DoxyCodeLine{sudo apt install -\/y tros-\/humble-\/mipi-\/cam}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md53}{}\doxysubsection{启动相机}\label{md__r_e_a_d_m_e_cn_autotoc_md53}
+在\+RDK系统的终端中运行如下指令，可使用默认相机配置，自适应启动已连接的相机：
+
+tros foxy 版本 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# 配置 tros.b 环境：}
+\DoxyCodeLine{source /opt/tros/setup.bash}
+\DoxyCodeLine{\# launch 方式启动}
+\DoxyCodeLine{ros2 launch mipi\_cam mipi\_cam.launch.py}
+
+\end{DoxyCode}
+ tros humble 版本 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# 配置 tros.b humble 环境：}
+\DoxyCodeLine{source /opt/tros/humble/setup.bash}
+\DoxyCodeLine{\# launch 方式启动}
+\DoxyCodeLine{ros2 launch mipi\_cam mipi\_cam.launch.py}
+
+\end{DoxyCode}
+
+
+mipi\+\_\+cam.\+launch.\+py配置默认输出960$\ast$544分辨率\+NV12图像，发布的话题名称为/hbmem\+\_\+img
+
+如需使用其他分比率或者图像格式可以使用对应的launch文件，比如：
+
+
+\begin{DoxyItemize}
+\item \mbox{\hyperlink{mipi__cam__640x480__bgr8_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+bgr8.\+launch.\+py}} 提供640$\ast$480分辨率，\+BGR8格式的图像数据
+\item \mbox{\hyperlink{mipi__cam__640x480__bgr8__hbmem_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+bgr8\+\_\+hbmem.\+launch.\+py}} 提供640$\ast$480分辨率，\+BGR8格式的零拷贝传输图像数据
+\item \mbox{\hyperlink{mipi__cam__640x480__nv12__hbmem_8launch_8py}{mipi\+\_\+cam\+\_\+640x480\+\_\+nv12\+\_\+hbmem.\+launch.\+py}} 提供640$\ast$480分辨率，\+NV12格式的零拷贝传输图像数据
+\end{DoxyItemize}
+
+如程序输出如下信息，说明节点已成功启动
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{[INFO] [launch]: All log files can be found below /root/.ros/log/2022-\/06-\/11-\/15-\/16-\/13-\/641715-\/ubuntu-\/8852}
+\DoxyCodeLine{[INFO] [launch]: Default logging verbosity is set to INFO}
+\DoxyCodeLine{[INFO] [mipi\_cam-\/1]: process started with pid [8854]}
+\DoxyCodeLine{...}
+
+\end{DoxyCode}
+
+
+由于同时如果两路图像向同一个topic发送图像，导致图像冲突，因此启动第二路图像需要重映射topic，启动第二个相机的指令（仅限\+X5和\+S100）：
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 源topic   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 重映射topic    }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 源topic   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 重映射topic    }\\\cline{1-2}
+\endhead
+/image\+\_\+raw   &/image\+\_\+raw\+\_\+alias    \\\cline{1-2}
+/hbmem\+\_\+img   &/hbmem\+\_\+img\+\_\+alias    \\\cline{1-2}
+/camera\+\_\+info   &/camera\+\_\+info\+\_\+alias   \\\cline{1-2}
+\end{longtabu}
+
+
+tros humble 版本 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# 配置 tros.b humble 环境：}
+\DoxyCodeLine{source /opt/tros/humble/setup.bash}
+\DoxyCodeLine{\# run 方式启动}
+\DoxyCodeLine{ros2 run mipi\_cam mipi\_cam -\/-\/ros-\/args -\/-\/remap /image\_raw:=/image\_raw\_alias}
+\DoxyCodeLine{\# 或者launch 方式启动}
+\DoxyCodeLine{ros2 launch mipi\_cam mipi\_cam\_topic\_remap.launch.py}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md54}{}\doxysubsection{图像可视化}\label{md__r_e_a_d_m_e_cn_autotoc_md54}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md55}{}\doxysubsubsection{使用\+ROS rqt\+\_\+image\+\_\+view}\label{md__r_e_a_d_m_e_cn_autotoc_md55}
+这里采用rqt\+\_\+image\+\_\+view方式实现图像可视化，需要在\+PC端安装\+ROS2 Humble版本。由于发布的是原始数据，需要编码\+JPEG图像提高传输效率，另起一个终端用于订阅 MIPI 数据并编码为\+JPEG。\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md56}{}\doxyparagraph{tros foxy 版本}\label{md__r_e_a_d_m_e_cn_autotoc_md56}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/setup.bash}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py codec\_out\_format:=jpeg codec\_pub\_topic:=/image\_raw/compressed}
+
+\end{DoxyCode}
+
+
+保证\+PC与\+RDK X3处于同一网段，以\+Foxy版本为例在\+PC上执行
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# 配置ROS2环境}
+\DoxyCodeLine{source /opt/ros/foxy/local\_setup.bash}
+\DoxyCodeLine{ros2 run rqt\_image\_view rqt\_image\_view}
+
+\end{DoxyCode}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md57}{}\doxyparagraph{tros humble 版本}\label{md__r_e_a_d_m_e_cn_autotoc_md57}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/setup.bash}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py codec\_out\_format:=jpeg codec\_pub\_topic:=/image\_raw/compressed}
+
+\end{DoxyCode}
+
+
+保证\+PC与\+RDK X3处于同一网段，以\+Humble版本为例在\+PC上执行
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\# 配置ROS2环境}
+\DoxyCodeLine{source /opt/ros/humble/local\_setup.bash}
+\DoxyCodeLine{ros2 run rqt\_image\_view rqt\_image\_view}
+
+\end{DoxyCode}
+
+
+选择话题/image\+\_\+raw/compressed,图像效果如下：
+
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md58}{}\doxysubsubsection{使用\+WEB浏览器}\label{md__r_e_a_d_m_e_cn_autotoc_md58}
+这里采用web端方式实现图像可视化，由于发布的是原始数据，需要编码\+JPEG图像，另起两个终端：一个进行订阅 MIPI 数据编码为\+JPEG，一个用于webservice发布。\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md59}{}\doxyparagraph{tros foxy 版本}\label{md__r_e_a_d_m_e_cn_autotoc_md59}
+打开一个新的终端 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/local\_setup.bash}
+\DoxyCodeLine{\# 启动编码}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py}
+
+\end{DoxyCode}
+ 另起一个终端 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/local\_setup.bash}
+\DoxyCodeLine{\# 启动websocket}
+\DoxyCodeLine{ros2 launch websocket websocket.launch.py websocket\_image\_topic:=/image\_jpeg websocket\_only\_show\_image:=true}
+
+\end{DoxyCode}
+ \hypertarget{md__r_e_a_d_m_e_cn_autotoc_md60}{}\doxyparagraph{tros humble 版本}\label{md__r_e_a_d_m_e_cn_autotoc_md60}
+打开一个新的终端 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/local\_setup.bash}
+\DoxyCodeLine{\# 启动编码}
+\DoxyCodeLine{ros2 launch hobot\_codec hobot\_codec\_encode.launch.py}
+
+\end{DoxyCode}
+ 另起一个终端 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{source /opt/tros/humble/local\_setup.bash}
+\DoxyCodeLine{\# 启动websocket}
+\DoxyCodeLine{ros2 launch websocket websocket.launch.py websocket\_image\_topic:=/image\_jpeg websocket\_only\_show\_image:=true}
+
+\end{DoxyCode}
+
+
+PC打开浏览器（chrome/firefox/edge）输入\href{http://IP:8000}{\texttt{ http\+://\+IP\+:8000}}（\+IP为\+RDK IP地址），点击左上方\+Web端展示即可看到\+MIPI摄像头输出的实时画面 \hypertarget{md__r_e_a_d_m_e_cn_autotoc_md61}{}\doxysection{接口说明}\label{md__r_e_a_d_m_e_cn_autotoc_md61}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md62}{}\doxysubsection{话题}\label{md__r_e_a_d_m_e_cn_autotoc_md62}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md63}{}\doxysubsubsection{发布话题}\label{md__r_e_a_d_m_e_cn_autotoc_md63}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endhead
+/camera\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &相机内参话题，根据设置的相机标定文件发布    \\\cline{1-3}
+/image\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &周期发布的图像话题，rgb8格式    \\\cline{1-3}
+/hbmem\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &基于共享内存share mem的图像话题，   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md64}{}\doxysubsubsection{双目发布话题}\label{md__r_e_a_d_m_e_cn_autotoc_md64}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 消息类型   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endhead
+/camera\+\_\+left\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &左目相机内参话题，根据设置的相机标定文件发布    \\\cline{1-3}
+/camera\+\_\+right\+\_\+info   &sensor\+\_\+msgs/msg/\+Camera\+Info   &右目相机内参话题，根据设置的相机标定文件发布    \\\cline{1-3}
+/image\+\_\+left\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &左目相机周期发布的图像话题，rgb8格式    \\\cline{1-3}
+/image\+\_\+right\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &右目相机周期发布的图像话题，rgb8格式    \\\cline{1-3}
+/image\+\_\+combine\+\_\+raw   &sensor\+\_\+msgs/msg/\+Image   &左右目拼接在一起，周期发布的图像话题    \\\cline{1-3}
+/hbmem\+\_\+left\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &基于共享内存share mem的图像话题，左目相机图像    \\\cline{1-3}
+/hbmem\+\_\+right\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &基于共享内存share mem的图像话题，右目相机图像    \\\cline{1-3}
+/hbmem\+\_\+combine\+\_\+img   &rcl\+\_\+interfaces/msg/\+Hobot\+Memory\+Common   &基于共享内存share mem的图像话题，左右目拼接图像   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md65}{}\doxysubsection{参数}\label{md__r_e_a_d_m_e_cn_autotoc_md65}
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 参数值   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 名称   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 参数值   }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 说明    }\\\cline{1-3}
+\endhead
+video\+\_\+device   &自适应（默认）~\newline
+F37~\newline
+GC4663~\newline
+IMX415   &相机设备号，支持自适应适配    \\\cline{1-3}
+image\+\_\+width   &1920（默认）   &和使用的相机有关    \\\cline{1-3}
+image\+\_\+height   &1080（默认）   &和使用的相机有关    \\\cline{1-3}
+out\+\_\+format   &bgr8（默认）~\newline
+nv12   &图像编码方式    \\\cline{1-3}
+io\+\_\+method   &无（默认）~\newline
+shared\+\_\+mem   &图像传输方式，配置shared\+\_\+mem后将使用零拷贝机制传输    \\\cline{1-3}
+camera\+\_\+calibration\+\_\+file\+\_\+path   &无（默认）   &相机标定文件的路径    \\\cline{1-3}
+device\+\_\+mode   &single（默认）~\newline
+single~\newline
+dual   &设备是单目、双目的选择模式    \\\cline{1-3}
+dual\+\_\+combine   &0（默认）~\newline
+1 ~\newline
+2   &当device\+\_\+mode\+\_\+==\char`\"{}dual\char`\"{}时生效，0：表示不支持拼接,输出左右图，1：标志支持拼接，并输出左右图+拼接图，2：表示支持拼接，只输出拼接图    \\\cline{1-3}
+channel   &0（默认）   &mipi的camera接口,范围0$\sim$3    \\\cline{1-3}
+channel2   &2（默认）   &mipi的camera接口,范围0$\sim$3,双目时的右目接口    \\\cline{1-3}
+gdc\+\_\+bin\+\_\+file   &无（默认）   &相机\+GDC文件的路径   \\\cline{1-3}
+\end{longtabu}
+\hypertarget{md__r_e_a_d_m_e_cn_autotoc_md66}{}\doxysection{常见问题}\label{md__r_e_a_d_m_e_cn_autotoc_md66}
+
+\begin{DoxyEnumerate}
+\item 使用不同的相机需要设置不同的video\+\_\+device参数么
+
+不需要，该\+Node支持相机自适应，如果使用“支持相机”章节中列出的相机型号，运行时会自动适配。
+\item 摄像头插拔注意事项
+
+{\bfseries{严禁在开发板未断电的情况下插拔摄像头，否则非常容易烧坏摄像头模组。}}
+\item 如遇到hobot\+\_\+sensor节点启动异常，可通过下述步骤进行问题排查：
+\begin{DoxyItemize}
+\item 检查硬件连接
+\item 是否设置 tros.\+b 环境
+\item 参数是否正确，具体参考 Hobot\+\_\+\+Sensors \mbox{\hyperlink{_r_e_a_d_m_e_8md}{README.\+md}}
+\end{DoxyItemize}
+\item 如遇到\+PC端ros2 topic list未识别到摄像头topic，做如下排查：
+\begin{DoxyItemize}
+\item 检查\+RDK是否正常pub图像
+
+tros foxy 版本 \`{}\`{}\`{}shell source /opt/tros/setup.bash ros2 topic list \`{}\`{}\`{}
+
+tros humble 版本 \`{}\`{}\`{}shell source /opt/tros/humble/setup.bash ros2 topic list \`{}\`{}\`{} ~\newline
+
+
+输出：
+
+\`{}\`{}\`{}text /camera\+\_\+info /hbmem\+\_\+img000b0c26001301040202012020122406 /image\+\_\+raw /image\+\_\+raw/compressed /parameter\+\_\+events /rosout \`{}\`{}\`{}
+\item 检查\+PC和\+RDK网络能否ping通；
+\item PC和\+RDK IP地址是否前三位相同； 
+\end{DoxyItemize}
+\end{DoxyEnumerate}

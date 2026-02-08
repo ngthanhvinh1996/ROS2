@@ -1,0 +1,7 @@
+<map id="mipi_cam::pipe_contex_s" name="mipi_cam::pipe_contex_s">
+<area shape="rect" id="node1" title=" " alt="" coords="301,93,488,120"/>
+<area shape="rect" id="node2" href="$structvp__csi__config__s.html" title=" " alt="" coords="21,5,144,32"/>
+<area shape="rect" id="node3" href="$structmipi__cam_1_1pipeline__channel__info__t.html" title=" " alt="" coords="9,57,156,98"/>
+<area shape="rect" id="node4" href="$structvp__sensor__config__s.html" title=" " alt="" coords="9,123,157,149"/>
+<area shape="rect" id="node5" href="$structmipi__cam_1_1_m_i_p_i___c_a_p___i_n_f_o___s_t.html" title=" " alt="" coords="5,174,160,215"/>
+</map>

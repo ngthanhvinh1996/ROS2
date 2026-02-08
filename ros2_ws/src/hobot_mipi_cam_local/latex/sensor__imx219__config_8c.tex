@@ -1,0 +1,156 @@
+\hypertarget{sensor__imx219__config_8c}{}\doxysection{src/x3/sensor/sensor\+\_\+imx219\+\_\+config.c File Reference}
+\label{sensor__imx219__config_8c}\index{src/x3/sensor/sensor\_imx219\_config.c@{src/x3/sensor/sensor\_imx219\_config.c}}
+{\ttfamily \#include \char`\"{}sensor\+\_\+imx219\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for sensor\+\_\+imx219\+\_\+config.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{sensor__imx219__config_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_aa78de97342c2e1121505681f6c731a5d}{SENSOR\+\_\+2\+LANE\+\_\+\+IMX219\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+INFO}}
+\item 
+MIPI\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_a557a3a7f9f09088985854dbc0f8ab1b8}{MIPI\+\_\+2\+LANE\+\_\+\+SENSOR\+\_\+\+IMX219\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+ATTR}}
+\item 
+VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_a21dec1e5782663a610378e680b4de869}{DEV\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_ae35a4e36aba2be6bec0531aa31838063}{PIPE\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_af9baacc6c18a569f9ed5cce9b11c98b5}{DIS\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__imx219__config_8c_a463c4ac61ae47aa92eb004384b5fd681}{LDC\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{sensor__imx219__config_8c_a21dec1e5782663a610378e680b4de869}\label{sensor__imx219__config_8c_a21dec1e5782663a610378e680b4de869}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!DEV\_ATTR\_IMX219\_LINEAR\_BASE@{DEV\_ATTR\_IMX219\_LINEAR\_BASE}}
+\index{DEV\_ATTR\_IMX219\_LINEAR\_BASE@{DEV\_ATTR\_IMX219\_LINEAR\_BASE}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{DEV\_ATTR\_IMX219\_LINEAR\_BASE}{DEV\_ATTR\_IMX219\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S DEV\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__imx219__config_8c_af9baacc6c18a569f9ed5cce9b11c98b5}\label{sensor__imx219__config_8c_af9baacc6c18a569f9ed5cce9b11c98b5}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!DIS\_ATTR\_IMX219\_LINEAR\_BASE@{DIS\_ATTR\_IMX219\_LINEAR\_BASE}}
+\index{DIS\_ATTR\_IMX219\_LINEAR\_BASE@{DIS\_ATTR\_IMX219\_LINEAR\_BASE}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{DIS\_ATTR\_IMX219\_LINEAR\_BASE}{DIS\_ATTR\_IMX219\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S DIS\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .picSize = \{ }
+\DoxyCodeLine{        .pic\_w = 1919, }
+\DoxyCodeLine{        .pic\_h = 1079, }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disPath = \{ }
+\DoxyCodeLine{        .rg\_dis\_enable = 0, }
+\DoxyCodeLine{        .rg\_dis\_path\_sel = 1, }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disHratio = 65536, }
+\DoxyCodeLine{    .disVratio = 65536, }
+\DoxyCodeLine{    .xCrop = \{ }
+\DoxyCodeLine{        .rg\_dis\_start = 0,}
+\DoxyCodeLine{        .rg\_dis\_end = 1919,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .yCrop = \{ }
+\DoxyCodeLine{        .rg\_dis\_start = 0,}
+\DoxyCodeLine{        .rg\_dis\_end = 1079,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disBufNum = 8,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__imx219__config_8c_a463c4ac61ae47aa92eb004384b5fd681}\label{sensor__imx219__config_8c_a463c4ac61ae47aa92eb004384b5fd681}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!LDC\_ATTR\_IMX219\_LINEAR\_BASE@{LDC\_ATTR\_IMX219\_LINEAR\_BASE}}
+\index{LDC\_ATTR\_IMX219\_LINEAR\_BASE@{LDC\_ATTR\_IMX219\_LINEAR\_BASE}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{LDC\_ATTR\_IMX219\_LINEAR\_BASE}{LDC\_ATTR\_IMX219\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S LDC\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__imx219__config_8c_a557a3a7f9f09088985854dbc0f8ab1b8}\label{sensor__imx219__config_8c_a557a3a7f9f09088985854dbc0f8ab1b8}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR@{MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR}}
+\index{MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR@{MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR}{MIPI\_2LANE\_SENSOR\_IMX219\_30FPS\_10BIT\_LINEAR\_ATTR}}
+{\footnotesize\ttfamily MIPI\+\_\+\+ATTR\+\_\+S MIPI\+\_\+2\+LANE\+\_\+\+SENSOR\+\_\+\+IMX219\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+ATTR}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .mipi\_host\_cfg = \{}
+\DoxyCodeLine{        .lane = 2, }
+\DoxyCodeLine{        .datatype = 0x2b, }
+\DoxyCodeLine{        .mclk = 2400, }
+\DoxyCodeLine{        .mipiclk = 1728, }
+\DoxyCodeLine{        .fps = 30, }
+\DoxyCodeLine{        .width = 1920, }
+\DoxyCodeLine{        .height = 1080,}
+\DoxyCodeLine{        .linelenth = 3448, }
+\DoxyCodeLine{        .framelenth = 1166, }
+\DoxyCodeLine{        .settle = 30, }
+\DoxyCodeLine{        .channel\_num = 1, }
+\DoxyCodeLine{        .channel\_sel = \{0\} }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .dev\_enable = 0 }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__imx219__config_8c_ae35a4e36aba2be6bec0531aa31838063}\label{sensor__imx219__config_8c_ae35a4e36aba2be6bec0531aa31838063}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!PIPE\_ATTR\_IMX219\_LINEAR\_BASE@{PIPE\_ATTR\_IMX219\_LINEAR\_BASE}}
+\index{PIPE\_ATTR\_IMX219\_LINEAR\_BASE@{PIPE\_ATTR\_IMX219\_LINEAR\_BASE}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{PIPE\_ATTR\_IMX219\_LINEAR\_BASE}{PIPE\_ATTR\_IMX219\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S PIPE\+\_\+\+ATTR\+\_\+\+IMX219\+\_\+\+LINEAR\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .ddrOutBufNum = 6, }
+\DoxyCodeLine{    .snsMode = SENSOR\_NORMAL\_MODE, }
+\DoxyCodeLine{    .stSize = \{ }
+\DoxyCodeLine{        .format = 0,}
+\DoxyCodeLine{        .width = 1920,}
+\DoxyCodeLine{        .height = 1080,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .cfaPattern = PIPE\_BAYER\_RGGB, }
+\DoxyCodeLine{    .temperMode = 0, }
+\DoxyCodeLine{    .ispBypassEn = 0, }
+\DoxyCodeLine{    .ispAlgoState = 1, }
+\DoxyCodeLine{    .bitwidth = 10, }
+\DoxyCodeLine{    .calib = \{ }
+\DoxyCodeLine{        .mode = 1, }
+\DoxyCodeLine{        .lname = \textcolor{stringliteral}{"{}libimx219\_linear.so"{}}, }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__imx219__config_8c_aa78de97342c2e1121505681f6c731a5d}\label{sensor__imx219__config_8c_aa78de97342c2e1121505681f6c731a5d}} 
+\index{sensor\_imx219\_config.c@{sensor\_imx219\_config.c}!SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO@{SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO}}
+\index{SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO@{SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO}!sensor\_imx219\_config.c@{sensor\_imx219\_config.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO}{SENSOR\_2LANE\_IMX219\_30FPS\_10BIT\_LINEAR\_INFO}}
+{\footnotesize\ttfamily MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S SENSOR\+\_\+2\+LANE\+\_\+\+IMX219\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+INFO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .deseEnable = 0, }
+\DoxyCodeLine{    .inputMode = INPUT\_MODE\_MIPI, }
+\DoxyCodeLine{    .sensorInfo = \{}
+\DoxyCodeLine{        .port = 0, }
+\DoxyCodeLine{        .dev\_port = 0, }
+\DoxyCodeLine{        .bus\_type = 0, }
+\DoxyCodeLine{        .bus\_num = 3, }
+\DoxyCodeLine{        .fps = 30, }
+\DoxyCodeLine{        .resolution = 1080, }
+\DoxyCodeLine{        .sensor\_addr = 0x10, }
+\DoxyCodeLine{        .entry\_index = 0, }
+\DoxyCodeLine{        .sensor\_mode = NORMAL\_M, }
+\DoxyCodeLine{        .reg\_width = 16, }
+\DoxyCodeLine{        .sensor\_name = \textcolor{stringliteral}{"{}imx219"{}}, }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

@@ -1,0 +1,156 @@
+\hypertarget{sensor__sc230ai__config_8c}{}\doxysection{src/x3/sensor/sensor\+\_\+sc230ai\+\_\+config.c File Reference}
+\label{sensor__sc230ai__config_8c}\index{src/x3/sensor/sensor\_sc230ai\_config.c@{src/x3/sensor/sensor\_sc230ai\_config.c}}
+{\ttfamily \#include \char`\"{}sensor\+\_\+sc230ai\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for sensor\+\_\+sc230ai\+\_\+config.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{sensor__sc230ai__config_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_a3a082bbd444d80e5921245e75100f503}{SENSOR\+\_\+2\+LANE\+\_\+\+SC230\+AI\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+INFO}}
+\item 
+MIPI\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_a664bf4336a586e202c8fc099f2720a02}{MIPI\+\_\+2\+LANE\+\_\+\+SENSOR\+\_\+\+SC230\+AI\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+ATTR}}
+\item 
+VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_ac792bb46f6e2d04c8756d341e7f43161}{DEV\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_a5a1c0961d0dbb925b31d5218e33986b7}{PIPE\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_acee5e04db90775eb4812dc8e5e774128}{DIS\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__sc230ai__config_8c_a6cde2941f4becc0432001016c55fc093}{LDC\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_ac792bb46f6e2d04c8756d341e7f43161}\label{sensor__sc230ai__config_8c_ac792bb46f6e2d04c8756d341e7f43161}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!DEV\_ATTR\_SC230AI\_LINEAR\_BASE@{DEV\_ATTR\_SC230AI\_LINEAR\_BASE}}
+\index{DEV\_ATTR\_SC230AI\_LINEAR\_BASE@{DEV\_ATTR\_SC230AI\_LINEAR\_BASE}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{DEV\_ATTR\_SC230AI\_LINEAR\_BASE}{DEV\_ATTR\_SC230AI\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S DEV\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_acee5e04db90775eb4812dc8e5e774128}\label{sensor__sc230ai__config_8c_acee5e04db90775eb4812dc8e5e774128}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!DIS\_ATTR\_SC230AI\_LINEAR\_BASE@{DIS\_ATTR\_SC230AI\_LINEAR\_BASE}}
+\index{DIS\_ATTR\_SC230AI\_LINEAR\_BASE@{DIS\_ATTR\_SC230AI\_LINEAR\_BASE}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{DIS\_ATTR\_SC230AI\_LINEAR\_BASE}{DIS\_ATTR\_SC230AI\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S DIS\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .picSize = \{ }
+\DoxyCodeLine{        .pic\_w = 1919, }
+\DoxyCodeLine{        .pic\_h = 1079, }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disPath = \{ }
+\DoxyCodeLine{        .rg\_dis\_enable = 0, }
+\DoxyCodeLine{        .rg\_dis\_path\_sel = 1, }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disHratio = 65536, }
+\DoxyCodeLine{    .disVratio = 65536, }
+\DoxyCodeLine{    .xCrop = \{ }
+\DoxyCodeLine{        .rg\_dis\_start = 0,}
+\DoxyCodeLine{        .rg\_dis\_end = 1919,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .yCrop = \{ }
+\DoxyCodeLine{        .rg\_dis\_start = 0,}
+\DoxyCodeLine{        .rg\_dis\_end = 1079,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .disBufNum = 8,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_a6cde2941f4becc0432001016c55fc093}\label{sensor__sc230ai__config_8c_a6cde2941f4becc0432001016c55fc093}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!LDC\_ATTR\_SC230AI\_LINEAR\_BASE@{LDC\_ATTR\_SC230AI\_LINEAR\_BASE}}
+\index{LDC\_ATTR\_SC230AI\_LINEAR\_BASE@{LDC\_ATTR\_SC230AI\_LINEAR\_BASE}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{LDC\_ATTR\_SC230AI\_LINEAR\_BASE}{LDC\_ATTR\_SC230AI\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S LDC\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_a664bf4336a586e202c8fc099f2720a02}\label{sensor__sc230ai__config_8c_a664bf4336a586e202c8fc099f2720a02}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR@{MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR}}
+\index{MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR@{MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR}{MIPI\_2LANE\_SENSOR\_SC230AI\_30FPS\_10BIT\_LINEAR\_ATTR}}
+{\footnotesize\ttfamily MIPI\+\_\+\+ATTR\+\_\+S MIPI\+\_\+2\+LANE\+\_\+\+SENSOR\+\_\+\+SC230\+AI\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+ATTR}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .mipi\_host\_cfg = \{}
+\DoxyCodeLine{        .lane = 2, }
+\DoxyCodeLine{        .datatype = 0x2b, }
+\DoxyCodeLine{        .mclk = 2400, }
+\DoxyCodeLine{        .mipiclk = 1200, }
+\DoxyCodeLine{        .fps = 30, }
+\DoxyCodeLine{        .width = 1920, }
+\DoxyCodeLine{        .height = 1080,}
+\DoxyCodeLine{        .linelenth = 2800, }
+\DoxyCodeLine{        .framelenth = 1200, }
+\DoxyCodeLine{        .settle = 30, }
+\DoxyCodeLine{        .channel\_num = 1, }
+\DoxyCodeLine{        .channel\_sel = \{0\} }
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .dev\_enable = 0 }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_a5a1c0961d0dbb925b31d5218e33986b7}\label{sensor__sc230ai__config_8c_a5a1c0961d0dbb925b31d5218e33986b7}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!PIPE\_ATTR\_SC230AI\_LINEAR\_BASE@{PIPE\_ATTR\_SC230AI\_LINEAR\_BASE}}
+\index{PIPE\_ATTR\_SC230AI\_LINEAR\_BASE@{PIPE\_ATTR\_SC230AI\_LINEAR\_BASE}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{PIPE\_ATTR\_SC230AI\_LINEAR\_BASE}{PIPE\_ATTR\_SC230AI\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S PIPE\+\_\+\+ATTR\+\_\+\+SC230\+AI\+\_\+\+LINEAR\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .ddrOutBufNum = 6, }
+\DoxyCodeLine{    .snsMode = SENSOR\_NORMAL\_MODE, }
+\DoxyCodeLine{    .stSize = \{ }
+\DoxyCodeLine{        .format = 0,}
+\DoxyCodeLine{        .width = 1920,}
+\DoxyCodeLine{        .height = 1080,}
+\DoxyCodeLine{    \},}
+\DoxyCodeLine{    .cfaPattern = PIPE\_BAYER\_BGGR, }
+\DoxyCodeLine{    .temperMode = 0, }
+\DoxyCodeLine{    .ispBypassEn = 0, }
+\DoxyCodeLine{    .ispAlgoState = 1, }
+\DoxyCodeLine{    .bitwidth = 10, }
+\DoxyCodeLine{    .calib = \{ }
+\DoxyCodeLine{        .mode = 1, }
+\DoxyCodeLine{        .lname = \textcolor{stringliteral}{"{}libsc230ai\_linear.so"{}}, }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__sc230ai__config_8c_a3a082bbd444d80e5921245e75100f503}\label{sensor__sc230ai__config_8c_a3a082bbd444d80e5921245e75100f503}} 
+\index{sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}!SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO@{SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO}}
+\index{SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO@{SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO}!sensor\_sc230ai\_config.c@{sensor\_sc230ai\_config.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO}{SENSOR\_2LANE\_SC230AI\_30FPS\_10BIT\_LINEAR\_INFO}}
+{\footnotesize\ttfamily MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S SENSOR\+\_\+2\+LANE\+\_\+\+SC230\+AI\+\_\+30\+FPS\+\_\+10\+BIT\+\_\+\+LINEAR\+\_\+\+INFO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .deseEnable = 0, }
+\DoxyCodeLine{    .inputMode = INPUT\_MODE\_MIPI, }
+\DoxyCodeLine{    .sensorInfo = \{}
+\DoxyCodeLine{        .port = 0, }
+\DoxyCodeLine{        .dev\_port = 0, }
+\DoxyCodeLine{        .bus\_type = 0, }
+\DoxyCodeLine{        .bus\_num = 1, }
+\DoxyCodeLine{        .fps = 30, }
+\DoxyCodeLine{        .resolution = 1080, }
+\DoxyCodeLine{        .sensor\_addr = 0x30, }
+\DoxyCodeLine{        .entry\_index = 0, }
+\DoxyCodeLine{        .sensor\_mode = NORMAL\_M, }
+\DoxyCodeLine{        .reg\_width = 16, }
+\DoxyCodeLine{        .sensor\_name = \textcolor{stringliteral}{"{}sc230ai"{}}, }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{                            }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

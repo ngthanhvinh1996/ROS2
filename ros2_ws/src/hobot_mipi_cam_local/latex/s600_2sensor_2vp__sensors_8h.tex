@@ -1,0 +1,280 @@
+\hypertarget{s600_2sensor_2vp__sensors_8h}{}\doxysection{src/s600/sensor/vp\+\_\+sensors.h File Reference}
+\label{s600_2sensor_2vp__sensors_8h}\index{src/s600/sensor/vp\_sensors.h@{src/s600/sensor/vp\_sensors.h}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+vin\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+isp\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+camera\+\_\+data\+\_\+config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+vpf\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+comm\+\_\+isp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+pym\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+vpm\+\_\+data\+\_\+info.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+vio\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+ynr\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ynr\+\_\+cfg.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hbn\+\_\+vpf\+\_\+data\+\_\+info.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+camera\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hb\+\_\+deserial\+\_\+interface.\+h\char`\"{}}\newline
+Include dependency graph for vp\+\_\+sensors.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{s600_2sensor_2vp__sensors_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{s600_2sensor_2vp__sensors_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcsi__info__t}{csi\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structcsi__list__info__t}{csi\+\_\+list\+\_\+info\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structvcon__properties}{vcon\+\_\+properties}}
+\item 
+struct \mbox{\hyperlink{structmipi__properties}{mipi\+\_\+properties}}
+\item 
+struct \mbox{\hyperlink{structvp__csi__config__s}{vp\+\_\+csi\+\_\+config\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structvp__sensor__config__s}{vp\+\_\+sensor\+\_\+config\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structmipi__host__info}{mipi\+\_\+host\+\_\+info}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a54061e5993a5517320d425f44408cc86}{MAGIC\+\_\+\+NUMBER}}~0x12345678
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_aaff04b1604e9261e09b3b82614c06ce8}{AUTO\+\_\+\+ALLOC\+\_\+\+ID}}~-\/1
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_abbf983dbd3caf654746efe056625328c}{VP\+\_\+\+MAX\+\_\+\+BUF\+\_\+\+SIZE}}~256
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_aa4843485230cb3f200a324ab1028550b}{VP\+\_\+\+MAX\+\_\+\+VCON\+\_\+\+NUM}}~4
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a2066018f5b88791d02446bcafd9591a9}{SENSOR\+\_\+\+TYPE\+\_\+\+NORMAL}}~0
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_ae5dad6b9287f00b32e18dd6a015c982c}{SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+RAW}}~1
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a049c6eb712e24195d2111b581e1bfc9b}{SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+YUV}}~2
+\item 
+\#define \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a83bfdd06c94589907c83392d1c1d504e}{SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+RGBIR}}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structvcon__properties}{vcon\+\_\+properties}} \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}{vcon\+\_\+propertie\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structmipi__properties}{mipi\+\_\+properties}} \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a363629145ed41bdfe59051488a0011f6}{mipi\+\_\+propertie\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structvp__csi__config__s}{vp\+\_\+csi\+\_\+config\+\_\+s}} \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structvp__sensor__config__s}{vp\+\_\+sensor\+\_\+config\+\_\+s}} \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{structmipi__host__info}{mipi\+\_\+host\+\_\+info}} \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_af40deb854bf814b42aa5e4642fe65836}{vp\+\_\+get\+\_\+sensors\+\_\+list\+\_\+number}} ()
+\item 
+void \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a3b5ab7e79f9424717ead7e4a15a65d4f}{vp\+\_\+show\+\_\+sensors\+\_\+list}} ()
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a4ccd7ceeeca262c403bebe4f38c30799}{vp\+\_\+get\+\_\+sensor\+\_\+config\+\_\+by\+\_\+name}} (char $\ast$sensor\+\_\+name)
+\item 
+void \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_ae07550cca12acc6b9d4c0bc489324a7c}{vp\+\_\+sensor\+\_\+detect\+\_\+structed}} (\mbox{\hyperlink{structcsi__list__info__t}{csi\+\_\+list\+\_\+info\+\_\+t}} $\ast$csi\+\_\+list\+\_\+info)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a4b29cb4be91a5fde10d4e6e21098c0b1}{vp\+\_\+get\+\_\+gmsl\+\_\+list\+\_\+number}} ()
+\item 
+void \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_abb47c5d1e77e0e28cfd35bef5c6c9709}{vp\+\_\+show\+\_\+gmsl\+\_\+list}} ()
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a3e2057ea295b0074b2c9f8cc3749f69e}{vp\+\_\+get\+\_\+gmsl\+\_\+config\+\_\+by\+\_\+name}} (char $\ast$sensor\+\_\+name)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_abb3e292b523b921d9e5de4b33e95d713}{vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$mipi\+\_\+config)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a44db5d33b4eb795f84088d79de862dcb}{vp\+\_\+sensor\+\_\+multi\+\_\+fixed\+\_\+mipi\+\_\+host}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, int used\+\_\+mipi\+\_\+host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$mipi\+\_\+config)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a5c7b28c6f471dcf5edc723db741c87fa}{vp\+\_\+sensor\+\_\+detect\+\_\+2}} (int host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}} $\ast$host\+\_\+info)
+\item 
+int32\+\_\+t \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a9c9397932c746aaedc20c36f4b646fbe}{vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host\+\_\+1}} (int host, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$sensor\+\_\+config, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$csi\+\_\+config)
+\item 
+int \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_a7c5949a741fadcec3ccf0f8267974e45}{copy\+\_\+config}} (\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$dest, \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$src)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$ \mbox{\hyperlink{s600_2sensor_2vp__sensors_8h_af2d6f3f4dc82418d2e06e99622c467d5}{vp\+\_\+sensor\+\_\+config\+\_\+list}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_aaff04b1604e9261e09b3b82614c06ce8}\label{s600_2sensor_2vp__sensors_8h_aaff04b1604e9261e09b3b82614c06ce8}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!AUTO\_ALLOC\_ID@{AUTO\_ALLOC\_ID}}
+\index{AUTO\_ALLOC\_ID@{AUTO\_ALLOC\_ID}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{AUTO\_ALLOC\_ID}{AUTO\_ALLOC\_ID}}
+{\footnotesize\ttfamily \#define AUTO\+\_\+\+ALLOC\+\_\+\+ID~-\/1}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a54061e5993a5517320d425f44408cc86}\label{s600_2sensor_2vp__sensors_8h_a54061e5993a5517320d425f44408cc86}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!MAGIC\_NUMBER@{MAGIC\_NUMBER}}
+\index{MAGIC\_NUMBER@{MAGIC\_NUMBER}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{MAGIC\_NUMBER}{MAGIC\_NUMBER}}
+{\footnotesize\ttfamily \#define MAGIC\+\_\+\+NUMBER~0x12345678}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_ae5dad6b9287f00b32e18dd6a015c982c}\label{s600_2sensor_2vp__sensors_8h_ae5dad6b9287f00b32e18dd6a015c982c}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!SENSOR\_TYPE\_GMSL\_RAW@{SENSOR\_TYPE\_GMSL\_RAW}}
+\index{SENSOR\_TYPE\_GMSL\_RAW@{SENSOR\_TYPE\_GMSL\_RAW}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_GMSL\_RAW}{SENSOR\_TYPE\_GMSL\_RAW}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+RAW~1}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a83bfdd06c94589907c83392d1c1d504e}\label{s600_2sensor_2vp__sensors_8h_a83bfdd06c94589907c83392d1c1d504e}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!SENSOR\_TYPE\_GMSL\_RGBIR@{SENSOR\_TYPE\_GMSL\_RGBIR}}
+\index{SENSOR\_TYPE\_GMSL\_RGBIR@{SENSOR\_TYPE\_GMSL\_RGBIR}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_GMSL\_RGBIR}{SENSOR\_TYPE\_GMSL\_RGBIR}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+RGBIR~3}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a049c6eb712e24195d2111b581e1bfc9b}\label{s600_2sensor_2vp__sensors_8h_a049c6eb712e24195d2111b581e1bfc9b}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!SENSOR\_TYPE\_GMSL\_YUV@{SENSOR\_TYPE\_GMSL\_YUV}}
+\index{SENSOR\_TYPE\_GMSL\_YUV@{SENSOR\_TYPE\_GMSL\_YUV}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_GMSL\_YUV}{SENSOR\_TYPE\_GMSL\_YUV}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+GMSL\+\_\+\+YUV~2}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a2066018f5b88791d02446bcafd9591a9}\label{s600_2sensor_2vp__sensors_8h_a2066018f5b88791d02446bcafd9591a9}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!SENSOR\_TYPE\_NORMAL@{SENSOR\_TYPE\_NORMAL}}
+\index{SENSOR\_TYPE\_NORMAL@{SENSOR\_TYPE\_NORMAL}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_NORMAL}{SENSOR\_TYPE\_NORMAL}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+NORMAL~0}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_abbf983dbd3caf654746efe056625328c}\label{s600_2sensor_2vp__sensors_8h_abbf983dbd3caf654746efe056625328c}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!VP\_MAX\_BUF\_SIZE@{VP\_MAX\_BUF\_SIZE}}
+\index{VP\_MAX\_BUF\_SIZE@{VP\_MAX\_BUF\_SIZE}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{VP\_MAX\_BUF\_SIZE}{VP\_MAX\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define VP\+\_\+\+MAX\+\_\+\+BUF\+\_\+\+SIZE~256}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_aa4843485230cb3f200a324ab1028550b}\label{s600_2sensor_2vp__sensors_8h_aa4843485230cb3f200a324ab1028550b}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!VP\_MAX\_VCON\_NUM@{VP\_MAX\_VCON\_NUM}}
+\index{VP\_MAX\_VCON\_NUM@{VP\_MAX\_VCON\_NUM}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{VP\_MAX\_VCON\_NUM}{VP\_MAX\_VCON\_NUM}}
+{\footnotesize\ttfamily \#define VP\+\_\+\+MAX\+\_\+\+VCON\+\_\+\+NUM~4}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}\label{s600_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!mipi\_host\_info\_t@{mipi\_host\_info\_t}}
+\index{mipi\_host\_info\_t@{mipi\_host\_info\_t}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{mipi\_host\_info\_t}{mipi\_host\_info\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structmipi__host__info}{mipi\+\_\+host\+\_\+info}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}}}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a363629145ed41bdfe59051488a0011f6}\label{s600_2sensor_2vp__sensors_8h_a363629145ed41bdfe59051488a0011f6}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!mipi\_propertie\_t@{mipi\_propertie\_t}}
+\index{mipi\_propertie\_t@{mipi\_propertie\_t}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{mipi\_propertie\_t}{mipi\_propertie\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structmipi__properties}{mipi\+\_\+properties}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a363629145ed41bdfe59051488a0011f6}{mipi\+\_\+propertie\+\_\+t}}}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}\label{s600_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vcon\_propertie\_t@{vcon\_propertie\_t}}
+\index{vcon\_propertie\_t@{vcon\_propertie\_t}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vcon\_propertie\_t}{vcon\_propertie\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structvcon__properties}{vcon\+\_\+properties}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a373601f9ee78057b5535c3cedea54164}{vcon\+\_\+propertie\+\_\+t}}}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}\label{s600_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_csi\_config\_t@{vp\_csi\_config\_t}}
+\index{vp\_csi\_config\_t@{vp\_csi\_config\_t}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_csi\_config\_t}{vp\_csi\_config\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structvp__csi__config__s}{vp\+\_\+csi\+\_\+config\+\_\+s}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}}}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}\label{s600_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_config\_t@{vp\_sensor\_config\_t}}
+\index{vp\_sensor\_config\_t@{vp\_sensor\_config\_t}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_config\_t}{vp\_sensor\_config\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structvp__sensor__config__s}{vp\+\_\+sensor\+\_\+config\+\_\+s}} \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a7c5949a741fadcec3ccf0f8267974e45}\label{s600_2sensor_2vp__sensors_8h_a7c5949a741fadcec3ccf0f8267974e45}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!copy\_config@{copy\_config}}
+\index{copy\_config@{copy\_config}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{copy\_config()}{copy\_config()}}
+{\footnotesize\ttfamily int copy\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{src }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a3e2057ea295b0074b2c9f8cc3749f69e}\label{s600_2sensor_2vp__sensors_8h_a3e2057ea295b0074b2c9f8cc3749f69e}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_get\_gmsl\_config\_by\_name@{vp\_get\_gmsl\_config\_by\_name}}
+\index{vp\_get\_gmsl\_config\_by\_name@{vp\_get\_gmsl\_config\_by\_name}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_gmsl\_config\_by\_name()}{vp\_get\_gmsl\_config\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+get\+\_\+gmsl\+\_\+config\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{sensor\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a4b29cb4be91a5fde10d4e6e21098c0b1}\label{s600_2sensor_2vp__sensors_8h_a4b29cb4be91a5fde10d4e6e21098c0b1}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_get\_gmsl\_list\_number@{vp\_get\_gmsl\_list\_number}}
+\index{vp\_get\_gmsl\_list\_number@{vp\_get\_gmsl\_list\_number}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_gmsl\_list\_number()}{vp\_get\_gmsl\_list\_number()}}
+{\footnotesize\ttfamily uint32\+\_\+t vp\+\_\+get\+\_\+gmsl\+\_\+list\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a4ccd7ceeeca262c403bebe4f38c30799}\label{s600_2sensor_2vp__sensors_8h_a4ccd7ceeeca262c403bebe4f38c30799}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_get\_sensor\_config\_by\_name@{vp\_get\_sensor\_config\_by\_name}}
+\index{vp\_get\_sensor\_config\_by\_name@{vp\_get\_sensor\_config\_by\_name}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_sensor\_config\_by\_name()}{vp\_get\_sensor\_config\_by\_name()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+get\+\_\+sensor\+\_\+config\+\_\+by\+\_\+name (\begin{DoxyParamCaption}\item[{char $\ast$}]{sensor\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_af40deb854bf814b42aa5e4642fe65836}\label{s600_2sensor_2vp__sensors_8h_af40deb854bf814b42aa5e4642fe65836}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_get\_sensors\_list\_number@{vp\_get\_sensors\_list\_number}}
+\index{vp\_get\_sensors\_list\_number@{vp\_get\_sensors\_list\_number}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_get\_sensors\_list\_number()}{vp\_get\_sensors\_list\_number()}}
+{\footnotesize\ttfamily uint32\+\_\+t vp\+\_\+get\+\_\+sensors\+\_\+list\+\_\+number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a5c7b28c6f471dcf5edc723db741c87fa}\label{s600_2sensor_2vp__sensors_8h_a5c7b28c6f471dcf5edc723db741c87fa}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_detect\_2@{vp\_sensor\_detect\_2}}
+\index{vp\_sensor\_detect\_2@{vp\_sensor\_detect\_2}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_detect\_2()}{vp\_sensor\_detect\_2()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+detect\+\_\+2 (\begin{DoxyParamCaption}\item[{int}]{host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_ae7e259d5a0d51b4217032c82b7e19525}{mipi\+\_\+host\+\_\+info\+\_\+t}} $\ast$}]{host\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_ae07550cca12acc6b9d4c0bc489324a7c}\label{s600_2sensor_2vp__sensors_8h_ae07550cca12acc6b9d4c0bc489324a7c}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_detect\_structed@{vp\_sensor\_detect\_structed}}
+\index{vp\_sensor\_detect\_structed@{vp\_sensor\_detect\_structed}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_detect\_structed()}{vp\_sensor\_detect\_structed()}}
+{\footnotesize\ttfamily void vp\+\_\+sensor\+\_\+detect\+\_\+structed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structcsi__list__info__t}{csi\+\_\+list\+\_\+info\+\_\+t}} $\ast$}]{csi\+\_\+list\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_abb3e292b523b921d9e5de4b33e95d713}\label{s600_2sensor_2vp__sensors_8h_abb3e292b523b921d9e5de4b33e95d713}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_fixed\_mipi\_host@{vp\_sensor\_fixed\_mipi\_host}}
+\index{vp\_sensor\_fixed\_mipi\_host@{vp\_sensor\_fixed\_mipi\_host}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_fixed\_mipi\_host()}{vp\_sensor\_fixed\_mipi\_host()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{mipi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a9c9397932c746aaedc20c36f4b646fbe}\label{s600_2sensor_2vp__sensors_8h_a9c9397932c746aaedc20c36f4b646fbe}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_fixed\_mipi\_host\_1@{vp\_sensor\_fixed\_mipi\_host\_1}}
+\index{vp\_sensor\_fixed\_mipi\_host\_1@{vp\_sensor\_fixed\_mipi\_host\_1}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_fixed\_mipi\_host\_1()}{vp\_sensor\_fixed\_mipi\_host\_1()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+fixed\+\_\+mipi\+\_\+host\+\_\+1 (\begin{DoxyParamCaption}\item[{int}]{host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{csi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a44db5d33b4eb795f84088d79de862dcb}\label{s600_2sensor_2vp__sensors_8h_a44db5d33b4eb795f84088d79de862dcb}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_multi\_fixed\_mipi\_host@{vp\_sensor\_multi\_fixed\_mipi\_host}}
+\index{vp\_sensor\_multi\_fixed\_mipi\_host@{vp\_sensor\_multi\_fixed\_mipi\_host}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_multi\_fixed\_mipi\_host()}{vp\_sensor\_multi\_fixed\_mipi\_host()}}
+{\footnotesize\ttfamily int32\+\_\+t vp\+\_\+sensor\+\_\+multi\+\_\+fixed\+\_\+mipi\+\_\+host (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}} $\ast$}]{sensor\+\_\+config,  }\item[{int}]{used\+\_\+mipi\+\_\+host,  }\item[{\mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a6e02241b39c6621127ae59aa54bea388}{vp\+\_\+csi\+\_\+config\+\_\+t}} $\ast$}]{mipi\+\_\+config }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_abb47c5d1e77e0e28cfd35bef5c6c9709}\label{s600_2sensor_2vp__sensors_8h_abb47c5d1e77e0e28cfd35bef5c6c9709}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_show\_gmsl\_list@{vp\_show\_gmsl\_list}}
+\index{vp\_show\_gmsl\_list@{vp\_show\_gmsl\_list}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_show\_gmsl\_list()}{vp\_show\_gmsl\_list()}}
+{\footnotesize\ttfamily void vp\+\_\+show\+\_\+gmsl\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_a3b5ab7e79f9424717ead7e4a15a65d4f}\label{s600_2sensor_2vp__sensors_8h_a3b5ab7e79f9424717ead7e4a15a65d4f}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_show\_sensors\_list@{vp\_show\_sensors\_list}}
+\index{vp\_show\_sensors\_list@{vp\_show\_sensors\_list}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_show\_sensors\_list()}{vp\_show\_sensors\_list()}}
+{\footnotesize\ttfamily void vp\+\_\+show\+\_\+sensors\+\_\+list (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{s600_2sensor_2vp__sensors_8h_af2d6f3f4dc82418d2e06e99622c467d5}\label{s600_2sensor_2vp__sensors_8h_af2d6f3f4dc82418d2e06e99622c467d5}} 
+\index{vp\_sensors.h@{vp\_sensors.h}!vp\_sensor\_config\_list@{vp\_sensor\_config\_list}}
+\index{vp\_sensor\_config\_list@{vp\_sensor\_config\_list}!vp\_sensors.h@{vp\_sensors.h}}
+\doxysubsubsection{\texorpdfstring{vp\_sensor\_config\_list}{vp\_sensor\_config\_list}}
+{\footnotesize\ttfamily \mbox{\hyperlink{s100_2sensor_2vp__sensors_8h_a5efcfbed6faf6d55d6f4dfdc2fc44012}{vp\+\_\+sensor\+\_\+config\+\_\+t}}$\ast$ vp\+\_\+sensor\+\_\+config\+\_\+list\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

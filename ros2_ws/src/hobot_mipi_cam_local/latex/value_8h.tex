@@ -1,0 +1,103 @@
+\hypertarget{value_8h}{}\doxysection{deps/jsoncpp/include/json/value.h File Reference}
+\label{value_8h}\index{deps/jsoncpp/include/json/value.h@{deps/jsoncpp/include/json/value.h}}
+{\ttfamily \#include \char`\"{}forwards.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+Include dependency graph for value.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{value_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{value_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_json_1_1_exception}{Json\+::\+Exception}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_runtime_error}{Json\+::\+Runtime\+Error}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_logic_error}{Json\+::\+Logic\+Error}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_static_string}{Json\+::\+Static\+String}}
+\begin{DoxyCompactList}\small\item\em Lightweight wrapper to tag static string. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}
+\begin{DoxyCompactList}\small\item\em Represents a \href{http://www.json.org}{\texttt{ JSON}} value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_1_1_c_z_string}{Json\+::\+Value\+::\+CZString}}
+\item 
+struct \mbox{\hyperlink{struct_json_1_1_value_1_1_c_z_string_1_1_string_storage}{Json\+::\+Value\+::\+CZString\+::\+String\+Storage}}
+\item 
+struct \mbox{\hyperlink{struct_json_1_1_value_1_1_comment_info}{Json\+::\+Value\+::\+Comment\+Info}}
+\item 
+union \mbox{\hyperlink{union_json_1_1_value_1_1_value_holder}{Json\+::\+Value\+::\+Value\+Holder}}
+\item 
+class \mbox{\hyperlink{class_json_1_1_path_argument}{Json\+::\+Path\+Argument}}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\+: represents an element of the \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_path}{Json\+::\+Path}}
+\begin{DoxyCompactList}\small\item\em Experimental and untested\+: represents a \char`\"{}path\char`\"{} to access a node. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_iterator_base}{Json\+::\+Value\+Iterator\+Base}}
+\begin{DoxyCompactList}\small\item\em base class for \mbox{\hyperlink{class_json_1_1_value}{Value}} iterators. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_const_iterator}{Json\+::\+Value\+Const\+Iterator}}
+\begin{DoxyCompactList}\small\item\em const iterator for object and array value. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_json_1_1_value_iterator}{Json\+::\+Value\+Iterator}}
+\begin{DoxyCompactList}\small\item\em Iterator for object and array value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_json}{Json}}
+\begin{DoxyCompactList}\small\item\em JSON (Java\+Script Object Notation). \end{DoxyCompactList}\item 
+ \mbox{\hyperlink{namespacestd}{std}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{value_8h_a78c5ba441d8b48f24a5095b97f01f282}{JSONCPP\+\_\+\+NORETURN}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4e}{Json\+::\+Value\+Type}} \{ \newline
+\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea7d9899633b4409bd3fc107e6737f8391}{Json\+::null\+Value}} = 0
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae5a9d708d5c9e23ae9bf98898522512d}{Json\+::int\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eaea788d9a3bb00adc6d68d97d43e1ccd3}{Json\+::uint\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eab837c7b869c14d8be712deb45c9e490e}{Json\+::real\+Value}}
+, \newline
+\mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea804ef857affea2d415843c73f261c258}{Json\+::string\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4ea14c30dbf4da86f7b809be299f671f7fd}{Json\+::boolean\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eadc8f264f36b55b063c78126b335415f4}{Json\+::array\+Value}}
+, \mbox{\hyperlink{namespace_json_a7d654b75c16a57007925868e38212b4eae8386dcfc36d1ae897745f7b4f77a1f6}{Json\+::object\+Value}}
+ \}
+\begin{DoxyCompactList}\small\item\em Type of the value held by a Value object. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351}{Json\+::\+Comment\+Placement}} \{ \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a52f1733775460517b2ea6bedf4906d52}{Json\+::comment\+Before}} = 0
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351a008a230a0586de54f30b76afe70fdcfa}{Json\+::comment\+After\+On\+Same\+Line}}
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351ac5784ca53b12250888ddb642b06aebef}{Json\+::comment\+After}}
+, \mbox{\hyperlink{namespace_json_a4fc417c23905b2ae9e2c47d197a45351abcbd3eb00417335e094e4a03379659b5}{Json\+::number\+Of\+Comment\+Placement}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{value_8h_a78c5ba441d8b48f24a5095b97f01f282}{JSONCPP\+\_\+\+NORETURN}} void \mbox{\hyperlink{namespace_json_a0ab7ff7f99788262d92d9ff3d924e065}{Json\+::throw\+Runtime\+Error}} (\mbox{\hyperlink{config_8h_a1e723f95759de062585bc4a8fd3fa4be}{JSONCPP\+\_\+\+STRING}} const \&msg)
+\begin{DoxyCompactList}\small\item\em used internally \end{DoxyCompactList}\item 
+\mbox{\hyperlink{value_8h_a78c5ba441d8b48f24a5095b97f01f282}{JSONCPP\+\_\+\+NORETURN}} void \mbox{\hyperlink{namespace_json_a27790f21f17922fac81e7cd72a5659a5}{Json\+::throw\+Logic\+Error}} (\mbox{\hyperlink{config_8h_a1e723f95759de062585bc4a8fd3fa4be}{JSONCPP\+\_\+\+STRING}} const \&msg)
+\begin{DoxyCompactList}\small\item\em used internally \end{DoxyCompactList}\item 
+template$<$$>$ void \mbox{\hyperlink{namespacestd_a22cc6fcbbb1f2f705c7888b615e43582}{std\+::swap}} (\mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} \&a, \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}} \&b)
+\begin{DoxyCompactList}\small\item\em Specialize \mbox{\hyperlink{namespacestd_a22cc6fcbbb1f2f705c7888b615e43582}{std\+::swap()}} for \mbox{\hyperlink{class_json_1_1_value}{Json\+::\+Value}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{value_8h_a78c5ba441d8b48f24a5095b97f01f282}\label{value_8h_a78c5ba441d8b48f24a5095b97f01f282}} 
+\index{value.h@{value.h}!JSONCPP\_NORETURN@{JSONCPP\_NORETURN}}
+\index{JSONCPP\_NORETURN@{JSONCPP\_NORETURN}!value.h@{value.h}}
+\doxysubsubsection{\texorpdfstring{JSONCPP\_NORETURN}{JSONCPP\_NORETURN}}
+{\footnotesize\ttfamily \#define JSONCPP\+\_\+\+NORETURN}
+

@@ -1,0 +1,157 @@
+\hypertarget{sensor__gc4663__config_8c}{}\doxysection{src/x3/sensor/sensor\+\_\+gc4663\+\_\+config.c File Reference}
+\label{sensor__gc4663__config_8c}\index{src/x3/sensor/sensor\_gc4663\_config.c@{src/x3/sensor/sensor\_gc4663\_config.c}}
+{\ttfamily \#include \char`\"{}sensor\+\_\+gc4663\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for sensor\+\_\+gc4663\+\_\+config.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{sensor__gc4663__config_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_af2e057a7fc0d11fa1d046c4c1c5c591f}{SENSOR\+\_\+\+GC4663\+\_\+30\+FPS\+\_\+1440\+P\+\_\+\+LINEAR\+\_\+\+INFO}}
+\item 
+MIPI\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_a2a1ca3115df885d814f6ee0f99ed84e7}{MIPI\+\_\+\+SENSOR\+\_\+\+GC4663\+\_\+30\+FPS\+\_\+1440\+P\+\_\+\+LINEAR\+\_\+\+ATTR}}
+\item 
+VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_af02806fb51649299428af9ebe02ba329}{DEV\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_a4ae0aab81566fd2a85e5991799acd33e}{PIPE\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+LINEAR\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_a851b4b1cc28c8ad214af9bc3968dcb8b}{DIS\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+BASE}}
+\item 
+VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S \mbox{\hyperlink{sensor__gc4663__config_8c_a91f582717cabad2f52f6c7dd6994b70a}{LDC\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+BASE}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{sensor__gc4663__config_8c_af02806fb51649299428af9ebe02ba329}\label{sensor__gc4663__config_8c_af02806fb51649299428af9ebe02ba329}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!DEV\_ATTR\_GC4663\_LINEAR\_BASE@{DEV\_ATTR\_GC4663\_LINEAR\_BASE}}
+\index{DEV\_ATTR\_GC4663\_LINEAR\_BASE@{DEV\_ATTR\_GC4663\_LINEAR\_BASE}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{DEV\_ATTR\_GC4663\_LINEAR\_BASE}{DEV\_ATTR\_GC4663\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DEV\+\_\+\+ATTR\+\_\+S DEV\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+LINEAR\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__gc4663__config_8c_a851b4b1cc28c8ad214af9bc3968dcb8b}\label{sensor__gc4663__config_8c_a851b4b1cc28c8ad214af9bc3968dcb8b}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!DIS\_ATTR\_GC4663\_BASE@{DIS\_ATTR\_GC4663\_BASE}}
+\index{DIS\_ATTR\_GC4663\_BASE@{DIS\_ATTR\_GC4663\_BASE}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{DIS\_ATTR\_GC4663\_BASE}{DIS\_ATTR\_GC4663\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+DIS\+\_\+\+ATTR\+\_\+S DIS\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .picSize =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            .pic\_w = 2559,}
+\DoxyCodeLine{            .pic\_h = 1439,}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .disPath =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            .rg\_dis\_enable = 0,}
+\DoxyCodeLine{            .rg\_dis\_path\_sel = 1,}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .disHratio = 65536,}
+\DoxyCodeLine{    .disVratio = 65536,}
+\DoxyCodeLine{    .xCrop =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            .rg\_dis\_start = 0,}
+\DoxyCodeLine{            .rg\_dis\_end = 2559,}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .yCrop =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            .rg\_dis\_start = 0,}
+\DoxyCodeLine{            .rg\_dis\_end = 1439,}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .disBufNum = 6,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__gc4663__config_8c_a91f582717cabad2f52f6c7dd6994b70a}\label{sensor__gc4663__config_8c_a91f582717cabad2f52f6c7dd6994b70a}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!LDC\_ATTR\_GC4663\_BASE@{LDC\_ATTR\_GC4663\_BASE}}
+\index{LDC\_ATTR\_GC4663\_BASE@{LDC\_ATTR\_GC4663\_BASE}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{LDC\_ATTR\_GC4663\_BASE}{LDC\_ATTR\_GC4663\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+LDC\+\_\+\+ATTR\+\_\+S LDC\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+BASE}
+
+\mbox{\Hypertarget{sensor__gc4663__config_8c_a2a1ca3115df885d814f6ee0f99ed84e7}\label{sensor__gc4663__config_8c_a2a1ca3115df885d814f6ee0f99ed84e7}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR@{MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR}}
+\index{MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR@{MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR}{MIPI\_SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_ATTR}}
+{\footnotesize\ttfamily MIPI\+\_\+\+ATTR\+\_\+S MIPI\+\_\+\+SENSOR\+\_\+\+GC4663\+\_\+30\+FPS\+\_\+1440\+P\+\_\+\+LINEAR\+\_\+\+ATTR}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .mipi\_host\_cfg =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            2,    }
+\DoxyCodeLine{            0x2b, }
+\DoxyCodeLine{            2400, }
+\DoxyCodeLine{            630,  }
+\DoxyCodeLine{            30,   }
+\DoxyCodeLine{            2560, }
+\DoxyCodeLine{            1440, }
+\DoxyCodeLine{            2720, }
+\DoxyCodeLine{            1500, }
+\DoxyCodeLine{            30,   }
+\DoxyCodeLine{            1,    }
+\DoxyCodeLine{            \{0\}   }
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .dev\_enable = 0, }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__gc4663__config_8c_a4ae0aab81566fd2a85e5991799acd33e}\label{sensor__gc4663__config_8c_a4ae0aab81566fd2a85e5991799acd33e}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!PIPE\_ATTR\_GC4663\_LINEAR\_BASE@{PIPE\_ATTR\_GC4663\_LINEAR\_BASE}}
+\index{PIPE\_ATTR\_GC4663\_LINEAR\_BASE@{PIPE\_ATTR\_GC4663\_LINEAR\_BASE}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{PIPE\_ATTR\_GC4663\_LINEAR\_BASE}{PIPE\_ATTR\_GC4663\_LINEAR\_BASE}}
+{\footnotesize\ttfamily VIN\+\_\+\+PIPE\+\_\+\+ATTR\+\_\+S PIPE\+\_\+\+ATTR\+\_\+\+GC4663\+\_\+\+LINEAR\+\_\+\+BASE}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .ddrOutBufNum = 8,}
+\DoxyCodeLine{    .snsMode = SENSOR\_NORMAL\_MODE,}
+\DoxyCodeLine{    .stSize =}
+\DoxyCodeLine{        \{}
+\DoxyCodeLine{            .format = 0,}
+\DoxyCodeLine{            .width = 2560,}
+\DoxyCodeLine{            .height = 1440,}
+\DoxyCodeLine{        \},}
+\DoxyCodeLine{    .cfaPattern = PIPE\_BAYER\_GRBG,}
+\DoxyCodeLine{    .temperMode = 2,}
+\DoxyCodeLine{    .ispBypassEn = 0,}
+\DoxyCodeLine{    .ispAlgoState = 1,}
+\DoxyCodeLine{    .bitwidth = 10,}
+\DoxyCodeLine{    .calib = \{}
+\DoxyCodeLine{        .mode = 1,}
+\DoxyCodeLine{        .lname = \textcolor{stringliteral}{"{}libgc4663\_linear.so"{}},}
+\DoxyCodeLine{    \}\}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{sensor__gc4663__config_8c_af2e057a7fc0d11fa1d046c4c1c5c591f}\label{sensor__gc4663__config_8c_af2e057a7fc0d11fa1d046c4c1c5c591f}} 
+\index{sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}!SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO@{SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO}}
+\index{SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO@{SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO}!sensor\_gc4663\_config.c@{sensor\_gc4663\_config.c}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO}{SENSOR\_GC4663\_30FPS\_1440P\_LINEAR\_INFO}}
+{\footnotesize\ttfamily MIPI\+\_\+\+SENSOR\+\_\+\+INFO\+\_\+S SENSOR\+\_\+\+GC4663\+\_\+30\+FPS\+\_\+1440\+P\+\_\+\+LINEAR\+\_\+\+INFO}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    .deseEnable = 0,}
+\DoxyCodeLine{    .inputMode = INPUT\_MODE\_MIPI,}
+\DoxyCodeLine{    .sensorInfo = \{}
+\DoxyCodeLine{        .port = 0,}
+\DoxyCodeLine{        .dev\_port = 0,}
+\DoxyCodeLine{        .bus\_type = 0,}
+\DoxyCodeLine{        .bus\_num = 2,}
+\DoxyCodeLine{        .fps = 30,}
+\DoxyCodeLine{        .resolution = 1440,}
+\DoxyCodeLine{        .sensor\_addr = 0x29,}
+\DoxyCodeLine{        .entry\_index = 0,}
+\DoxyCodeLine{        .sensor\_mode = NORMAL\_M,}
+\DoxyCodeLine{        .reg\_width = 16,}
+\DoxyCodeLine{        .sensor\_name = \textcolor{stringliteral}{"{}gc4663"{}},}
+\DoxyCodeLine{    \}\}}
+
+\end{DoxyCode}

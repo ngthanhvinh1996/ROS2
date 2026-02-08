@@ -1,0 +1,98 @@
+\hypertarget{x3__vio__vin_8h}{}\doxysection{src/x3/x3\+\_\+sdk\+\_\+swap/include/x3\+\_\+vio\+\_\+vin.h File Reference}
+\label{x3__vio__vin_8h}\index{src/x3/x3\_sdk\_swap/include/x3\_vio\_vin.h@{src/x3/x3\_sdk\_swap/include/x3\_vio\_vin.h}}
+{\ttfamily \#include \char`\"{}stdint.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stddef.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}x3\+\_\+sdk\+\_\+wrap.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vio/hb\+\_\+isp\+\_\+api.\+h\char`\"{}}\newline
+Include dependency graph for x3\+\_\+vio\+\_\+vin.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{x3__vio__vin_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{x3__vio__vin_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_ae6e87c1c9189e37900bc5ccca50df343}{x3\+\_\+vin\+\_\+init}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a3fcef16c448f77ac64f8924d8370a45a}{x3\+\_\+vin\+\_\+start}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8h_ac552b38989e8bdd10035c7b0c8b00c3e}{x3\+\_\+vin\+\_\+stop}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+void \mbox{\hyperlink{x3__vio__vin_8h_a1ae2295248eb7885f9239dc09b593365}{x3\+\_\+vin\+\_\+deinit}} (\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$vin\+\_\+info)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a0a699e5616ec0ecf153b5f1f786c4d38}{x3\+\_\+vin\+\_\+feedback}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$feedback\+\_\+buf)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a9605819bb77a7e4d5c80ac2f024782b3}{x3\+\_\+vin\+\_\+get\+\_\+ouput}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a671e3793677e76b5635c6600106e5cf7}{x3\+\_\+vin\+\_\+output\+\_\+release}} (int pipe\+Id, hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$buffer)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a3f6af7734d21b543aa71bd2c2878f82d}{x3\+\_\+vin\+\_\+sif\+\_\+raw\+\_\+dump}} (int pipe\+Id, char $\ast$file\+\_\+name)
+\item 
+int \mbox{\hyperlink{x3__vio__vin_8h_a9cba9b183b3f97de3dffe57803c56f09}{x3\+\_\+vin\+\_\+isp\+\_\+yuv\+\_\+dump}} (int pipe\+Id, char $\ast$file\+\_\+name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{x3__vio__vin_8h_a1ae2295248eb7885f9239dc09b593365}\label{x3__vio__vin_8h_a1ae2295248eb7885f9239dc09b593365}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_deinit@{x3\_vin\_deinit}}
+\index{x3\_vin\_deinit@{x3\_vin\_deinit}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_deinit()}{x3\_vin\_deinit()}}
+{\footnotesize\ttfamily void x3\+\_\+vin\+\_\+deinit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a0a699e5616ec0ecf153b5f1f786c4d38}\label{x3__vio__vin_8h_a0a699e5616ec0ecf153b5f1f786c4d38}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_feedback@{x3\_vin\_feedback}}
+\index{x3\_vin\_feedback@{x3\_vin\_feedback}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_feedback()}{x3\_vin\_feedback()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+feedback (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{feedback\+\_\+buf }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a9605819bb77a7e4d5c80ac2f024782b3}\label{x3__vio__vin_8h_a9605819bb77a7e4d5c80ac2f024782b3}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_get\_ouput@{x3\_vin\_get\_ouput}}
+\index{x3\_vin\_get\_ouput@{x3\_vin\_get\_ouput}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_get\_ouput()}{x3\_vin\_get\_ouput()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+get\+\_\+ouput (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_ae6e87c1c9189e37900bc5ccca50df343}\label{x3__vio__vin_8h_ae6e87c1c9189e37900bc5ccca50df343}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_init@{x3\_vin\_init}}
+\index{x3\_vin\_init@{x3\_vin\_init}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_init()}{x3\_vin\_init()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a9cba9b183b3f97de3dffe57803c56f09}\label{x3__vio__vin_8h_a9cba9b183b3f97de3dffe57803c56f09}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_isp\_yuv\_dump@{x3\_vin\_isp\_yuv\_dump}}
+\index{x3\_vin\_isp\_yuv\_dump@{x3\_vin\_isp\_yuv\_dump}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_isp\_yuv\_dump()}{x3\_vin\_isp\_yuv\_dump()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+isp\+\_\+yuv\+\_\+dump (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a671e3793677e76b5635c6600106e5cf7}\label{x3__vio__vin_8h_a671e3793677e76b5635c6600106e5cf7}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_output\_release@{x3\_vin\_output\_release}}
+\index{x3\_vin\_output\_release@{x3\_vin\_output\_release}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_output\_release()}{x3\_vin\_output\_release()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+output\+\_\+release (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{hb\+\_\+vio\+\_\+buffer\+\_\+t $\ast$}]{buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a3f6af7734d21b543aa71bd2c2878f82d}\label{x3__vio__vin_8h_a3f6af7734d21b543aa71bd2c2878f82d}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_sif\_raw\_dump@{x3\_vin\_sif\_raw\_dump}}
+\index{x3\_vin\_sif\_raw\_dump@{x3\_vin\_sif\_raw\_dump}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_sif\_raw\_dump()}{x3\_vin\_sif\_raw\_dump()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+sif\+\_\+raw\+\_\+dump (\begin{DoxyParamCaption}\item[{int}]{pipe\+Id,  }\item[{char $\ast$}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_a3fcef16c448f77ac64f8924d8370a45a}\label{x3__vio__vin_8h_a3fcef16c448f77ac64f8924d8370a45a}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_start@{x3\_vin\_start}}
+\index{x3\_vin\_start@{x3\_vin\_start}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_start()}{x3\_vin\_start()}}
+{\footnotesize\ttfamily int x3\+\_\+vin\+\_\+start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{x3__vio__vin_8h_ac552b38989e8bdd10035c7b0c8b00c3e}\label{x3__vio__vin_8h_ac552b38989e8bdd10035c7b0c8b00c3e}} 
+\index{x3\_vio\_vin.h@{x3\_vio\_vin.h}!x3\_vin\_stop@{x3\_vin\_stop}}
+\index{x3\_vin\_stop@{x3\_vin\_stop}!x3\_vio\_vin.h@{x3\_vio\_vin.h}}
+\doxysubsubsection{\texorpdfstring{x3\_vin\_stop()}{x3\_vin\_stop()}}
+{\footnotesize\ttfamily void x3\+\_\+vin\+\_\+stop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{x3__sdk__wrap_8h_a5ab82e6112875ff9384c75afd2552be3}{x3\+\_\+vin\+\_\+info\+\_\+t}} $\ast$}]{vin\+\_\+info }\end{DoxyParamCaption})}
+
