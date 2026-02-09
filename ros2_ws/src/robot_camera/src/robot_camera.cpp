@@ -23,6 +23,7 @@ public:
                 sensor_msgs::msg::CameraInfo &cam_info_r, const std::string &file_path) override;
     bool isCapturing() override;
 private:
+    inline void NV12_TO_BGR24(unsigned char *_src, unsigned char *_RGBOut, int width, int height);
     bool lsInit_;
     bool is_capturing_;
     std::shared_ptr<struct NodePara> nodePara_;
@@ -577,6 +578,15 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
                         e.what());
         return false;
     }
+}
+
+inline void RobotCameraIml::NV12_TO_BGR24(unsigned char *_src, unsigned char *_RGBOut, int width, int height)
+{
+    cv::Mat src(height * 3 / 2, width, CV_8UC1, (void*)_src);
+    cv::Mat bgr_mat;
+    cv::cvtColor(src, bgr_mat, cv::COLOR_YUV2BGR_NV12);
+    memcpy(_RGBOut, bgr_mat.ptr<uint8_t>(), height * width * 3);
+    return;
 }
 
 } // robot_cam
