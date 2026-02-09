@@ -15,6 +15,7 @@ find_package(cv_bridge REQUIRED)
 find_package(image_transport REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(yaml-cpp REQUIRED)
 
 set(HOBOT_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../hobot_mipi_cam_local")
 
@@ -41,6 +42,11 @@ ament_target_dependencies(robot_camera
   sensor_msgs
   hbm_img_msgs
   rclcpp_components
+)
+
+target_link_libraries(robot_camera
+  ${OpenCV_LIBRARIES}
+  yaml-cpp
 )
 
 install(TARGETS

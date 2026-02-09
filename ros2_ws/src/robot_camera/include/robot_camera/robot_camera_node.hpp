@@ -27,7 +27,7 @@ public:
     void update(Publisher_info_st* pub_info);
 private:
     void init_publisher(Publisher_info_st &Pub_info, std::string topic, std::string topic_type, std::string frame_id);
-    std::share_ptr<RobotCam> robotCam_ptr_;
+    std::shared_ptr<RobotCam> robotCam_ptr_;
     std::vector<std::shared_ptr<std::thread>> timer_;
     rclcpp::TimerBase::SharedPtr timer_tmp_;
     int m_bIsInit;
