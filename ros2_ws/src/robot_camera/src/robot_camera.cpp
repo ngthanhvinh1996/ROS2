@@ -333,16 +333,16 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
         msEnd = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
     }
 
-    RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_cam"),
-                        "getImage channel=" << channel.data()
-                        << ", enc=" << encoding.data()
-                        << ", width=" << width
-                        << ", height=" << height
-                        << ", step=" << step
-                        << ", sz=" << data_size
-                        << std::fixed
-                        << ", ts=" << stamp.sec + stamp.nanosec * 1e9
-                        << ", laps ms=" << msEnd - msStart);
+    // RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_cam"),
+    //                     "getImage channel=" << channel.data()
+    //                     << ", enc=" << encoding.data()
+    //                     << ", width=" << width
+    //                     << ", height=" << height
+    //                     << ", step=" << step
+    //                     << ", sz=" << data_size
+    //                     << std::fixed
+    //                     << ", ts=" << stamp.sec + stamp.nanosec * 1e9
+    //                     << ", laps ms=" << msEnd - msStart);
     return true;
 }
 

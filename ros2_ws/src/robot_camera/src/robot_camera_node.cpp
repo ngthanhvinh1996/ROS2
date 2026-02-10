@@ -10,9 +10,9 @@ RobotCameraNode::RobotCameraNode(const rclcpp::NodeOptions &node_options)
     Node("robot_cam", node_options),
     camera_calibration_info_(new sensor_msgs::msg::CameraInfo())
 {
-    nodePara_ = std::make_shared<struct NodePara>();
+    nodePara_ = std::make_shared<struct mipi_cam::NodePara>();
 
-    std::string tros_distro = std::string(std::getenv("TROS_DISTRO") ? std::getenv("TROS_DISTRO") :: "");
+    std::string tros_distro = std::string(std::getenv("TROS_DISTRO") ? std::getenv("TROS_DISTRO") : "");
     nodePara_->config_path_ = "opt/tros/" + tros_distro + "/lib/robot_cam/config";
     nodePara_->video_device_name_ = "";
     nodePara_->channel_ = 0;
@@ -183,7 +183,7 @@ void RobotCameraNode::init()
         return;
     }
 
-    robotCam_ptr_ = MipiCam::create_camera();
+    robotCam_ptr_ = RobotCamera::create_camera();
     if(!robotCam_ptr_ || robotCam_ptr_->init(nodePara_))
     {
         RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "[%s]->robotnode init failure.\n", __func__);
@@ -205,23 +205,23 @@ void RobotCameraNode::init()
             if(1 == nodePara_->dual_combine_)
             {
                 Pub_info_.resize(3);
-                init_DualCalibration(&Pub_info_[0], &Pub_info_[1], "/image_left_raw/camera_info", "/image_right_raw/camera_info", nodePara_->camera_calibration_file_path_);
-                init_publisher(Pub_info[0], "image_left_raw", "left", frame_id_);
-                init_publisher(Pub_info[1], "image_right_raw", "right", frame_id_);
-                init_publisher(Pub_info[2], "image_combine_raw", "combine", frame_id_);
+                // init_DualCalibration(&Pub_info_[0], &Pub_info_[1], "/image_left_raw/camera_info", "/image_right_raw/camera_info", nodePara_->camera_calibration_file_path_);
+                init_publisher(Pub_info_[0], "image_left_raw", "left", frame_id_);
+                init_publisher(Pub_info_[1], "image_right_raw", "right", frame_id_);
+                init_publisher(Pub_info_[2], "image_combine_raw", "combine", frame_id_);
             }
             else if(2 == nodePara_->dual_combine_)
             {
                 Pub_info_.resize(1);
-                init_DualCalibration(&Pub_info_[0], "/image_left_raw/camera_info", "image_right_raw/camera_info", nodePara_->camera_calibration_file_path_);
-                init_publisher(Pub_info[0], "image_combine_raw", "combine", frame_id_);
+                // init_DualCalibration(&Pub_info_[0], "/image_left_raw/camera_info", "image_right_raw/camera_info", nodePara_->camera_calibration_file_path_);
+                init_publisher(Pub_info_[0], "image_combine_raw", "combine", frame_id_);
             }
             else
             {
                 Pub_info_.resize(2);
-                init_DualCalibration(&Pub_info_[0], &Pub_info_[1], "image_left_raw/camera_info", "image_right_raw/camera_info", nodePara_->camera_calibration_file+path_);
-                init_publisher(Pub_info[0], "image_left_raw", "left", frame_id_);
-                init_publisher(Pub_info[1], "image_right_raw", "right", frame_id_);
+                // init_DualCalibration(&Pub_info_[0], &Pub_info_[1], "image_left_raw/camera_info", "image_right_raw/camera_info", nodePara_->camera_calibration_file+path_);
+                init_publisher(Pub_info_[0], "image_left_raw", "left", frame_id_);
+                init_publisher(Pub_info_[1], "image_right_raw", "right", frame_id_);
             }
         }
         else if((0 == nodePara_->device_mode_.compare("single")) || (0 == nodePara_->device_mode_.compare("")))
@@ -229,19 +229,19 @@ void RobotCameraNode::init()
             if(nodePara_->sub_stream_flag_)
             {
                 Pub_info_.resize(2);
-                init_Calibration(&Pub_info_[0], "image_raw/camera_info", nodePara_->camera_calibration_file_path_);
+                // init_Calibration(&Pub_info_[0], "image_raw/camera_info", nodePara_->camera_calibration_file_path_);
                 init_publisher(Pub_info_[0], "image_raw", "single", frame_id_);
-                init_Calibration(&Pub_info_[1], "sub_image_raw/camera_info", nodePara_->camera_calibration_file_path_);
+                // init_Calibration(&Pub_info_[1], "sub_image_raw/camera_info", nodePara_->camera_calibration_file_path_);
                 init_publisher(Pub_info_[1], "sub_image_raw", "sub_single", frame_id_);
             }
             else
             {
                 Pub_info_.resize(1);
-                init_Calibration(&Pub_info_[0], "image_raw/camera_info", nodePara_->camera_calibration_file_path_);
+                // init_Calibration(&Pub_info_[0], "image_raw/camera_info", nodePara_->camera_calibration_file_path_);
                 init_publisher(Pub_info_[0], "image_raw", "single", frame_id_);
             }
         }
-        esle
+        else
         {
             return;
         }
@@ -259,9 +259,9 @@ void RobotCameraNode::init()
 
     if(0 == io_method_name_.compare("ros"))
     {
-        for(Publisher_info_st &info : Pub_info)
+        for(Publisher_info_st &info : Pub_info_)
         {
-            timer_.emplace_back(std::make_shared<std::thread>([this, &info]() {while(rclcpp::ok()) {this->update(&info);}}))
+            timer_.emplace_back(std::make_shared<std::thread>([this, &info]() {while(rclcpp::ok()) {this->update(&info);}}));
         }
     }
 
@@ -270,14 +270,14 @@ void RobotCameraNode::init()
     m_bIsInit = 1;
 }
 
-void RobotCameraNode::init_publisher(Publisher_info_st &Pub_info, std::string topic, std::string topic_type, std::string frame_id)
+void RobotCameraNode::init_publisher(Publisher_info_st &Pub_info_, std::string topic, std::string topic_type, std::string frame_id)
 {
-    Pub_info.image_pub_ = this->create_publisher<sensor_msgs::msg::Image>(topic, PUB_BUF_NUM);
-    Pub_info.img_ = std::make_unique<sensor_msgs::msg::Image>(rosidl_runtime_cpp::MessageInitialization::SKIP);
+    Pub_info_.image_pub_ = this->create_publisher<sensor_msgs::msg::Image>(topic, PUB_BUF_NUM);
+    Pub_info_.img_ = std::make_unique<sensor_msgs::msg::Image>(rosidl_runtime_cpp::MessageInitialization::SKIP);
 
-    Pub_info.img_->header.frame_id = frame_id;
-    Pub_info.topic_type = topic_type;
-    Pub_info.time_start_ = std::chrono::system_clock::now();
+    Pub_info_.img_->header.frame_id = frame_id;
+    Pub_info_.topic_type = topic_type;
+    Pub_info_.time_start_ = std::chrono::system_clock::now();
 }
 
 void RobotCameraNode::update(Publisher_info_st* pub_info)
@@ -293,7 +293,7 @@ void RobotCameraNode::update(Publisher_info_st* pub_info)
                                     pub_info->topic_type)) 
         {
             auto timer_after = std::chrono::system_clock::now();
-            auto interval = std::chrono::duration_cast<std::chrono::miliseconds>(timer_after - pub_info->timer_start_).count();
+            auto interval = std::chrono::duration_cast<std::chrono::milliseconds>(timer_after - pub_info->time_start_).count();
             if(interval > 3000)
             {
                 RCLCPP_ERROR(rclcpp::get_logger("robot_node"), "grab failed.");

@@ -1,17 +1,4 @@
 # Copyright (c) 2024，D-Robotics.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
 cmake_minimum_required(VERSION 3.5)
 cmake_policy(SET CMP0077 NEW)
 project(mipi_cam_local)
@@ -47,8 +34,6 @@ find_package(yaml_cpp_vendor REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(OpenCV 4 REQUIRED)
 find_package(hbm_img_msgs REQUIRED)
-
-#set(PREFIX_PATH x3)
 
 if(PLATFORM_X3)
   message("build platform X3")
@@ -160,7 +145,6 @@ set(BASE_LIBRARIES pthread dl)
 if(PLATFORM_X3)
   set(X3_HAPI_LIB isp_algo z hbmedia isp ion multimedia iar tinyalsa cjson diag gdcbin  jsoncpp)
 elseif(PLATFORM_Rdkultra)
-  #set(X3_HAPI_LIB jsoncpp hb_api_isp vpm vio_client)
   set(X3_HAPI_LIB jsoncpp hb_api_isp vio)
 elseif(PLATFORM_X5)
   set(X3_HAPI_LIB jsoncpp multimedia hbmem cam vpf  Nano2D Nano2Dutil)
@@ -173,7 +157,32 @@ else()
   set(X3_HAPI_LIB isp_algo z hbmedia isp ion multimedia iar tinyalsa cjson diag gdcbin)
 endif()
 
-# build component
+# ===============================================
+# 1. BUILD SHARED LIB (mipi_cam_local_lib)
+# ===============================================
+add_library(mipi_cam_local_lib SHARED
+  src/hobot_mipi_cam.cpp
+  src/${PREFIX_PATH}/hobot_mipi_cap_iml.cpp
+  src/${PREFIX_PATH}/hobot_mipi_factory.cpp
+  src/camera.cpp
+  src/hobot_mipi_node.cpp 
+  ${SRC_PLATFORM_FILE}
+)
+
+ament_target_dependencies(mipi_cam_local_lib
+  rclcpp
+  sensor_msgs
+  hbm_img_msgs
+  rclcpp_components
+  OpenCV
+)
+
+target_link_libraries(mipi_cam_local_lib
+  ${BASE_LIBRARIES} 
+  ${X3_HAPI_LIB} 
+  yaml-cpp
+)
+
 add_library(${PROJECT_NAME}_plugin SHARED
   src/camera.cpp
   src/hobot_mipi_node.cpp
@@ -182,9 +191,11 @@ add_library(${PROJECT_NAME}_plugin SHARED
   src/${PREFIX_PATH}/hobot_mipi_factory.cpp
   ${SRC_PLATFORM_FILE}
 )
+
 target_link_libraries(${PROJECT_NAME}_plugin
   ${BASE_LIBRARIES} ${X3_HAPI_LIB} yaml-cpp
 )
+
 ament_target_dependencies(
   ${PROJECT_NAME}_plugin
   rclcpp
@@ -200,14 +211,30 @@ rclcpp_components_register_node(${PROJECT_NAME}_plugin
   EXECUTABLE ${PROJECT_NAME}
 )
 set(node_plugins "${node_plugins}mipi_cam::MipiCamNode;$<TARGET_FILE:${PROJECT_NAME}_plugin>\n")
-
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_plugin)
 
-# Install executables
+# ===============================================
+# 3. EXPORT & INSTALL
+# ===============================================
+ament_export_include_directories(include) 
+# -------------------------------------------------------
+
+ament_export_targets(export_mipi_cam_local_lib HAS_LIBRARY_TARGET)
+ament_export_dependencies(
+  rclcpp 
+  sensor_msgs 
+  hbm_img_msgs
+  rclcpp_components
+  OpenCV
+)
+
+# Install executable
 install(
   TARGETS ${PROJECT_NAME}
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
+
+# Install plugin
 install(
   TARGETS ${PROJECT_NAME}_plugin
   ARCHIVE DESTINATION lib
@@ -215,37 +242,34 @@ install(
   RUNTIME DESTINATION bin
 )
 
+# Install shared lib
+install(TARGETS mipi_cam_local_lib
+  EXPORT export_mipi_cam_local_lib
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
 if(PLATFORM_X3)
-  install(DIRECTORY
-    ${PROJECT_SOURCE_DIR}/config/x3/
-    DESTINATION lib/${PROJECT_NAME}/config/
-  )
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/config/x3/ DESTINATION lib/${PROJECT_NAME}/config/)
 elseif(PLATFORM_Rdkultra)
-  install(DIRECTORY
-    ${PROJECT_SOURCE_DIR}/config/rdkultra/
-    DESTINATION lib/${PROJECT_NAME}/config/
-  )
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/config/rdkultra/ DESTINATION lib/${PROJECT_NAME}/config/)
 elseif(PLATFORM_X5)
-  install(DIRECTORY
-    ${PROJECT_SOURCE_DIR}/config/x5/
-    DESTINATION lib/${PROJECT_NAME}/config/
-  )
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/config/x5/ DESTINATION lib/${PROJECT_NAME}/config/)
 elseif(PLATFORM_S100)
-  install(DIRECTORY
-    ${PROJECT_SOURCE_DIR}/config/s100/
-    DESTINATION lib/${PROJECT_NAME}/config/
-  )
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/config/s100/ DESTINATION lib/${PROJECT_NAME}/config/)
 elseif(PLATFORM_S600)
-  install(DIRECTORY
-    ${PROJECT_SOURCE_DIR}/config/s600/
-    DESTINATION lib/${PROJECT_NAME}/config/
-  )
+  install(DIRECTORY ${PROJECT_SOURCE_DIR}/config/s600/ DESTINATION lib/${PROJECT_NAME}/config/)
 endif()
 
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/)
 
-install(DIRECTORY
-  launch
-  DESTINATION share/${PROJECT_NAME}/
+# Copy header files vào thư mục install
+install(DIRECTORY include/ DESTINATION include)
+
+install(DIRECTORY src/${PREFIX_PATH}/sensor/
+  DESTINATION include
+  FILES_MATCHING PATTERN "*.h"
 )
 
 ament_package()
