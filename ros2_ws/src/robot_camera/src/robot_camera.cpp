@@ -325,7 +325,7 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
         timestamp_sys = (tv.tv_sec * 1000 + tv.tv_usec/1000);
     }
 
-    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "publish lap ms=%lu", (timestamp_sys - timestamp/10000000));
+    RCLCPP_INFO(rclcpp::get_logger("robot_cam"), "publish lap ms=%lu", (timestamp_sys - timestamp/10000000)); 
 
     {
         struct timespec ts;
@@ -504,7 +504,7 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
             std::transform(sensor_name.begin(), sensor_name.end(), sensor_name.begin(), [](unsigned char c ){
                 return std::toupper(c);
             });
-            cal_file = cap_info.config_path += "/" + sensor_name + "_calibration.yaml:";   
+            cal_file = cap_info.config_path + "/" + sensor_name + "_calibration.yaml:";   
         }
         else {
             cal_file = file_path;
@@ -513,7 +513,7 @@ bool RobotCameraIml::getCamCalibrationIml(sensor_msgs::msg::CameraInfo& cam_info
         std::ifstream fin(cal_file.c_str());
         if(!fin) {
             RCLCPP_ERROR(rclcpp::get_logger("robot_cam"), 
-                        "Camera balibration file: %s is not exist"
+                        "Camera calibration file: %s is not exist"
                         "\nIf you need calibration msg, please make sure the calibration file path is correct and the the calibration file exists",
                         cal_file.c_str());
             return false;

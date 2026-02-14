@@ -43,3 +43,13 @@ ros2 run robot_camera robot_camera --ros-args \
 -p frame_ts_type:=realtime \
 -p out_format:=nv12 \
 -p channel:=2 -p channel2:=0
+
+ros2 run robot_camera robot_camera --ros-args \
+-p device_mode:=single -p dual_combine:=1 \
+-p image_width:=640 -p image_height:=480 \
+-p framerate:=30.0 -p rotation:=180.0 \
+-p gdc_enable:=False -p cal_rotation:=90.0 \
+-p lpwm_enable:=True \
+-p frame_ts_type:=realtime \
+-p out_format:=brg8 \
+-p channel:=2 -p channel2:=0

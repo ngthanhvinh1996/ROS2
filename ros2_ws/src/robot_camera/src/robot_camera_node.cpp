@@ -13,7 +13,7 @@ RobotCameraNode::RobotCameraNode(const rclcpp::NodeOptions &node_options)
     nodePara_ = std::make_shared<struct mipi_cam::NodePara>();
 
     std::string tros_distro = std::string(std::getenv("TROS_DISTRO") ? std::getenv("TROS_DISTRO") : "");
-    nodePara_->config_path_ = "opt/tros/" + tros_distro + "/lib/robot_cam/config";
+    nodePara_->config_path_ = "opt/tros/" + tros_distro + "/lib/mipi_cam/config";
     nodePara_->video_device_name_ = "";
     nodePara_->channel_ = 0;
     nodePara_->channel2_ = 2;
