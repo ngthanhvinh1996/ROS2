@@ -23,7 +23,7 @@ public:
     if("single" == device_mode_)
     {
       subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
-      "image_raw",
+      "ai_image_processed",
       qos_profile,
       std::bind(&DisplayNode::topic_callback, this, std::placeholders::_1));
 
@@ -43,7 +43,7 @@ public:
         dual_right_subscription_ = this->create_subscription<sensor_msgs::msg::Image>(
         "image_right_raw",
         qos_profile,
-        std::bind(&DisplayNode::dual_left_topic_callback, this, std::placeholders::_1));
+        std::bind(&DisplayNode::dual_right_topic_callback, this, std::placeholders::_1));
 
         RCLCPP_INFO(this->get_logger(), "Display Node has been started. Waiting for images...");
     

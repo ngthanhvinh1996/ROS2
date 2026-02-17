@@ -1,5 +1,7 @@
 # Build
 colcon build --packages-select mipi_cam_local robot_camera --cmake-args -DPLATFORM_X5=ON
+colcon build --packages-up-to dnn_node_example hobot_visualization robot_camera --cmake-args -DPLATFORM_X5=ON --symlink-install --parallel-workers 1
+colcon build --packages-select display_video
 
 # Run
 ros2 run mipi_cam mipi_cam --ros-args \
@@ -53,3 +55,7 @@ ros2 run robot_camera robot_camera --ros-args \
 -p frame_ts_type:=realtime \
 -p out_format:=brg8 \
 -p channel:=2 -p channel2:=0
+
+ros2 run display_video display_video_node --ros-args device_mode:=single -p dual_combine:=0 -r image_raw:=hobot_visualization_img
+
+ros2 launch robot_camera ai_inference.launch.py
