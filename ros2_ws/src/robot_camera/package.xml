@@ -15,7 +15,7 @@
   <depend>image_transport</depend>
   <depend>std_msgs</depend>
   <depend>OpenCV</depend>
-  <depend>opencv2</depend>
+  <depend>libopencv-dev</depend>
   <depend>mipi_cam_local</depend>
   <depend>hbm_img_msgs</depend>
   <depend>yaml-cpp</depend>
