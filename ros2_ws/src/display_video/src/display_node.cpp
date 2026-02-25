@@ -1,13 +1,9 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <ai_msgs/msg/perception_targets.hpp> 
-
-// Thư viện đồng bộ hóa thời gian
 #include <message_filters/subscriber.h>
 #include <message_filters/sync_policies/approximate_time.h>
 #include <message_filters/synchronizer.h>
-
-// Thư viện chuyển đổi ROS Image <-> OpenCV Mat
 #include <cv_bridge/cv_bridge.h>
 #include <opencv2/opencv.hpp>
 
@@ -21,22 +17,17 @@ public:
         rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
         auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 10), qos_profile);
 
-        // 1. Đăng ký Subscriber
         image_sub_.subscribe(this, "image_raw", qos.get_rmw_qos_profile());
-        // LƯU Ý: Topic AI của bạn có thể tên khác, hãy check 'ros2 topic list'
-        // Thường là: /hobot_dnn_detection, /ai_msg_mono2d, hoặc /dnn_data
+
         ai_sub_.subscribe(this, "ai_msg_mono2d", qos.get_rmw_qos_profile());
 
-        // 2. Khởi tạo Synchronizer
         sync_ = std::make_shared<message_filters::Synchronizer<SyncPolicy>>(
             SyncPolicy(10), image_sub_, ai_sub_);
         
-        // 3. Đăng ký Callback
         sync_->registerCallback(std::bind(&AiDisplayNode::sync_callback, this, _1, _2));
 
         RCLCPP_INFO(this->get_logger(), "Display Node Started. Waiting for Sync Data...");
         
-        // Tạo cửa sổ hiển thị (cho phép resize)
         cv::namedWindow("AI Custom Display", cv::WINDOW_NORMAL);
     }
 
@@ -45,18 +36,13 @@ private:
         const sensor_msgs::msg::Image::ConstSharedPtr& img_msg,
         const ai_msgs::msg::PerceptionTargets::ConstSharedPtr& ai_msg) 
     {
-        cv::Mat frame; // Biến ảnh cuối cùng dùng để vẽ
-
-        // --- BƯỚC 1: CONVERT ẢNH (ĐÃ SỬA LỖI) ---
+        cv::Mat frame;
         try {
             if (img_msg->encoding == "nv12") {
-                // Xử lý ảnh NV12 từ Camera RDK X5
                 cv::Mat nv12_mat(img_msg->height * 3 / 2, img_msg->width, CV_8UC1, const_cast<uint8_t*>(img_msg->data.data()));
                 cv::cvtColor(nv12_mat, frame, cv::COLOR_YUV2BGR_NV12);
             }
             else {
-                // Xử lý các định dạng khác (bgr8, rgb8...)
-                // Lấy trực tiếp .image để gán vào biến frame
                 frame = cv_bridge::toCvCopy(img_msg, "bgr8")->image;
             }
         } catch (cv::Exception& e) {
@@ -69,10 +55,8 @@ private:
 
         if (frame.empty()) return;
 
-        // --- BƯỚC 2: VẼ BOUNDING BOX ---
         for (const auto& target : ai_msg->targets) {
             for (const auto& roi : target.rois) {
-                // Tạo hình chữ nhật
                 cv::Rect rect(
                     roi.rect.x_offset, 
                     roi.rect.y_offset, 
@@ -80,21 +64,14 @@ private:
                     roi.rect.height
                 );
 
-                // Vẽ hình chữ nhật (Màu đỏ)
                 cv::rectangle(frame, rect, cv::Scalar(0, 0, 255), 2);
 
-                // Lấy tên vật thể (Ví dụ: person, car)
                 std::string label = target.type; 
                 
-                // Vẽ chữ (Màu xanh lá)
                 cv::putText(frame, label, cv::Point(rect.x, rect.y - 10),
                             cv::FONT_HERSHEY_SIMPLEX, 0.6, cv::Scalar(0, 255, 0), 2);
             }
         }
-
-        // --- BƯỚC 3: HIỂN THỊ ---
-        // Resize nhẹ nếu ảnh quá to (tùy chọn)
-        // cv::resize(frame, frame, cv::Size(960, 540));
         
         cv::imshow("AI Custom Display", frame);
         cv::waitKey(1);
