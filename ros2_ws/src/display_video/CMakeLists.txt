@@ -11,6 +11,8 @@ find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
+find_package(ai_msgs REQUIRED)
+find_package(message_filters REQUIRED)
 
 include_directories(include)
 
@@ -23,6 +25,8 @@ ament_target_dependencies(display_video_node
   sensor_msgs
   cv_bridge
   OpenCV
+  ai_msgs
+  message_filters
 )
 
 # Cài đặt (Install)

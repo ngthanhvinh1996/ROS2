@@ -25,6 +25,16 @@ ros2 run mipi_cam mipi_cam --ros-args \
 -p channel:=2 -p channel2:=0
 
 ros2 run robot_camera robot_camera --ros-args \
+-p device_mode:=dual -p dual_combine:=0 \
+-p image_width:=640 -p image_height:=480 \
+-p framerate:=30.0 -p rotation:=180.0 \
+-p gdc_enable:=False -p cal_rotation:=90.0 \
+-p lpwm_enable:=True \
+-p frame_ts_type:=realtime \
+-p out_format:=nv12 \
+-p channel:=2 -p channel2:=0
+
+ros2 run robot_camera robot_camera --ros-args \
 -p device_mode:=single -p dual_combine:=1 \
 -p image_width:=640 -p image_height:=480 \
 -p framerate:=30.0 -p rotation:=90.0 \
@@ -33,8 +43,6 @@ ros2 run robot_camera robot_camera --ros-args \
 -p frame_ts_type:=realtime \
 -p out_format:=nv12 \
 -p channel:=2 -p channel2:=0
-
-ros2 run display_video display_video_node
 
 ros2 run robot_camera robot_camera --ros-args \
 -p device_mode:=single -p dual_combine:=1 \
@@ -56,8 +64,11 @@ ros2 run robot_camera robot_camera --ros-args \
 -p out_format:=brg8 \
 -p channel:=2 -p channel2:=0
 
+# Run displat video
+ros2 run display_video display_video_node --ros-args -p device_mode:=dual -p dual_combine:=0
 ros2 run display_video display_video_node --ros-args device_mode:=single -p dual_combine:=0 -r image_raw:=hobot_visualization_img
 
 ros2 launch robot_camera ai_inference.launch.py
 
 ros2 run display_video display_video_node
+
