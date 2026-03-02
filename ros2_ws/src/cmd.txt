@@ -59,3 +59,5 @@ ros2 run robot_camera robot_camera --ros-args \
 ros2 run display_video display_video_node --ros-args device_mode:=single -p dual_combine:=0 -r image_raw:=hobot_visualization_img
 
 ros2 launch robot_camera ai_inference.launch.py
+
+ros2 run display_video display_video_node
