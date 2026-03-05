@@ -44,6 +44,3 @@ build/
 install/
 log/
 
-ros2_ws/src/hobot_dnn/
-ros2_ws/src/hobot_msgs/
-ros2_ws/src/hobot_visualization/

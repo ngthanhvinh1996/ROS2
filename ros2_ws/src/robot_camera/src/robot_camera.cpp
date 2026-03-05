@@ -17,6 +17,14 @@ public:
                              uint32_t &width,
                              uint32_t &step,
                              std::vector<uint8_t> &data, std::string channel) override;
+    bool getImageMem(builtin_interfaces::msg::Time &stamp,
+                             std::array<uint8_t, 12> &encoding,
+                             uint32_t &height,
+                             uint32_t &width,
+                             uint32_t &step,
+                             std::array<uint8_t, 6220900> &data,
+                             uint32_t &data_size,
+                             std::string channel) override;
     bool getCamCalibration(sensor_msgs::msg::CameraInfo& cam_info,
                            const std::string &file_path) override;
     bool getDualCamCalibration(sensor_msgs::msg::CameraInfo &cam_info_l,
@@ -343,6 +351,135 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
     //                     << std::fixed
     //                     << ", ts=" << stamp.sec + stamp.nanosec * 1e9
     //                     << ", laps ms=" << msEnd - msStart);
+    return true;
+}
+
+bool getImageMem(builtin_interfaces::msg::Time &stamp,
+                             std::array<uint8_t, 12> &encoding,
+                             uint32_t &height,
+                             uint32_t &width,
+                             uint32_t &step,
+                             std::array<uint8_t, 6220900> &data,
+                             uint32_t &data_size,
+                             std::string channel)
+{
+    if(!is_capturing_)
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("robot_camera"), "[%s][%-%d] Camera isn't capturing", __FILE__, __func__, __LINE__);
+        return false;
+    }
+
+    if((0 == nodePara_->image_width_) || (0 == nodePara_->image_height_))
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("robot_camera"), "Invalid pushlish width: %d height: %d! Please check the image_width "
+                                                         "and image_height parameters!",
+                                                         nodePara_->image_width_, nodePara_->image_height_);
+        return false;
+    }
+
+    struct timespec time_start = {0, 0};
+    uint64_t msStart = 0, msEnd = 0;
+    {
+        struct timespec ts;
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        msStart = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+    }
+
+    uint64_t timestamp;
+    data_size = nodePara_->image_width_ * nodePara_->image_height_ * 1.5;
+    if(("bgr8" == nodePara_->out_format_name_) && image_nv12_)
+    {
+        if(robotCap_ptr_->getFrame(channel,
+                                   reinterpret_cast<int *>(&width),
+                                   reinterpret_cast<int *>(&height),
+                                   reinterpret_cast<void *>(image_nv12_->image),
+                                   image_nv12_->image_size,
+                                   reinterpret_cast<unsigned int *>(&data_size),
+                                   timestamp))
+        {
+            return false;
+        }
+        data_size = width * height * 3;
+        if(data_size > 6220800)
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("robot_camera"), "rgb image data size %d > HbmMsg1080P size(6220800)", data_size);
+            return false;
+        }
+
+        uint64_t msStart_bgr = 0, msEnd_bgr = 0;
+        {
+            struct timespec ts;
+            clock_gettime(CLOCK_MONOTONIC, &ts);
+            msStart_bgr = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+        }
+
+        NV12_TO_BGR24((unsigned char *)image_nv12_->image,
+                      (unsigned char *)data.data(), width, height);
+        memcpy(encoding.data(), "bgr8", strlen("bgr8"));
+        {
+            struct timespec ts;
+            clock_gettime(CLOCK_MONOTONIC, &ts);
+            msEnd_bgr = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+        }
+
+        RCLCPP_INFO(rclcpp::get_logger("robot_camera"), "NV12_TO_BGR24 laps ms= %d", (msEnd_bgr - msStart_bgr));
+    }
+    else if("gray" == nodePara_->out_format_name_)
+    {
+        if(robotCap_ptr_->getFrame(channel,
+                                   reinterpret_cast<int *>(&width),
+                                   reinterpret_cast<int *>(&height),
+                                   reinterpret_cast<void *>(data.data()),
+                                   6220800,
+                                   reinterpret_cast<unsigned int *>(&data_size),
+                                   timestamp,
+                                   true))
+        {
+            return false;
+        }
+        memcpy(encoding.data(), "mono8", strlen("mono8"));
+    }
+    else
+    {
+        if(robotCap_ptr_->getFrame(channel,
+                                   reinterpret_cast<int *>(&width),
+                                   reinterpret_cast<int *>(&height),
+                                   reinterpret_cast<void *>(data.data()),
+                                   6220800,
+                                   reinterpret_cast<unsigned int *>(&data_size),
+                                   timestamp))
+        {
+            return false;
+        }
+        memcpy(encoding.data(), "nv12", strlen("nvv12"));
+    }
+    stamp.sec = timestamp / 1e9;
+    stamp.nanosec = timestamp - stamp.sec * 1e9;
+    step = width;
+
+    uint64_t timestamp_sys;
+    {
+        struct timeval tv;
+        gettimeofday(&tv, NULL);
+        timestamp_sys = (tv.tv_sec * 1000 + tv.tv_usec/1000000)
+    }
+
+    RCLCPP_INFO(rclcpp::get_logger("robot_camera"), "publish laps ms= %d", (timestamp_sys - timestamp/1000000));
+    {
+        struct timespec ts;
+        clock_gettime(CLOCK_MONOTONIC, &ts);
+        msEnd = (ts.tv_sec * 1000 + tv.tv_nsec / 1000000);
+    }
+
+    RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_cam"),
+                       "getImage channel=" << channel.data()
+                       << ", enc=" << encoding.data()
+                       << ", width=" << width
+                       << ", height=" << height
+                       << ", step=" << step
+                       << ", sz=" << data_size
+                       << ", ts=" << stamp.sec << "." << stamp.nanosec
+                       << ", laps ms=" << msEnd - msStart);
     return true;
 }
 

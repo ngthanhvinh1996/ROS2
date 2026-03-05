@@ -1,0 +1,6 @@
+[submodule "ros2_ws/src/hobot_dnn"]
+	path = ros2_ws/src/hobot_dnn
+	url = https://github.com/D-Robotics/hobot_dnn.git
+[submodule "ros2_ws/src/hobot_codec"]
+	path = ros2_ws/src/hobot_codec
+	url = https://github.com/D-Robotics/hobot_codec.git

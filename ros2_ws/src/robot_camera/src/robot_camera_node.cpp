@@ -246,6 +246,72 @@ void RobotCameraNode::init()
             return;
         }
     }
+    else if(0 == io_method_name_.compare("shared_mem"))
+    {
+        std::string ros_zerocopy_env = rcpputils::get_env_var("RMW_FASTRTPS_USE_QOS_FROM_XML");
+        if(ros_zerocopy_env.empty())
+        {
+            RCLCPP_ERROR_STREAM(this->get_logger(), "Lauching with zero-copy, but env of 'RMW_FASTRTPS_USE_QOS_FROM_XML' is not set. "
+                                << "Transporting data without zero-copy!");
+        }
+        else
+        {
+            if("1" == ros_zerocopy_env)
+            {
+                RCLCPP_WARN_STREAM(this->get_logger(), "Enabling zero-copy");
+            }
+            else
+            {
+                RCLCPP_ERROR_STREAM(this->get_logger(), "env of 'RMW_FASTRTPS_USE_QOS_FROM_XML' is [" << ros_zerocopy_env
+                                    << "], which should be set to 1. "
+                                    << "Data transporting without zero-copy");
+            }
+        }
+
+        if(0 == nodePara_->device_mode_.compare("dual"))
+        {
+            if(1 == nodePara_->dual_combine_)
+            {
+                Pub_hbmem_info_.resize(3);
+                init_publisher_hbmem(Pub_hbmem_info_[0], "hbmem_left_img", "left");
+                init_publisher_hbmem(Pub_hbmem_info_[1], "hbmem_right_img", "right");
+                init_publisher_hbmem(Pub_hbmem_info_[2], "hbmem_combine_img", "combine");
+            }
+            else if(2 == nodePara_->dual_combine_)
+            {
+                Pub_hbmem_info_.resize(1);
+                init_publisher_hbmem(Pub_hbmem_info_[0], "hbmem_combine_img", "combine");
+            }
+            else
+            {
+                Pub_hbmem_info_.resize(2);
+                init_publisher_hbmem(Pub_hbmem_info_[0], "hbmem_left_img", "left");
+                init_publisher_hbmem(Pub_hbmem_info_[1], "hbmem_right_img", "right");
+            }
+        }
+        else if(0 == nodePara_->device_mode_.compare("single") || 0 == nodePara_->device_mode_.compare(""))
+        {
+            if(nodePara_->sub_stream_flag_)
+            {
+                Pub_hbmem_info_.resize(2);
+                init_publisher_hbmem(Pub_hbmem_info_[0], "hbmem_img", "single");
+                init_publisher_hbmem(Pub_hbmem_info_[1], "sub_hbmem_img", "sub_single");
+            }
+            else
+            {
+                Pub_hbmem_info_.resize(1);
+                init_publisher_hbmem(Pub_hbmem_info_[0], "hbmem_img", "single");
+            }
+        }
+        else
+        {
+            return;
+        }
+    }
+    else
+    {
+        return;
+    }
 
     /* Start the camera */
     if(0 != robotCam_ptr_->start())
@@ -264,6 +330,13 @@ void RobotCameraNode::init()
             timer_.emplace_back(std::make_shared<std::thread>([this, &info]() {while(rclcpp::ok()) {this->update(&info);}}));
         }
     }
+    else if(0 == io_method_name_.compare("shared_mem"))
+    {
+        for(Publisher_hbmem_info_st &info : Pub_hbmem_info_)
+        {
+            timer_.emplace_back(std::make_shared<std::thread>([this, &info]() {while(rclcpp::ok()) {this->hbmemUpdate(&info);}}));
+        }
+    }
 
     RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_node"), "starting timer " << period_ms);
 
@@ -278,6 +351,13 @@ void RobotCameraNode::init_publisher(Publisher_info_st &Pub_info_, std::string t
     Pub_info_.img_->header.frame_id = frame_id;
     Pub_info_.topic_type = topic_type;
     Pub_info_.time_start_ = std::chrono::system_clock::now();
+}
+
+void RobotCameraNode::init_publisher_hbmem(Publisher_hbmem_info_st &Pub_info, std::string topic, std::string topic_type)
+{
+    Pub_info.publisher_hbmem_ = this->create_publisher<hbm_img_msgs::msg::HbmMsg1080P>(topic, rclcpp::SensorDataQoS());
+    Pub_info.topic_type = topic_type;
+    Pub_info.time_start_ = std::chrono::system_clock::now();
 }
 
 void RobotCameraNode::update(Publisher_info_st* pub_info)
@@ -304,18 +384,57 @@ void RobotCameraNode::update(Publisher_info_st* pub_info)
         pub_info->image_pub_->publish(std::move(pub_info->img_));
         pub_info->img_ = std::make_unique<sensor_msgs::msg::Image>(rosidl_runtime_cpp::MessageInitialization::SKIP);
 
-        if(pub_info->info_pub_)
-        {
-            pub_info->camera_calibration_info_->header.stamp = pub_info->img_->header.stamp;
-            pub_info->info_pub_->publish(*pub_info->camera_calibration_info_);
-        }
+        // if(pub_info->info_pub_)
+        // {
+        //     pub_info->camera_calibration_info_->header.stamp = pub_info->img_->header.stamp;
+        //     pub_info->info_pub_->publish(*pub_info->camera_calibration_info_);
+        // }
 
-        if(pub_info->info_pub2_)
+        // if(pub_info->info_pub2_)
+        // {
+        //     pub_info->camera_calibration_info2_->header.stamp = pub_info->img_->header.stamp;
+        //     pub_info->info_pub2_->publish(*pub_info->camera_calibration_info2_);
+        // }
+    }
+}
+
+void RobotCameraNode::hbmemUpdate(Publisher_hbmem_info_st* pub_info)
+{
+    if(robotCam_ptr_ && robotCam_ptr_->isCapturing())
+    {
+        auto loanedMsg = pub_info->publisher_hbmem_->get_loaned_message();
+        if(loanedMsg.is_valid())
         {
-            pub_info->camera_calibration_info2_->header.stamp = pub_info->img_->header.stamp;
-            pub_info->info_pub2_->publish(*pub_info->camera_calibration_info2_);
+            auto &msg = loanedMsg.get();
+            if(!robotCam_ptr_->getImageMem(msg.time_stamp,
+                                            msg.encoding,
+                                            msg.height,
+                                            msg.width,
+                                            msg.step,
+                                            msg.data,
+                                            msg.data_size,
+                                            pub_info->topic_type))
+            {
+                auto time_after = std::chrono::system_clock::now();
+                auto interval = std::chrono::duration_cast<std::chrono::milliseconds>(time_after - pub_info->time_start_).count();
+                if(interval > 3000)
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("robot_node"), "hbmemUpdate grab img failed");
+                }
+                return;
+            }
+
+            msg.index = pub_info->mSendIdx++;
+            pub_info->publisher_hbmem_->publish(std::move(loanedMsg));
+        }
+        else
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("robot_node"), "borrow_loaned_message failed");
         }
     }
 }
 
 } // robot_cam
+
+#include "rclcpp_components/register_node_macro.hpp"
+RCLCPP_COMPONENTS_REGISTER_NODE(robot_cam::RobotCameraNode)
