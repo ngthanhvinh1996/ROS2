@@ -3,8 +3,8 @@ from launch_ros.actions import Node
 import os
 
 def generate_launch_description():
-    dnn_model_path = "/opt/hobot/model/x5/basic/yolov5x_672x672_nv12.bin"
-    dnn_config_path = "/home/sunrise/workdir/ROS2/ros2_ws/src/robot_camera/models/yolov5workconfig.json"
+    dnn_model_path = "/opt/hobot/model/x5/basic/yolov8_640x640_nv12.bin"
+    dnn_config_path = "/home/sunrise/workdir/ROS2/ros2_ws/src/robot_camera/models/yolov8workconfig.json"
 
     return LaunchDescription([
         # ---------------------------------------------------------
@@ -34,7 +34,7 @@ def generate_launch_description():
         ),
 
         # ---------------------------------------------------------
-        # NODE 2: AI INFERENCE (YOLOv5)
+        # NODE 2: AI INFERENCE (YOLOv8)
         # ---------------------------------------------------------
         Node(
             package='dnn_node_example',
@@ -43,7 +43,7 @@ def generate_launch_description():
             parameters=[
                 {"config_file": dnn_config_path},
                 {"model_file": dnn_model_path},
-                {"dnn_parser": "yolov5"},
+                {"dnn_Parser": "yolov8"},
                 {"msg_pub_topic_name": "ai_msg_mono2d"},
                 {"feed_type": 1},
                 {"is_shared_mem_sub": 0},

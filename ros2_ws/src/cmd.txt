@@ -1,6 +1,6 @@
 # Build
 colcon build --packages-select mipi_cam_local robot_camera --cmake-args -DPLATFORM_X5=ON
-colcon build --packages-up-to dnn_node_example hobot_visualization robot_camera --cmake-args -DPLATFORM_X5=ON --symlink-install --parallel-workers 1
+colcon build --packages-up-to dnn_node_example robot_camera --cmake-args -DPLATFORM_X5=ON --symlink-install --parallel-workers 1
 colcon build --packages-select display_video
 
 # Run
