@@ -30,6 +30,14 @@ public:
                              uint32_t &width,
                              uint32_t &step,
                              std::vector<uint8_t> &data, std::string channel) = 0;
+    virtual bool getImageMem(builtin_interfaces::msg::Time &stamp,
+                             std::array<uint8_t, 12> &encoding,
+                             uint32_t &height,
+                             uint32_t &width,
+                             uint32_t &step,
+                             std::array<uint8_t, 6220800> &data,
+                             uint32_t &data_size,
+                             std::string channel) = 0;
     virtual bool getCamCalibration(sensor_msgs::msg::CameraInfo& cam_info,
                            const std::string &file_path) = 0;
     virtual bool getDualCamCalibration(sensor_msgs::msg::CameraInfo &cam_info_l,

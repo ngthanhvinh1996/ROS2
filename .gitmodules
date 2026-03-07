@@ -4,3 +4,6 @@
 [submodule "ros2_ws/src/hobot_codec"]
 	path = ros2_ws/src/hobot_codec
 	url = https://github.com/D-Robotics/hobot_codec.git
+[submodule "ros2_ws/src/hobot_shm"]
+	path = ros2_ws/src/hobot_shm
+	url = https://github.com/D-Robotics/hobot_shm.git

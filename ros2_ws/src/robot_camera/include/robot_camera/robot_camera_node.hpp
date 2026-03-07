@@ -10,16 +10,18 @@
 #include "x5/hobot_mipi_cap_iml.hpp"
 #include "hobot_mipi_comm.hpp"
 #include "hobot_mipi_cam.hpp"
+#include <cstdlib>
+#include <string>
 
 namespace robot_cam
 {
-typeded struct Publisher_info_base {
+typedef struct Publisher_info_base {
     sensor_msgs::msg::CameraInfo::UniquePtr camera_calibration_info_;
     sensor_msgs::msg::CameraInfo::UniquePtr camera_calibration_info2_;
     rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr info_pub_ = nullptr;
     rclcpp::Publisher<sensor_msgs::msg::CameraInfo>::SharedPtr info_pub2_ = nullptr;
     std::chrono::time_point<std::chrono::system_clock> time_start_;
-}
+};
 
 typedef struct Publisher_info : Publisher_info_base {
     sensor_msgs::msg::Image::UniquePtr img_;
@@ -31,7 +33,7 @@ typedef struct Publisher_hbmem_info : Publisher_info_base {
     int mSendIdx;
     rclcpp::Publisher<hbm_img_msgs::msg::HbmMsg1080P>::SharedPtr publisher_hbmem_;
     std::string topic_type;
-}
+} Publisher_hbmem_info_st;
 
 class RobotCameraNode : public rclcpp::Node {
 public:
@@ -52,6 +54,7 @@ private:
     std::string frame_id_;
     std::string io_method_name_;
     std::vector<Publisher_info_st> Pub_info_;
+    std::vector<Publisher_hbmem_info_st> Pub_hbmem_info_;
 };
 
 } // robot_cam

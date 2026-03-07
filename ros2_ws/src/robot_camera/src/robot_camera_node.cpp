@@ -248,7 +248,7 @@ void RobotCameraNode::init()
     }
     else if(0 == io_method_name_.compare("shared_mem"))
     {
-        std::string ros_zerocopy_env = rcpputils::get_env_var("RMW_FASTRTPS_USE_QOS_FROM_XML");
+        std::string ros_zerocopy_env = std::getenv("RMW_FASTRTPS_USE_QOS_FROM_XML");
         if(ros_zerocopy_env.empty())
         {
             RCLCPP_ERROR_STREAM(this->get_logger(), "Lauching with zero-copy, but env of 'RMW_FASTRTPS_USE_QOS_FROM_XML' is not set. "
@@ -402,7 +402,7 @@ void RobotCameraNode::hbmemUpdate(Publisher_hbmem_info_st* pub_info)
 {
     if(robotCam_ptr_ && robotCam_ptr_->isCapturing())
     {
-        auto loanedMsg = pub_info->publisher_hbmem_->get_loaned_message();
+        auto loanedMsg = pub_info->publisher_hbmem_->borrow_loaned_message();
         if(loanedMsg.is_valid())
         {
             auto &msg = loanedMsg.get();
