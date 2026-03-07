@@ -9,7 +9,7 @@ def generate_launch_description():
         # ---------------------------------------------------------
         Node(
             package='display_video',
-            executable='display_video',
+            executable='display_video_node',
             name='display_video_node',
             output='screen',
             parameters=[
