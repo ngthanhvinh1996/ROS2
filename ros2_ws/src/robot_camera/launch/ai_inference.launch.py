@@ -8,7 +8,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         # ---------------------------------------------------------
-        # NODE 1: CAMERA (Nguồn ảnh gốc)
+        # NODE 1: CAMERA
         # ---------------------------------------------------------
         Node(
             package='robot_camera',
@@ -19,8 +19,8 @@ def generate_launch_description():
                 {"video_device": "SC230AI"},
                 {"device_mode": "single"},
                 {"dual_combine": 0},
-                {"image_width": 1920},
-                {"image_height": 1080},
+                {"image_width": 960},
+                {"image_height": 544},
                 {"framerate": 30.0},
                 {"rotation": 180.0},
                 {"gdc_enable": False},
@@ -30,6 +30,7 @@ def generate_launch_description():
                 {"out_format": "nv12"},
                 {"channel": 2},
                 {"channel2": 0},
+                {"io_method": "shared_mem"},
             ]
         ),
 
@@ -44,26 +45,26 @@ def generate_launch_description():
                 {"config_file": dnn_config_path},
                 {"model_file": dnn_model_path},
                 {"dnn_Parser": "yolov8"},
-                {"msg_pub_topic_name": "ai_msg_mono2d"},
+                {"msg_pub_topic_name": "hobot_dnn_detection"},
                 {"feed_type": 1},
-                {"is_shared_mem_sub": 0},
-                {"ros_img_topic_name": "/image_raw"}
+                {"is_shared_mem_sub": 1},
+                {"ros_img_topic_name": "/hbmem_img"}
             ],
         ),
 
         # ---------------------------------------------------------
-        # NODE 3: VISUALIZATION (Vẽ hộp lên ảnh)
+        # NODE 3: CODEC
         # ---------------------------------------------------------
-        # Node(
-        #     package='hobot_visualization',
-        #     executable='hobot_visualization',
-        #     output='screen',
-        #     parameters=[
-        #         {"msg_pub_topic_name": "ai_image_processed"} 
-        #     ],
-        #     remappings=[
-        #         ('/dnn_data', '/ai_msg_mono2d'),
-        #         ('/image_raw', '/image_raw')
-        #     ]
-        # )
+        Node(
+            package='hobot_codec',
+            executable='hobot_codec_republish',
+            output='screen',
+            name='hobot_codec_node',
+            parameters=[
+                {"codec_in_mode": "shared_mem"},
+                {"codec_out_mode": "ros"},
+                {"codec_sub_topic": "/hbmem_img"},
+                {"codec_pub_topic": "/image"}
+            ],
+        )
     ])
