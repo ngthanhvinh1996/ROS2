@@ -1,5 +1,5 @@
 # Build
-colcon build --packages-select mipi_cam_local robot_camera --cmake-args -DPLATFORM_X5=ON
+colcon build --packages-select mipi_cam_local robot_camera --cmake-args -DPLATFORM_X5=ON --symlink-install
 colcon build --packages-up-to dnn_node_example robot_camera --cmake-args -DPLATFORM_X5=ON --symlink-install --parallel-workers 1
 colcon build --packages-up-to display_video --symlink-install
 
@@ -71,4 +71,6 @@ ros2 run display_video display_video_node --ros-args device_mode:=single -p dual
 ros2 launch robot_camera ai_inference.launch.py
 
 ros2 run display_video display_video_node
+
+ros2 launch display_video display.launch.py
 

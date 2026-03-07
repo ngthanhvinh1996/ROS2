@@ -1,12 +1,28 @@
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
 from launch_ros.actions import Node
+from launch.substitutions import TextSubstitution
+from launch.substitutions import LaunchConfiguration
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from ament_index_python import get_package_share_directory
+from ament_index_python.packages import get_package_prefix
 import os
 
 def generate_launch_description():
     dnn_model_path = "/opt/hobot/model/x5/basic/yolov8_640x640_nv12.bin"
     dnn_config_path = "/home/sunrise/workdir/ROS2/ros2_ws/src/robot_camera/models/yolov8workconfig.json"
 
+    shared_mem_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('hobot_shm'),
+                'launch/hobot_shm.launch.py'))
+    )
+
     return LaunchDescription([
+        shared_mem_node,
+        
         # ---------------------------------------------------------
         # NODE 1: CAMERA
         # ---------------------------------------------------------
@@ -61,10 +77,10 @@ def generate_launch_description():
             output='screen',
             name='hobot_codec_node',
             parameters=[
-                {"codec_in_mode": "shared_mem"},
-                {"codec_out_mode": "ros"},
-                {"codec_sub_topic": "/hbmem_img"},
-                {"codec_pub_topic": "/image"}
+                {"in_mode": "shared_mem"},
+                {"out_mode": "ros"},
+                {"sub_topic": "/hbmem_img"},
+                {"pub_topic": "/image"}
             ],
-        )
+        ),
     ])

@@ -15,7 +15,7 @@ def generate_launch_description():
             parameters=[
                 {"image_out_type": "jpeg"},
                 {"image_sub_topic": "/image"},
-                {"ai_sub_topic": "hobot_dnn_detection"}
+                {"ai_sub_topic": "/hobot_dnn_detection"}
             ]
         )
     ])
