@@ -22,7 +22,7 @@ public:
                              uint32_t &height,
                              uint32_t &width,
                              uint32_t &step,
-                             std::array<uint8_t, 6220900> &data,
+                             std::array<uint8_t, 6220800> &data,
                              uint32_t &data_size,
                              std::string channel) override;
     bool getCamCalibration(sensor_msgs::msg::CameraInfo& cam_info,
@@ -354,12 +354,12 @@ bool RobotCameraIml::getImage(builtin_interfaces::msg::Time &stamp,
     return true;
 }
 
-bool getImageMem(builtin_interfaces::msg::Time &stamp,
+bool RobotCameraIml::getImageMem(builtin_interfaces::msg::Time &stamp,
                              std::array<uint8_t, 12> &encoding,
                              uint32_t &height,
                              uint32_t &width,
                              uint32_t &step,
-                             std::array<uint8_t, 6220900> &data,
+                             std::array<uint8_t, 6220800> &data,
                              uint32_t &data_size,
                              std::string channel)
 {
@@ -461,14 +461,14 @@ bool getImageMem(builtin_interfaces::msg::Time &stamp,
     {
         struct timeval tv;
         gettimeofday(&tv, NULL);
-        timestamp_sys = (tv.tv_sec * 1000 + tv.tv_usec/1000000)
+        timestamp_sys = (tv.tv_sec * 1000 + tv.tv_usec/1000000);
     }
 
     RCLCPP_INFO(rclcpp::get_logger("robot_camera"), "publish laps ms= %d", (timestamp_sys - timestamp/1000000));
     {
         struct timespec ts;
         clock_gettime(CLOCK_MONOTONIC, &ts);
-        msEnd = (ts.tv_sec * 1000 + tv.tv_nsec / 1000000);
+        msEnd = (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
     }
 
     RCLCPP_INFO_STREAM(rclcpp::get_logger("robot_cam"),
