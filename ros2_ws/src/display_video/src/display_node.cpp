@@ -34,6 +34,13 @@ public:
         this->get_parameter("image_sub_topic", display_node_para_->image_sub_topic);
         this->get_parameter("ai_sub_topic", display_node_para_->ai_sub_topic);
 
+        RCLCPP_INFO(this->get_logger(), "image_out_type: %s" \
+                                        "\n image_sub_topic: %s" \
+                                        "\n ai_sub_topic: %s" \
+                                        , display_node_para_->image_out_type.c_str() \
+                                        , display_node_para_->image_sub_topic.c_str() \
+                                        , display_node_para_->ai_sub_topic.c_str());
+
         // QoS profile
         rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
         auto qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 10), qos_profile);
@@ -58,7 +65,7 @@ private:
         const ai_msgs::msg::PerceptionTargets::ConstSharedPtr& ai_msg) 
     {
         cv::Mat frame;
-        
+
         try {
             if(0 == display_node_para_->image_out_type.compare("raw"))
             {
