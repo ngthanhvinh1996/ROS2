@@ -13,6 +13,7 @@ def generate_launch_description():
             name='display_video_node',
             output='screen',
             parameters=[
+                {"display_mode": "combine"},
                 {"image_out_type": "jpeg"},
                 {"image_sub_topic": "/image"},
                 {"ai_sub_topic": "/hobot_dnn_detection"}
