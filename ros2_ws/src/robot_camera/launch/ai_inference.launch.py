@@ -20,8 +20,22 @@ def generate_launch_description():
                 'launch/hobot_shm.launch.py'))
     )
 
+    jpeg_codec_node = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('hobot_codec'),
+                'launch/hobot_codec_encode.launch.py')),
+        launch_arguments={
+            'codec_in_mode': 'shared_mem',
+            'codec_out_mode': 'ros',
+            'codec_sub_topic': '/hbmem_img',
+            'codec_pub_topic': '/image'
+        }.items()
+    )
+
     return LaunchDescription([
         shared_mem_node,
+        jpeg_codec_node,
         
         # ---------------------------------------------------------
         # NODE 1: CAMERA
@@ -61,26 +75,10 @@ def generate_launch_description():
                 {"config_file": dnn_config_path},
                 {"model_file": dnn_model_path},
                 {"dnn_Parser": "yolov8"},
-                {"msg_pub_topic_name": "hobot_dnn_detection"},
+                {"msg_pub_topic_name": "/hobot_dnn_detection"},
                 {"feed_type": 1},
                 {"is_shared_mem_sub": 1},
                 {"ros_img_topic_name": "/hbmem_img"}
-            ],
-        ),
-
-        # ---------------------------------------------------------
-        # NODE 3: CODEC
-        # ---------------------------------------------------------
-        Node(
-            package='hobot_codec',
-            executable='hobot_codec_republish',
-            output='screen',
-            name='hobot_codec_node',
-            parameters=[
-                {"in_mode": "shared_mem"},
-                {"out_mode": "ros"},
-                {"sub_topic": "/hbmem_img"},
-                {"pub_topic": "/image"}
             ],
         ),
     ])

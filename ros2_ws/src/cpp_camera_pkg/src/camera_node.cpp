@@ -23,7 +23,7 @@ public:
     cap_.open(device_id, cv::CAP_V4L2);
 
     if (!cap_.isOpened()) {
-      RCLCPP_ERROR(this->get_logger(), "KHONG THE MO USB CAMERA %d!", device_id);
+      RCLCPP_ERROR(this->get_logger(), "Cannot open USB Camera %d!", device_id);
       return;
     }
 
@@ -35,7 +35,7 @@ public:
     cap_.set(cv::CAP_PROP_FPS, 30);
 
     double fps = cap_.get(cv::CAP_PROP_FPS);
-    RCLCPP_INFO(this->get_logger(), "USB Camera khoi dong thanh cong! FPS thuc te: %.2f", fps);
+    RCLCPP_INFO(this->get_logger(), "USB Camera initialize failed! FPS: %.2f", fps);
 
     timer_ = this->create_wall_timer(
       33ms, std::bind(&CameraPublisher::timer_callback, this));
@@ -48,7 +48,7 @@ private:
     cap_ >> frame;
 
     if (frame.empty()) {
-      RCLCPP_WARN(this->get_logger(), "Frame bi rong (Empty frame)");
+      RCLCPP_WARN(this->get_logger(), "Empty frame");
       return;
     }
 
