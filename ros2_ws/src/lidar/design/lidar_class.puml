@@ -1,0 +1,70 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+enum ParseState <<enum class>> {
+  WAIT_HEADER
+  WAIT_LENGTH
+  WAIT_DATA
+  WAIT_CHECKSUM
+}
+
+struct ScanData {
+  + angle_min : float
+  + angle_max : float
+  + angle_increment : float
+  + range_min : float
+  + range_max : float
+  + ranges : std::vector<float>
+  + intensities : std::vector<float>
+}
+
+struct LidarConfig {
+  + port_name : std::string
+  + baudrate : int
+  + frame_id : std::string
+  + scan_topic : std::string
+}
+
+class LidarDriver {
+  - fd_ : int
+  - is_connected_ : bool
+  - port_name_ : std::string
+  - baudrate_ : int
+
+  + LidarDriver(port: const std::string&, baud: int)
+  + ~LidarDriver()
+  + open() : bool
+  + close() : void
+  + is_open() : bool
+  + read_bytes(buffer: std::vector<uint8_t>&, len: size_t) : ssize_t
+  + write_bytes(buffer: const std::vector<uint8_t>&, len: size_t) : ssize_t
+}
+
+class "rclcpp::Node" as Node {
+}
+
+class LidarRos2 {
+  - driver_ : std::unique_ptr<LidarDriver>
+  - parser_ : std::unique_ptr<LidarParser>
+  - config_ : LidarConfig
+  - timer_ : rclcpp::TimerBase::SharedPtr
+  - publisher_ : rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr
+
+  + LidarRos2(options: const rclcpp::NodeOptions&)
+  + ~LidarRos2()
+  - timer_callback() : void
+  - publish_data(data: const ScanData&) : void
+  - declare_parameters() : void
+}
+
+Node <|-- LidarRos2
+
+LidarRos2 *-- LidarDriver : "owns >"
+LidarRos2 *-- LidarConfig
+
+LidarDriver --> ScanData : "produces >"
+LidarDriver --> ParseState : "uses >"
+
+LidarRos2 ..> ScanData : "consumes >"
+
+@enduml

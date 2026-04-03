@@ -1,0 +1,30 @@
+@startuml
+skinparam componentStyle uml2
+skinparam padding 5
+
+title ROS2 Lidar Architecture (Decoupled Data Flow)
+
+package "Application Layer" {
+    [Obstacle Avoidance App] as App
+}
+
+package "ROS2 Ecosystem" {
+    [N10P ROS2 Wrapper Node] as RosNode
+}
+
+package "C++ Core Layer (No ROS2)" {
+    [N10P Protocol Parser] as CoreDriver
+}
+
+package "Hardware Layer" {
+    [Linux UART (/dev/ttyUSB*)] as Uart
+    node "Lidar N10P (Hardware)" as Lidar
+}
+
+Lidar -up-> Uart : "Raw Serial Bytes\n(Tx/Rx)"
+Uart -up-> CoreDriver : "Read Buffer\n(POSIX termios)"
+CoreDriver -up-> RosNode : "Parsed ScanData\n(C++ Structs)"
+
+RosNode .up.> App : "Publish to Topic: /scan"
+
+@enduml

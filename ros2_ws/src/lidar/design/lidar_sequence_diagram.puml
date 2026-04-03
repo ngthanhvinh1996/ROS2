@@ -1,0 +1,58 @@
+@startuml
+skinparam ParticipantPadding 20
+skinparam BoxPadding 10
+autonumber
+
+title Lidar Data Flow (Serial over USB) - Sequence Diagram
+
+box "Hardware" #LightBlue
+actor "Lidar\nN10P" as Lidar
+participant "USB/UART\nConverter" as UART
+end box
+
+box "PC / Embedded Linux (C++ Driver)" #LightGray
+participant "Serial Thread\n(Read)" as Thread1
+queue "Lock-free\nCircular Buffer" as Buffer
+participant "Processing Thread\n(Parse)" as Thread2
+participant "Point Cloud\nAlgorithm" as Algo
+end box
+
+participant "Main Application /\nROS 2 Node" as App
+
+== Initialization ==
+App -> Thread1 : Start Thread
+App -> Thread2 : Start Thread
+
+== Runtime Loop (High Frequency) ==
+loop Every 1ms
+    Lidar ->> UART : Send Raw Byte Packets (0x55, ...)
+    UART -> Thread1 : Data Available (Interrupt)
+    note right of Thread1: non-blocking read
+    Thread1 -> UART : Read Data (e.g., 64 bytes)
+    Thread1 -> Buffer : Push Raw Data
+end
+
+== Parsing & Processing (Asynchronous) ==
+loop When Buffer is NOT Empty
+    Thread2 -> Buffer : Pop Raw Data
+    activate Thread2
+    
+    group "Parse Logic (N10P Protocol)"
+        Thread2 -> Thread2 : Validate Checksum
+        alt Invalid Checksum
+            Thread2 -> App : Log Warning (Data Dropped)
+        else Valid Data
+            Thread2 -> Thread2 : Extract Distances, Angles, Quality
+            Thread2 -> Algo : Convert to Cartesian (x, y, z)
+            activate Algo
+            Algo --> Thread2 : Return Point Cloud
+            deactivate Algo
+            
+            Thread2 ->> App : Publish Point Cloud Topic
+        end
+    end
+    
+    deactivate Thread2
+end
+
+@enduml
