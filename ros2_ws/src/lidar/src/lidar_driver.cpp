@@ -1,4 +1,6 @@
 #include "lidar_driver.hpp"
+#include <cerrno>
+#include <cstring>
 
 namespace lidar {
 
@@ -113,7 +115,7 @@ bool LidarDriver::is_open() const
     return is_connected_;
 }
 
-ssize_t LidarDriver::read_bytes(std::vector<uint8_t>& buffer, size_t len)
+ssize_t LidarDriver::read_bytes(std::vector<uint8_t>& buffer, size_t offset, size_t len)
 {
     if(!is_connected_)
     {
@@ -121,14 +123,14 @@ ssize_t LidarDriver::read_bytes(std::vector<uint8_t>& buffer, size_t len)
         return -1;
     }
 
-    ssize_t bytes_read = ::read(fd_, buffer.data(), len);
+    ssize_t bytes_read = ::read(fd_, buffer.data() + offset, len);
     if(0 > bytes_read)
     {
-        LOG_ERROR("[%s][%s][%d] Failed to read data from lidar", __FILE__, __FUNCTION__, __LINE__);
+        LOG_ERROR("[%s][%s][%d] Failed to read data from lidar: %s (errno=%d)", __FILE__, __FUNCTION__, __LINE__, strerror(errno), errno);
         return -1;
     }
 
-    LOG_INFO("[%s][%s][%d] Read %zd bytes from lidar", __FILE__, __FUNCTION__, __LINE__, bytes_read);
+    // LOG_INFO("[%s][%s][%d] Read %zd bytes from lidar", __FILE__, __FUNCTION__, __LINE__, bytes_read);
     return bytes_read;
 }
 
@@ -147,7 +149,7 @@ ssize_t LidarDriver::write_bytes(const std::vector<uint8_t>& buffer, size_t len)
         return -1;
     }
 
-    LOG_INFO("[%s][%s][%d] Write %zd bytes data to lidar", __FILE__, __FUNCTION__, __LINE__, bytes_written);
+    // LOG_INFO("[%s][%s][%d] Write %zd bytes data to lidar", __FILE__, __FUNCTION__, __LINE__, bytes_written);
     return bytes_written;
 }
 

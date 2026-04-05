@@ -1,0 +1,22 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ROS2: Attach to Node",
+            "type": "cppdbg",
+            "request": "attach",
+            // Chỉ định đường dẫn tới file binary để GDB load debug symbols
+            "program": "${workspaceFolder}/install/lidar/lib/lidar/lidar_node",
+            // Lệnh này sẽ mở một menu dropdown trên VS Code để bạn chọn process
+            "processId": "${command:pickProcess}",
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ]
+}

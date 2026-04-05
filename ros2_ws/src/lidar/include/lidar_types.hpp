@@ -14,6 +14,12 @@ enum class ParseState {
     WAIT_CHECKSUM,
 };
 
+struct ScanPoint {
+    float angle = 0.0f;
+    float range = 0.0f;
+    float intensity = 0.0f;
+};
+
 struct ScanData {
     float angle_min = 0.0f;
     float angle_max = 0.0f;

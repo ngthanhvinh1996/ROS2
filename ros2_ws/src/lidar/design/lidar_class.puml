@@ -8,6 +8,12 @@ enum ParseState <<enum class>> {
   WAIT_CHECKSUM
 }
 
+struct ScanPoint {
+  + angle : float
+  + range : float
+  + intensity : float
+}
+
 struct ScanData {
   + angle_min : float
   + angle_max : float
@@ -36,7 +42,7 @@ class LidarDriver {
   + open() : bool
   + close() : void
   + is_open() : bool
-  + read_bytes(buffer: std::vector<uint8_t>&, len: size_t) : ssize_t
+  + read_bytes(buffer: std::vector<uint8_t>&, offset: size_t, len: size_t) : ssize_t
   + write_bytes(buffer: const std::vector<uint8_t>&, len: size_t) : ssize_t
 }
 
@@ -45,16 +51,19 @@ class "rclcpp::Node" as Node {
 
 class LidarRos2 {
   - driver_ : std::unique_ptr<LidarDriver>
-  - parser_ : std::unique_ptr<LidarParser>
   - config_ : LidarConfig
   - timer_ : rclcpp::TimerBase::SharedPtr
   - publisher_ : rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr
+  - scan_points_ : std::vector<ScanPoint>
+  - scan_data_ : std::vector<ScanData>
 
   + LidarRos2(options: const rclcpp::NodeOptions&)
   + ~LidarRos2()
   - timer_callback() : void
   - publish_data(data: const ScanData&) : void
-  - declare_parameters() : void
+  - load_parameters() : void
+  - parse_packet(data: const std::vector<uint8_t>&, len: size_t) : void
+  - feed_data(data: const std::vector<uint8_t>&, len: size_t) : void
 }
 
 Node <|-- LidarRos2
@@ -64,6 +73,7 @@ LidarRos2 *-- LidarConfig
 
 LidarDriver --> ScanData : "produces >"
 LidarDriver --> ParseState : "uses >"
+LidarRos2 --> ScanPoint : "produces >"
 
 LidarRos2 ..> ScanData : "consumes >"
 

@@ -3,7 +3,8 @@
 
 #include "lidar_types.hpp"
 #include "lidar_driver.hpp"
-#include "lidar_parser.hpp"
+// TODO: uncomment when lidar_parser.hpp is created
+// #include "lidar_parser.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
 
@@ -17,13 +18,17 @@ public:
 private:
     void timer_callback();
     void publish_data(const ScanData& data);
-    void declare_parameters();
+    void load_parameters();
+    void parse_packet(const std::vector<uint8_t>& data, size_t len);
+    void feed_data(std::vector<uint8_t>& data, size_t len);
 
     std::unique_ptr<LidarDriver> driver_;
-    std::unique_ptr<LidarParser> parser_;
     LidarConfig config_;
     rclcpp::TimerBase::SharedPtr timer_;
     rclcpp::Publisher<sensor_msgs::msg::LaserScan>::SharedPtr publisher_;
+    std::vector<ScanPoint> scan_points_;
+    ScanData scan_data_;
+    std::vector<uint8_t> data_;
 };
 
 }
