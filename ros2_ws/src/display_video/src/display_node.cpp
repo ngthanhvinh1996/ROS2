@@ -12,7 +12,7 @@ using std::placeholders::_2;
 
 typedef struct 
 {
-    std::string display_mode;   /* single(image)/combine(Image+AI) */
+    std::string display_mode;
     std::string image_out_type;
     std::string image_sub_topic;
     std::string ai_sub_topic;
@@ -45,7 +45,7 @@ public:
                 display_node_para_->image_sub_topic,
                 10,
                 [this](const sensor_msgs::msg::CompressedImage::ConstSharedPtr msg) {
-                    RCLCPP_INFO_ONCE(this->get_logger(), ">>> ĐÃ BẮT ĐƯỢC DATA TỪ TOPIC /image <<<");
+                    RCLCPP_INFO_ONCE(this->get_logger(), ">>> CAPTURED TOPIC /image <<<");
                     this->latest_img_ = msg;
                 }
             );

@@ -17,7 +17,7 @@ add_executable(opi_camera_node src/camera_node.cpp)
 target_include_directories(opi_camera_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
-  ${OpenCV_INCLUDE_DIRS} # Thêm dòng này để chắc chắn tìm thấy OpenCV
+  ${OpenCV_INCLUDE_DIRS}
 )
 
 ament_target_dependencies(opi_camera_node

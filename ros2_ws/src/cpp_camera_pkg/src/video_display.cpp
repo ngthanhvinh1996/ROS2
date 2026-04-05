@@ -23,11 +23,11 @@ public:
       this, 
       "/camera/image_raw", 
       std::bind(&VideoDisplay::const_topic_callback, this, std::placeholders::_1), 
-      "compressed", // Gợi ý dùng nén (nếu muốn)
-      rmw_qos_profile_sensor_data // QoS Best Effort
+      "compressed",
+      rmw_qos_profile_sensor_data
     );
 
-    RCLCPP_INFO(this->get_logger(), "Dang cho du lieu video...");
+    RCLCPP_INFO(this->get_logger(), "Waiting data video...");
   }
 
   ~VideoDisplay()
@@ -46,15 +46,13 @@ private:
       cv::waitKey(1); 
     } 
     catch (cv_bridge::Exception& e) {
-      RCLCPP_ERROR(this->get_logger(), "Loi cv_bridge: %s", e.what());
+      RCLCPP_ERROR(this->get_logger(), "Error cv_bridge: %s", e.what());
     }
   }
 
   void const_topic_callback(const sensor_msgs::msg::Image::ConstSharedPtr & msg)
   {
     try {
-      // Chuyển đổi ROS Image -> OpenCV Mat
-      // Dùng bgr8 để hiển thị đúng màu
       cv::Mat frame = cv_bridge::toCvShare(msg, "bgr8")->image;
 
       if (frame.empty()) {
@@ -62,9 +60,9 @@ private:
         return;
       }
       // cv::cvtColor(frame, frame, cv::COLOR_BGR2RGB);
-      // Hiển thị ảnh
+
       cv::imshow("Camera View", frame);
-      cv::waitKey(1); // Bắt buộc phải có để OpenCV vẽ hình
+      cv::waitKey(1);
     } 
     catch (cv_bridge::Exception& e) {
       RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
