@@ -7,7 +7,19 @@ if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 
+# Set build type to Debug
 set(CMAKE_BUILD_TYPE Debug)
+
+# Set TSAN flags
+# set(TSAN_FLAGS "-g -fsanitize=thread -O1")
+
+# Add TSAN flags to CXX and C flags
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TSAN_FLAGS}")
+# set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TSAN_FLAGS}")
+
+# Add TSAN flags to EXE and SHARED linker flags
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${TSAN_FLAGS}")
+set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${TSAN_FLAGS}")
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -42,7 +54,9 @@ install(TARGETS lidar_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch
+install(DIRECTORY
+  launch
+  params
   DESTINATION share/${PROJECT_NAME}
 )
 

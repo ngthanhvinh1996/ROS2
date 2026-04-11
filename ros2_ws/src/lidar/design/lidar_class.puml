@@ -59,11 +59,10 @@ class LidarRos2 {
 
   + LidarRos2(options: const rclcpp::NodeOptions&)
   + ~LidarRos2()
-  - timer_callback() : void
-  - publish_data(data: const ScanData&) : void
   - load_parameters() : void
   - parse_packet(data: const std::vector<uint8_t>&, len: size_t) : void
-  - feed_data(data: const std::vector<uint8_t>&, len: size_t) : void
+  - feed_data(data: const std::vector<uint8_t>&, len: size_t) : bool
+  - calculate_crc8(data: const std::vector<uint8_t>&, len: size_t) : uint8_t
 }
 
 Node <|-- LidarRos2

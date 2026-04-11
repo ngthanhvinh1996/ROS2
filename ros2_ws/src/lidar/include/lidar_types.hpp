@@ -7,6 +7,9 @@
 
 namespace lidar {
 
+#define PACKET_HEADER_BYTE_0 0xA5
+#define PACKET_HEADER_BYTE_1 0x5A
+
 enum class ParseState {
     WAIT_HEADER,
     WAIT_LENGTH,
@@ -15,19 +18,14 @@ enum class ParseState {
 };
 
 struct ScanPoint {
-    float angle = 0.0f;
-    float range = 0.0f;
-    float intensity = 0.0f;
+    float x = 0.0f;
+    float y = 0.0f;
 };
 
 struct ScanData {
-    float angle_min = 0.0f;
-    float angle_max = 0.0f;
-    float angle_increment = 0.0f;
-    float range_min = 0.15f;
-    float range_max = 8.0f;
-    std::vector<float> ranges;
-    std::vector<float> intensities;
+    float angle = 0.0f;
+    float range = 0.0f;
+    float intensity = 0.0f;
 };
 
 struct LidarConfig {
@@ -35,6 +33,9 @@ struct LidarConfig {
     int baudrate;
     std::string frame_id;
     std::string scan_topic;
+    float min_range;
+    float max_range;
+    uint8_t valid_point;
 };
 
 }

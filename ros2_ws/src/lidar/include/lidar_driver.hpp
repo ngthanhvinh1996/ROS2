@@ -20,8 +20,8 @@ public:
     bool open();
     void close();
     bool is_open() const;
-    ssize_t read_bytes(std::vector<uint8_t> &buffer, size_t offset, size_t len);
-    ssize_t write_bytes(const std::vector<uint8_t> &buffer, size_t len);
+    ssize_t read_bytes(unsigned char *buffer, size_t len);
+    ssize_t write_bytes(const unsigned char *buffer, size_t len);
 
 private:
     int fd_;

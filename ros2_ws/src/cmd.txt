@@ -77,9 +77,15 @@ ros2 launch display_video display.launch.py
 
 ros2 run lidar lidar_node --ros-args -p port_name:=/dev/ttyUSB0 -p baud_rate:=460800
 
-ros2 launch lidar lidar_n10p.lauch.py
+ros2 launch lidar lidar_n10p.launch.py
 
-ros2 launch lidar lidar_n10p.lauch.py debug:=true
+ros2 launch lidar lidar_n10p.launch.py debug:=true
+
+ros2 launch lidar lidar_n10p.launch.py debug:=false > ../../../lidar_log.txt 2>&1
+
+TSAN_OPTIONS="halt_on_error=1" ros2 launch lidar lidar_n10p.launch.py debug:=true
+
+setarch $(uname -m) -R ros2 launch lidar lidar_n10p.launch.py debug:=false
 
 NOTE:
 # Xterm debug

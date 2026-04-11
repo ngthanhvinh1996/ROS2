@@ -13,9 +13,14 @@ int main(int argc, char** argv)
     rclcpp::init(argc, argv);
     rclcpp::NodeOptions opt;
     auto node = std::make_shared<LidarRos2>(opt);
-    rclcpp::executors::SingleThreadedExecutor exec;
-    exec.add_node(node);
-    exec.spin();
+    // rclcpp::executors::SingleThreadedExecutor exec;
+    // exec.add_node(node);
+    // exec.spin();
+
+    while(rclcpp::ok() && node->processing_lidar())
+    {
+        rclcpp::spin_some(node);
+    }
 
     rclcpp::shutdown();
     return 0;
