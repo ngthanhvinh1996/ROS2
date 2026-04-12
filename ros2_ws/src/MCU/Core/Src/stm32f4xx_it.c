@@ -207,7 +207,7 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef *huart)
 {
     if(huart->Instance == USART2)
     {
-        LOG_INFO("DMA OVERRUN Error\r\n");
+
     }
 }
 #endif

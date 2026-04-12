@@ -90,17 +90,13 @@ void MotorA_TIM2_Encoder_Init(void)
 
     if (HAL_TIM_Encoder_Init(&htim2, &sConfig) != HAL_OK)
     {
-        LOG_ERR("MotorA TIM2 Encoder init failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL))
     {
-        LOG_ERR("MotorA TIM2 Encoder start failed.\r\n");
         return;
     }
-
-    LOG_INFO("MotorA TIM2 Encoder initialized.\r\n");
 }
 
 
@@ -145,17 +141,13 @@ void MotorB_TIM3_Encoder_Init(void)
     
     if(HAL_TIM_Encoder_Init(&htim3, &sConfig) != HAL_OK)
     {
-        LOG_ERR("MotorB TIM3 Encoder init failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_Encoder_Start(&htim3, TIM_CHANNEL_ALL))
     {
-        LOG_ERR("MotorB TIM3 Encoder start failed.\r\n");
         return;
     }
-
-    LOG_INFO("MotorB TIM3 Encoder initialized.\r\n");
 }
 
 /**
@@ -185,7 +177,6 @@ void MotorA_PWM_Init(void)
     htim10.Init.RepetitionCounter = 0U;
     if(HAL_OK != HAL_TIM_PWM_Init(&htim10))
     {
-        LOG_ERR("MotorA TIM10 init failed.\r\n");
         return;
     }
 
@@ -195,7 +186,6 @@ void MotorA_PWM_Init(void)
     TIM_OCInitStruct.OCFastMode = TIM_OCFAST_DISABLE;
     if(HAL_OK != HAL_TIM_PWM_ConfigChannel(&htim10, &TIM_OCInitStruct, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorA TIM10 PWM config failed.\r\n");
         return;
     }
 
@@ -214,29 +204,23 @@ void MotorA_PWM_Init(void)
     htim11.Init.RepetitionCounter = 0U;
     if(HAL_OK != HAL_TIM_PWM_Init(&htim11))
     {
-        LOG_ERR("MotorA TIM11 init failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_PWM_ConfigChannel(&htim11, &TIM_OCInitStruct, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorA TIM11 PWM channel 1 config failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_PWM_Start(&htim10, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorA TIM10 PWM channel 1 start failed.\r\n");
         return;
     }
     
     if(HAL_OK != HAL_TIM_PWM_Start(&htim11, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorA TIM11 PWM channel 1 start failed.\r\n");
         return;
     }
-
-    LOG_INFO("MotorA PWM initialized.\r\n");
 }
 
 /**
@@ -265,7 +249,6 @@ void MotorB_PWM_Init(void)
     htim9.Init.RepetitionCounter = 0U;
     if(HAL_OK != HAL_TIM_PWM_Init(&htim9))
     {
-        LOG_ERR("MotorB TIM9 init failed.\r\n");
         return;
     }
 
@@ -274,29 +257,23 @@ void MotorB_PWM_Init(void)
     TIM_OCInitStruct.OCFastMode = TIM_OCFAST_DISABLE;
     if(HAL_OK != HAL_TIM_PWM_ConfigChannel(&htim9, &TIM_OCInitStruct, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorB TIM9 channel 1 init failed.\r\n");
         return;
     }
     
     if(HAL_OK != HAL_TIM_PWM_ConfigChannel(&htim9, &TIM_OCInitStruct, TIM_CHANNEL_2))
     {
-        LOG_ERR("MotorB TIM9 channel 2 init failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_1))
     {
-        LOG_ERR("MotorB TIM9 PWM channel 1 start failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_PWM_Start(&htim9, TIM_CHANNEL_2))
     {
-        LOG_ERR("MotorB TIM9 PWM channel 2 start failed.\r\n");
         return;
     }
-
-    LOG_INFO("MotorB PWM initialized.\r\n");
 }
 
 /**
@@ -325,7 +302,6 @@ void Servo_PWM_Init(void)
     htim8.Init.RepetitionCounter = 0U;
     if(HAL_OK != HAL_TIM_PWM_Init(&htim8))
     {
-        LOG_ERR("Servo TIM8 init failed.\r\n");
         return;
     }
 
@@ -335,17 +311,13 @@ void Servo_PWM_Init(void)
     TIM_OCInitStruct.OCFastMode = TIM_OCFAST_DISABLE;
     if(HAL_OK != HAL_TIM_PWM_ConfigChannel(&htim8, &TIM_OCInitStruct, TIM_CHANNEL_4))
     {
-        LOG_ERR("Servo TIM8 PWM config failed.\r\n");
         return;
     }
 
     if(HAL_OK != HAL_TIM_PWM_Start(&htim8, TIM_CHANNEL_4))
     {
-        LOG_ERR("Servo TIM8 PWM channel 4 start failed.\r\n");
         return;
     }
-
-    LOG_INFO("Servo TIM8 initialized.\r\n");
 }
 
 /**
@@ -378,9 +350,6 @@ void Set_Motor_PWM(int motor_a, int motor_b)
     {
         MotorB_PWM = 0;
     }
-
-    // LOG_INFO("MotorA duty = %d,  MotorB duty = %d\r\n", motor_a, motor_b);
-    // LOG_INFO("MotorA PWM = %d,  MotorB PWM = %d\r\n", MotorA_PWM, MotorB_PWM);
 
     /* Time between two Set Compare Minimum 100ms */
     // HAL_Delay(20);
@@ -419,7 +388,6 @@ void Set_Servo_PWM(int servo)
         servo = 9999;
     }
 
-    // LOG_INFO("Servo = %d\r\n", servo);
     __HAL_TIM_SetCompare(&htim8, TIM_CHANNEL_4, servo);
 }
 
@@ -550,16 +518,39 @@ void TIM4_Init(void)
     HAL_NVIC_EnableIRQ(TIM4_IRQn);
 
     HAL_TIM_Base_Start_IT(&htim4);
-    LOG_INFO("TIMER4 initialized.\r\n");
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
     if (htim->Instance == TIM4)
     {
-        if (controlTaskHandle != NULL) 
+        if (MotorControlTaskHandle != NULL) 
         {
-            osThreadFlagsSet(controlTaskHandle, 0x01);
+            osThreadFlagsSet(MotorControlTaskHandle, 0x01);
         }
     }
+}
+
+void update_odometry(Odometry_t *robot, 
+                     int delta_tick_L, 
+                     int delta_tick_R, 
+                     float imu_yaw_degree)
+{
+    // 1. Theta angle update from IMU (Absolute and accurate)
+    robot->theta = imu_yaw_degree * (PI / 180.0f);
+    
+    // Maintain the angle within the range of -PI to PI (ROS standard)
+    if (robot->theta > PI) robot->theta -= 2.0f * PI;
+    if (robot->theta < -PI) robot->theta += 2.0f * PI;
+
+    // 2. Calculate the distance traveled by each wheel.
+    float distance_L = ((float)delta_tick_L / TICKS_PER_REV) * WHEEL_CIRCUMFERENCE;
+    float distance_R = ((float)delta_tick_R / TICKS_PER_REV) * WHEEL_CIRCUMFERENCE;
+
+    // 3. Calculate the displacement of the robot's center.
+    float delta_S = (distance_L + distance_R) / 2.0f;
+
+    // 4. Add to X, Y
+    robot->x += delta_S * cos(robot->theta);
+    robot->y += delta_S * sin(robot->theta);
 }

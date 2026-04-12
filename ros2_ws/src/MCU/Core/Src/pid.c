@@ -54,36 +54,27 @@ void PID_Init(PID_Controller *pid, float kp, float ki, float kd, int min, int ma
 int PID_Compute(PID_Controller *pid, int setpoint, int measurement)
 {
     float error = (float)(setpoint - measurement);
-    // LOG_INFO("error=%.2f\r\n", error);
     
     /* --- P term --- */
     float Pout = pid->Kp * error;
-    // LOG_INFO("Pout=%.2f\r\n", Pout);
     
     /* --- I term --- */
     pid->integral += error * pid->T_sample;
-    // LOG_INFO("integral=%.2f\r\n", pid->integral);
     float Iout = pid->Ki * pid->integral;
-    // LOG_INFO("Iout=%.2f\r\n", Iout);
     
     if (Iout > pid->outMax) Iout = pid->outMax;
     else if (Iout < pid->outMin) Iout = pid->outMin;
-    // LOG_INFO("Iout2=%.2f\r\n", Iout);
 
     /* --- D term --- */
     float derivative = (error - pid->prevError) / pid->T_sample;
-    // LOG_INFO("derivative=%.2f\r\n", derivative);
     float Dout = pid->Kd * derivative;
-    // LOG_INFO("Dout=%.2f\r\n", Dout);
 
     float output_f = Pout + Iout + Dout;
-    // LOG_INFO("output_f=%.2f\r\n", output_f);
 
     if (output_f > pid->outMax) output_f = pid->outMax;
     else if (output_f < pid->outMin) output_f = pid->outMin;
 
     pid->prevError = error;
-    // LOG_INFO("output_f2=%.2f\r\n", output_f);
     return (int)output_f;
 }
 

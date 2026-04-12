@@ -98,7 +98,6 @@ void Uart2_Init(int baud)
 #ifdef USE_UART_DMA
     if(HAL_OK != DMA_UART2_RX_Init())
     {
-        LOG_ERR("DMA for UART2 init failed.\r\n");
         return;
     }
 #endif
@@ -113,14 +112,12 @@ void Uart2_Init(int baud)
     huart2.Init.OverSampling = UART_OVERSAMPLING_16;
     if(HAL_OK != HAL_UART_Init(&huart2))
     {
-        LOG_ERR("UART2 init failed.\r\n");
         return;
     }
 
 #ifdef USE_UART_DMA
     if(HAL_OK != HAL_UART_Receive_DMA(&huart2, &Bluetooth_Data, DMA_UART2_BUF_SIZE))
     {
-        LOG_ERR("Received DMA for UART2 failed.\r\n");
         return;
     }
 #else
@@ -129,8 +126,6 @@ void Uart2_Init(int baud)
 
     HAL_UART_Receive_IT(&huart2, &Ctrl_Data, 1U);
 #endif
-
-    LOG_INFO("UART2 for Bluetooth HC initialized.\r\n");
 }
 
 #ifdef USE_UART_DMA
@@ -141,14 +136,12 @@ int uart_dma_process(void)
 
     if((pos > dma_prev_pos))
     {
-        LOG_INFO("Normal\r\n");
         write_ring_buf(Bluetooth_Data, dma_prev_pos, pos);
         dma_prev_pos = pos;
         index_num++;
     }
     else if(pos < dma_prev_pos)
     {
-        LOG_INFO("Back\r\n");
         write_ring_buf(Bluetooth_Data, dma_prev_pos, DMA_UART2_BUF_SIZE);
         write_ring_buf(Bluetooth_Data, 0, pos);
         dma_prev_pos = pos;
@@ -156,12 +149,10 @@ int uart_dma_process(void)
     }
     else 
     {
-        LOG_INFO("Dont receive buffer.\r\n");
     }
 
     if(index_num == 10U)
     {
-        LOG_INFO("FINISHED.\r\n");
         return -1;
     }
 
@@ -181,7 +172,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
  * @brief Initializes the USART3 function for console debug log
  * @retval None
  */
-void Uart3_Init(int baud)
+bool Uart3_Init(int baud)
 {
     __HAL_RCC_GPIOD_CLK_ENABLE();
     __HAL_RCC_USART3_CLK_ENABLE();
@@ -205,10 +196,10 @@ void Uart3_Init(int baud)
     huart3.Init.OverSampling = UART_OVERSAMPLING_16;
     if(HAL_OK != HAL_UART_Init(&huart3))
     {
-        LOG_ERR("UART3 init failed.\r\n");
-        return;
+        return false;
     }
-    LOG_INFO("UART3 for debug console initialized.\r\n");
+
+    return true;
 }
 
 /**
@@ -239,10 +230,8 @@ void Uart4_Init(int baud)
     huart4.Init.OverSampling = UART_OVERSAMPLING_16;
     if(HAL_OK != HAL_UART_Init(&huart4))
     {
-        LOG_ERR("UART4 init failed.\r\n");
         return;
     }
-    LOG_INFO("UART4 for ESP32 initialized.\r\n");
 }
 
 /**
@@ -277,7 +266,6 @@ void Uart5_Init(int baud)
     huart5.Init.OverSampling = UART_OVERSAMPLING_16;
     if(HAL_OK != HAL_UART_Init(&huart5))
     {
-        LOG_ERR("UART5 init failed.\r\n");
         return;
     }
 
@@ -286,8 +274,6 @@ void Uart5_Init(int baud)
 
     // HAL_UART_Receive_IT(&huart5, &Lidar_Data, 1);
     // __HAL_UART_ENABLE_IT(&huart5, UART_IT_RXNE);
-
-    LOG_INFO("UART5 for Lidar initialized.\r\n");
 }
 
 /**
@@ -352,18 +338,4 @@ void UART_Get_Line(UART_HandleTypeDef *huart, char *buf, uint16_t max_len)
             }
         }
     }
-}
-
-/**
- * @brief LOG_Print
- * @retval None
- */
-void LOG_Print(const char *fmt, ...)
-{
-    char buf[256];
-    va_list args;
-    va_start(args, fmt);
-    vsnprintf(buf, sizeof(buf), fmt, args);
-    va_end(args);
-    HAL_UART_Transmit(&huart3, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
 }

@@ -42,7 +42,6 @@ void Led_Init(void)
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
     HAL_GPIO_Init(GPIOE, &GPIO_InitStruct);
-    LOG_INFO("Led Initialized.\r\n");
 }
 
 void Led_Set(GPIO_PinState state)

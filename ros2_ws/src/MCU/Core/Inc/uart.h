@@ -28,10 +28,6 @@ extern "C" {
 #include "common.h"
 
 /* Private defines ----------------------------------------------------------*/
-#define ENABLE_LOG_INFO  1
-#define ENABLE_LOG_WARN  1
-#define ENABLE_LOG_ERR   1
-#define ENABLE_LOG_BUF   1
 
 #define USE_UART_DMA 1
 
@@ -90,7 +86,7 @@ extern TLVMessage Control_msg[50U];
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Uart2_Init(int baud);
-void Uart3_Init(int baud);
+bool Uart3_Init(int baud);
 void Uart4_Init(int baud);
 void Uart5_Init(int baud);
 void Uart_Send_Data(UART_HandleTypeDef *huart, const char *buf, uint16_t size);
@@ -98,31 +94,6 @@ void Uart_Send_Char(UART_HandleTypeDef *huart, const char *buf);
 void Uart_Receive_Data(UART_HandleTypeDef *huart, char *buf, uint16_t size);
 void UART_Get_Line(UART_HandleTypeDef *huart, char *buf, uint16_t max_len);
 int uart_dma_process(void);
-void LOG_Print(const char *fmt, ...);
-
-#if ENABLE_LOG_INFO
-#define LOG_INFO(fmt, ...)  LOG_Print("[INFO] " fmt, ##__VA_ARGS__)
-#else
-#define LOG_INFO(fmt, ...)  do {} while(0)
-#endif
-
-#if ENABLE_LOG_WARN
-#define LOG_WARN(fmt, ...)  LOG_Print("[WARN] " fmt, ##__VA_ARGS__)
-#else
-#define LOG_WARN(fmt, ...)  do {} while(0)
-#endif
-
-#if ENABLE_LOG_ERR
-#define LOG_ERR(fmt, ...)   LOG_Print("[ERROR] " fmt, ##__VA_ARGS__)
-#else
-#define LOG_ERR(fmt, ...)   do {} while(0)
-#endif
-
-#if ENABLE_LOG_BUF
-#define LOG_BUF(fmt, ...)   LOG_Print(fmt, ##__VA_ARGS__)
-#else
-#define LOG_BUF(fmt, ...)   do {} while(0)
-#endif
 
 #ifdef __cplusplus
 }

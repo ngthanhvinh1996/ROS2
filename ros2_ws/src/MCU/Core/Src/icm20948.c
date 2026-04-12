@@ -34,6 +34,9 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
+float dt = 0.01;
+float alpha = 0.98;
+
 /* Private function prototypes -----------------------------------------------*/
 static void siic_init(void);
 static void SDA_IN(void);
@@ -76,7 +79,7 @@ static void siic_init(void)
 
     // if (HAL_I2C_Init(&hi2c1) != HAL_OK)
     // {
-    //     LOG_ERR("I2C init failed./r/n");
+    //     return;
     // }
 }
 
@@ -371,26 +374,22 @@ uint8_t ICM20948_Init(void)
     buf_w = REG_VAL_SELECT_BANK_0;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, REG_BANK_SEL, &buf_w, 1U, 500U))
     {
-        LOG_ERR("Error REG_BANK_SEL 1\r\n");
         return 1;
     }
 
     if(HAL_OK != icmDev->read_reg(ICM20948_DEV << 1U, WHO_AM_I, &buf_w, 1U, 500U))
     {
-        LOG_ERR("Error WHO_AM_I\r\n");
         return 1;
     }
 
     if(0xEA != buf_w)
     {
-        LOG_ERR("Error buf_w=0x%x\r\n", buf_w);
         return 1;
     }
 
     buf_w = (1U << 7U);
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, PWR_MGMT_1, &buf_w, 1U, 500U))
     {
-        LOG_ERR("Error PWR_MGMT_1\r\n");
         return 1;
     }
     HAL_Delay(100);
@@ -398,77 +397,66 @@ uint8_t ICM20948_Init(void)
     buf_w = 0x00U;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, USER_CTRL, &buf_w, 1U, 500U))
     {
-        LOG_ERR("Error USER_CTRL\r\n");
         return 1;
     }
 
     buf_w = 0x01U;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, PWR_MGMT_1, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error PWR_MGMT_1\r\n");
         return 1;
     }
 
     buf_w = REG_VAL_SELECT_BANK_2;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, REG_BANK_SEL, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error REG_BANK_SEL\r\n");
         return 1;
     }
 
     buf_w = 0x04U;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, GYRO_SMPLRT_DIV, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error GYRO_SMPLRT_DIV\r\n");
         return 1;
     }
 
     buf_w = (3U << 1U) | (1U << 0U) | (3U << 3U);
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, GYRO_CONFIG_1, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error GYRO_CONFIG_1\r\n");
         return 1;
     }
 
     buf_w = 0x04U;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, ACCEL_SMPLRT_DIV_2, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error ACCEL_SMPLRT_DIV_2\r\n");
         return 1;
     }
 
     buf_w = (0U << 1U) | (1U << 0U) | (5U << 3U);
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, ACCEL_CONFIG, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error ACCEL_CONFIG\r\n");
         return 1;
     }
 
     buf_w = REG_VAL_SELECT_BANK_0;
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, REG_BANK_SEL, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error REG_BANK_SEL\r\n");
         return 1;
     }
 
     buf_w = (1U << 1U);
     if(HAL_OK != icmDev->write_reg(ICM20948_DEV << 1U, INT_PIN_CFG, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error INT_PIN_CFG\r\n");
         return 1;
     }
 
     icmDev->read_reg(AK09916_DEV << 1U, WIA, &buf_w, 1U, 100U);
     if(0x09 != buf_w)
     {
-        LOG_ERR("Error WIA\r\n");
         return 1;
     }
 
     buf_w = (1U << 3U);
     if(HAL_OK != icmDev->write_reg(AK09916_DEV << 1U, CNTL2, &buf_w, 1U, 100U))
     {
-        LOG_ERR("Error CNTL2\r\n");
         return 1;
     }
 
@@ -566,4 +554,37 @@ void Read_Gyro_Angle(PrivateBuf_t *gyro)
     gyro->x = (short)(buf_tmp[0]<<8 | buf_tmp[1]);
 	gyro->y = (short)(buf_tmp[2]<<8 | buf_tmp[3]);
 	gyro->z = (short)(buf_tmp[4]<<8 | buf_tmp[5]);
+}
+
+void Update_Orientation(Orientation_t *orientation, 
+                        float accX, 
+                        float accY, 
+                        float accZ, 
+                        float gyroX, 
+                        float gyroY, 
+                        float gyroZ, 
+                        float magX, 
+                        float magY, 
+                        float magZ) 
+{
+    
+    // STEP 1: Calculate the angle from the accelerometer.
+    float roll_acc = atan2(accY, accZ) * 180.0 / M_PI;
+    float pitch_acc = atan2(-accX, sqrt(accY * accY + accZ * accZ)) * 180.0 / M_PI;
+
+    // STEP 2: Roll and Pitch Compensation Filter
+    orientation->roll = alpha * (orientation->roll + gyroX * dt) + (1 - alpha) * roll_acc;
+    orientation->pitch = alpha * (orientation->pitch + gyroY * dt) + (1 - alpha) * pitch_acc;
+
+    // STEP 3: Calculate Yaw (The tilt compensation will be based on the Roll/Pitch calculation)
+    float roll_rad = orientation->roll * M_PI / 180.0;
+    float pitch_rad = orientation->pitch * M_PI / 180.0;
+
+    float Xh = magX * cos(pitch_rad) + magY * sin(roll_rad) * sin(pitch_rad) + magZ * cos(roll_rad) * sin(pitch_rad);
+    float Yh = magY * cos(roll_rad) - magZ * sin(roll_rad);
+    
+    float yaw_mag = atan2(-Yh, Xh) * 180.0 / M_PI;
+
+    // STEP 4: Yaw compensation filter
+    orientation->yaw = alpha * (orientation->yaw + gyroZ * dt) + (1 - alpha) * yaw_mag;
 }

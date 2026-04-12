@@ -27,25 +27,24 @@
 /* Private macro -------------------------------------------------------------*/
 
 /* Private variables ---------------------------------------------------------*/
-/* Definitions for defaultTask */
-osThreadId_t defaultTaskHandle;
-const osThreadAttr_t defaultTask_attributes = {
-    .name = "defaultTask",
-    .stack_size = 128 * 4,
-    .priority = (osPriority_t)osPriorityNormal,
+osThreadId_t UartRxTaskHandle;
+const osThreadAttr_t vUartRxTask_attributes = {
+    .name = "vUartRxTask",
+    .stack_size = 1024 * 2,
+    .priority = (osPriority_t)osPriorityAboveNormal,
 };
 
-osThreadId_t controlTaskHandle;
-const osThreadAttr_t vControlLoopTask_attributes = {
-    .name = "vControlLoopTask",
+osThreadId_t MotorControlTaskHandle;
+const osThreadAttr_t vMotorControlTask_attributes = {
+    .name = "vMotorControlTask",
     .stack_size = 1024 * 2,
     .priority = (osPriority_t)osPriorityRealtime,
 };
 
-osThreadId_t vDataBluetoothProcessTaskHandle;
-const osThreadAttr_t vDataBluetoothProcessTask_attributes = {
-    .name = "vDataBluetoothProcessTask",
-    .stack_size = 1024 * 4,
+osThreadId_t UartTxTaskHandle;
+const osThreadAttr_t vUartTxTask_attributes = {
+    .name = "vUartTxTask",
+    .stack_size = 1024 * 2,
     .priority = (osPriority_t)osPriorityNormal,
 };
 
@@ -58,10 +57,9 @@ Motion_type Motion = MOTION_STOP;
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void StartDefaultTask(void *argument);
-void vControlLoopTask(void *argument);
-void vDataBluetoothProcessTask(void *argument);
 void UartRxTask(void *argument);
+void MotorControlTask(void *argument);
+void UartTxTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 
@@ -77,7 +75,6 @@ int main(void)
     Imu_Data_t imu_data = {0};
     uint8_t imu_raw_data[21U] = {0U};
     uint8_t index = 0U;
-    char msg_str[16] = "\r\n=== ROBOT BOOT CONFIG ===\r\nPress 'c' to Configure PID, or wait 3s to run...\r\n";
     uint8_t key = 0;
     uint8_t Lidar_Start[5U] = {0xA5, 0x60, 0x00, 0x00, 0x00};
     /* MCU Configuration--------------------------------------------------------*/
@@ -88,102 +85,25 @@ int main(void)
     /* Configure the system clock */
     SystemClock_Config();
 
-    /* Initialize the UART3 for debug log */
-    Uart3_Init(115200U);
-
-    /* Initialize the UART2 for bluetooth */
-    Uart2_Init(9600U);
-
-    /* Initialize the UART5 for Lidar */
-    Uart5_Init(460800);
-    // Uart_Send_Data(&huart5, &Lidar_Start, 5U);
-
-    /* Initialize the UART4 for ESP32 */
-    Uart4_Init(115200U);
-
     /* Initialize led*/
     Led_Init();
     Led_Set(GPIO_PIN_RESET);
 
-    /* Initialize the Encoder TIM2 for the MotorA */
-    MotorA_TIM2_Encoder_Init();
-
-    /* Initialize the Encoder TIM3 for the MotorB */
-    MotorB_TIM3_Encoder_Init();
-
-    /* Initialize the PWM for the Motor A */
-    MotorA_PWM_Init();
-
-    /* Initialize the PWM for the Motor B */
-    MotorB_PWM_Init();
-
-    /* Initialize the PWM for the Servo */
-    Servo_PWM_Init();
-
-    if(0 != ICM20948_Init())
-    {
-        LOG_ERR("Error when init ICM\r\n");
-        return;
-    }
-
-    TIM4_Init();
-
-    HAL_UART_Transmit(&huart3, &msg_str, strlen(msg_str), 1000);
-
-    if(HAL_OK == HAL_UART_Receive(&huart3, &key,1, 3000) && (key == 'c' || key == 'C'))
-    {
-        char temp_input[32];
-        char temp_msg[64];
-
-        HAL_UART_Transmit(&huart3, (uint8_t *)"\r\n[CONFIG MODE ACTIVATED]\r\n", 28, 1000);
-
-        /* Enter PWM */
-        HAL_UART_Transmit(&huart3, (uint8_t *)"Enter Encoder pulses/s: ", 23, 1000);
-        UART_Get_Line(&huart3, temp_input, 32);
-        if(strlen(temp_input) > 0)
-        {
-            Encoder = atof(temp_input);
-        }
-
-        /* Enter Kp */
-        HAL_UART_Transmit(&huart3, (uint8_t *)"Enter Kp: ", 11, 1000);
-        UART_Get_Line(&huart3, temp_input, 32);
-        if(strlen(temp_input) > 0)
-        {
-            Kp = atof(temp_input);
-        }
-
-        /* Enter Ki */
-        HAL_UART_Transmit(&huart3, (uint8_t *)"Enter Ki: ", 11, 1000);
-        UART_Get_Line(&huart3, temp_input, 32);
-        if(strlen(temp_input) > 0)
-        {
-            Ki = atof(temp_input);
-        }
-
-        /* Enter Kd */
-        HAL_UART_Transmit(&huart3, (uint8_t *)"Enter Kd: ", 11, 1000);
-        UART_Get_Line(&huart3, temp_input, 32);
-        if(strlen(temp_input) > 0)
-        {
-            Kd = atof(temp_input);
-        }
-
-        sprintf(temp_msg, "Encoder: %d - NEW PID: Kp=%.2f, Ki=%.2f, Kd=%.2f\r\n", Encoder, Kp, Ki, Kd);
-        HAL_UART_Transmit(&huart3, (uint8_t*)temp_msg, strlen(temp_msg), 1000);
-    }
-    else
-    {
-        HAL_UART_Transmit(&huart3, (uint8_t*)"\r\n[DEFAULT LOADED] Starting FreeRTOS...\r\n", 42, 1000);
-    }
     /* Init scheduler */
     osKernelInitialize();
 
+    /* Init UART3 for communication with RDK X5 */
+    if(true != Uart3_Init(115200U))
+    {
+        /* Return error when UART3 init fail */
+        return -1;
+    }
+
     /* Create the thread(s) */
-    /* creation of defaultTask */
-    // defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
-    controlTaskHandle = osThreadNew(vControlLoopTask, NULL, &vControlLoopTask_attributes);
-    // vDataBluetoothProcessTaskHandle = osThreadNew(vDataBluetoothProcessTask, NULL, &vDataBluetoothProcessTask_attributes);
+    UartRxTaskHandle = osThreadNew(UartRxTask, NULL, &vUartRxTask_attributes);
+    UartTxTaskHandle = osThreadNew(UartTxTask, NULL, &vUartTxTask_attributes);
+    MotorControlTaskHandle = osThreadNew(MotorControlTask, NULL, &vMotorControlTask_attributes);
+    
 
     /* Start scheduler */
     osKernelStart();
@@ -193,6 +113,8 @@ int main(void)
     {
 
     }
+
+    return 0;
 }
 
 /**
@@ -240,184 +162,6 @@ void SystemClock_Config(void)
     }
 }
 
-/**
- * @brief  Function implementing the defaultTask thread.
- * @param  argument: Not used
- * @retval None
- */
-void StartDefaultTask(void *argument)
-{
-    /* Infinite loop */
-    for (;;)
-    {
-        osDelay(1);
-    }
-}
-
-void vControlLoopTask(void *argument)
-{
-    int left_Encoder = 0U;
-    int right_Encoder = 0U;
-    int left_Encoder_pre = 0U;
-    int right_Encoder_pre = 0U;
-    bool first = true;
-    int index = 0;
-    int left_pid = 0;
-    int right_pid = 0;
-    int left_final_pwm = 0;
-    int right_final_pwm = 0;
-
-    PID_Init(&right_robotPID, Kp, Ki, Kd, -9599, 9599, 0.02f);
-    PID_Init(&left_robotPID, Kp, Ki, Kd, -9599, 9599, 0.02f);
-    LOG_INFO("Run task vControlLoopTask\r\n");
-
-    Set_Motor_PWM(7000, 7000);
-    // Set_Motor_duty(70, 70);
-    LOG_INFO("Encoder_1ms_L,PWM_L,Encoder_1ms_R,PWM_R\r\n");
-    while(1)
-    {
-        osThreadFlagsWait(0x01, osFlagsWaitAny, osWaitForever);
-        
-        left_Encoder = Read_Encoder(&htim2);
-        right_Encoder = Read_Encoder(&htim3);
-        
-        left_pid = abs(left_Encoder_pre - left_Encoder) / 0.02;
-        if(first)
-        {
-            right_pid = abs(0xFFFF - right_Encoder_pre) / 0.02;
-        } 
-        else
-        {
-            right_pid = abs(right_Encoder_pre - right_Encoder)/ 0.02;
-            left_final_pwm = 7000 + (PID_Compute(&left_robotPID, Encoder, left_pid));
-            right_final_pwm = 7000 + (PID_Compute(&right_robotPID, Encoder, right_pid));
-            Set_Motor_PWM(left_final_pwm, right_final_pwm);
-            // LOG_INFO("[%d]left_Encoder[%d], right_Encoder[%d]\r\n", index, left_Encoder, right_Encoder);
-            // LOG_INFO("left_pid[%d], right_pid[%d]\r\n", left_pid, right_pid);
-            // LOG_INFO("left_final_pwm[%d], right_final_pwm[%d]\r\n", left_final_pwm, right_final_pwm);
-            LOG_BUF("%d,%d,%d,%d\r\n", 
-                    left_pid,
-                    left_final_pwm,
-                    right_pid,
-                    right_final_pwm
-                    );
-        }
-
-        first = false;
-        left_Encoder_pre = left_Encoder;
-        right_Encoder_pre = right_Encoder;
-
-        index++;
-        if(index == 100)
-        {
-            // left_Encoder = Read_Encoder(&htim2);
-            // right_Encoder = Read_Encoder(&htim3);
-            // LOG_INFO("[%d]left_Encoder[%d], right_Encoder[%d]\r\n", index, left_Encoder, right_Encoder);
-            LOG_INFO("END TASK\r\n");
-            Set_Motor_PWM(0, 0);
-            break;
-        }
-    }
-}
-
-void vDataBluetoothProcessTask(void *argument)
-{
-    int dma_prev_pos = 0;
-    int current_check = 0;
-    int index = 0;
-    int dma_use_len = 0;
-    ParserState state = STATE_WAIT_START;
-    uint16_t payloadIndex = 0U;
-    bool first = true;
-
-    LOG_INFO("Run task vDataBluetoothProcessTask\r\n");
-    while(1)
-    {
-        int pos = (DMA_UART2_BUF_SIZE - __HAL_DMA_GET_COUNTER(huart2.hdmarx));
-        
-        while((current_check != pos) && (0 != pos))
-        {
-            if(current_check >= DMA_UART2_BUF_SIZE)
-            {
-                current_check = 0;
-            }
-
-            switch (state)
-            {
-                case STATE_WAIT_START:
-                    if(START_DELIMITER == Bluetooth_Data[current_check])
-                    {
-                        current_check++;
-                        state = STATE_READ_EVENT_TYPE;
-                        memset(&Control_msg[Write_Msg_Index], 0, sizeof(TLVMessage));
-                    }
-                    break;
-                case STATE_READ_EVENT_TYPE:
-                    Control_msg[Write_Msg_Index].eventType = Bluetooth_Data[current_check];
-                    current_check++;
-                    state = STATE_READ_LENGTH_LOW;
-                    break;
-                case STATE_READ_LENGTH_LOW:
-                    Control_msg[Write_Msg_Index].payloadLength = Bluetooth_Data[current_check];
-                    current_check++;
-                    state = STATE_READ_LENGTH_HIGH;
-                    break;
-                case STATE_READ_LENGTH_HIGH:
-                    Control_msg[Write_Msg_Index].payloadLength |= (Bluetooth_Data[current_check] << 8);
-                    current_check++;
-                    state = STATE_READ_PAYLOAD;
-                    break;
-                case STATE_READ_PAYLOAD:
-                    Control_msg[Write_Msg_Index].payload[payloadIndex] = Bluetooth_Data[current_check];
-                    payloadIndex++;
-                    current_check++;
-                    if(payloadIndex >= Control_msg[Write_Msg_Index].payloadLength)
-                    {
-                        payloadIndex = 0U;
-                        state = STATE_WAIT_END;
-                    }
-
-                    break;
-                case STATE_WAIT_END:
-                    if(END_DELIMITER == Bluetooth_Data[current_check])
-                    {
-                        current_check++;
-                        state = STATE_WAIT_START;
-                        LOG_INFO("Write_Msg_Index[%d] Event 0x%x, Length=%d, current_check=%d\r\n", 
-                                    Write_Msg_Index, Control_msg[Write_Msg_Index].eventType, Control_msg[Write_Msg_Index].payloadLength, current_check);
-                        for(index = 0; index < Control_msg[Write_Msg_Index].payloadLength; index++)
-                            LOG_BUF("0x%x ", Control_msg[Write_Msg_Index].payload[index]);
-                        LOG_BUF("\r\n");
-                        Write_Msg_Index++;
-                        if(Write_Msg_Index >= 50)
-                        {
-                            Write_Msg_Index = 0;
-                        }
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-}
-
-void vDataHandleTask(void *argument)
-{
-    while(1)
-    {
-        if(Read_Msg_Index < Write_Msg_Index)
-        {
-            if(TLV_STOP == (Control_msg[Read_Msg_Index].eventType & TLV_ALL_EVENT))
-            {
-                Motion = MOTION_STOP;
-            }
-            // else if(TL)
-
-        }
-    }
-}
-
 /*
 * @brief Handle command from RDK X5
 */
@@ -426,6 +170,86 @@ void UartRxTask(void *argument)
     while(1)
     {
         
+    }
+}
+
+/*
+* @brief Handle motor control
+*/
+void MotorControlTask(void *argument)
+{
+    /* Initialize the Encoder TIM2 for the MotorA */
+    MotorA_TIM2_Encoder_Init();
+
+    /* Initialize the Encoder TIM3 for the MotorB */
+    MotorB_TIM3_Encoder_Init();
+
+    /* Initialize the PWM for the Motor A */
+    MotorA_PWM_Init();
+
+    /* Initialize the PWM for the Motor B */
+    MotorB_PWM_Init();
+
+    /* Initialize the PWM for the Servo */
+    Servo_PWM_Init();
+
+    TIM4_Init();
+
+    if(0 != ICM20948_Init())
+    {
+        return;
+    }
+
+    while(1)
+    {
+        
+    }
+}
+
+/*
+* @brief Handle UART TX
+*/
+void UartTxTask(void *argument)
+{
+    SensorDataPacket sensor_data = {0};
+    uint8_t checksum = 0;
+    Imu_Data_t *imu_data;
+    Orientation_t *orientation;
+    Odometry_t *robot_odometry;
+    while(1)
+    {
+        Read_Imu_Data(imu_data);
+        Update_Orientation(orientation,
+                           imu_data->accel.x, 
+                           imu_data->accel.y, 
+                           imu_data->accel.z, 
+                           imu_data->gyro.x, 
+                           imu_data->gyro.y, 
+                           imu_data->gyro.z, 
+                           imu_data->magn.x, 
+                           imu_data->magn.y, 
+                           imu_data->magn.z);
+        
+        update_odometry(&robot_odometry, Read_Encoder(&htim2), Read_Encoder(&htim3), orientation->yaw); 
+        
+        sensor_data.header1 = 0xAA;
+        sensor_data.header2 = 0x55;
+        sensor_data.type = 0x02;
+        sensor_data.length = 24;
+        sensor_data.robot_x = robot_odometry->x;
+        sensor_data.robot_y = robot_odometry->y;
+        sensor_data.robot_theta = robot_odometry->theta;
+        sensor_data.imu_roll = orientation->roll;
+        sensor_data.imu_pitch = orientation->pitch;
+        sensor_data.imu_yaw = orientation->yaw;
+        checksum = 0;
+        for(uint8_t i = 0; i < 24; i++)
+        {
+            checksum += ((uint8_t*)&sensor_data)[i];
+        }
+        sensor_data.checksum = checksum;
+        Uart_Send_Data(&huart3, (uint8_t*)&sensor_data, sizeof(sensor_data));
+        osDelay(100);
     }
 }
 

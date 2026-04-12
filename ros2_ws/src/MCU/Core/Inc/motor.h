@@ -35,6 +35,10 @@ extern "C" {
 #define ENCODER_TIM_PERIOD  0xFFFF  
 #define PWM_PERIOD          9599U
 
+#define PI 3.14159265f
+#define WHEEL_CIRCUMFERENCE 0.065f
+#define TICKS_PER_REV 1400.0f
+
 /* Exported types ------------------------------------------------------------*/
 typedef enum
 {
@@ -44,6 +48,13 @@ typedef enum
   MOTION_TURN_LEFT,
   MOTION_TURN_RIGHT
 } Motion_type;
+
+typedef struct
+{
+    float x;
+    float y;
+    float theta;
+} Odometry_t;
 
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
@@ -76,6 +87,10 @@ void Set_Motor_duty(int motor_a, int motor_b);
 uint32_t Read_Encoder(TIM_HandleTypeDef *htim);
 void Set_Encoder(TIM_HandleTypeDef *htim, uint16_t value);
 void TIM4_Init(void);
+void update_odometry(Odometry_t *robot, 
+                     int delta_tick_L, 
+                     int delta_tick_R, 
+                     float imu_yaw_degree);
 
 #ifdef __cplusplus
 }

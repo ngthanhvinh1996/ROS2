@@ -27,6 +27,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "common.h"
 #include "uart.h"
+#include "math.h"
 
 /* Private define ----------------------------------------------------------*/
 /* I2C Address of ICM */
@@ -194,6 +195,13 @@ extern I2C_HandleTypeDef hi2c1;
 /* Exported types ------------------------------------------------------------*/
 typedef struct
 {
+    float roll;
+    float pitch;
+    float yaw;
+} Orientation_t;
+
+typedef struct
+{
   float x;
   float y;
   float z;
@@ -225,6 +233,16 @@ uint8_t ICM20948_Init(void);
 void Read_Imu_Data(Imu_Data_t *data);
 void Read_Imu_Raw_Data(uint8_t *data);
 void Read_Gyro_Angle(PrivateBuf_t *gyro);
+void Update_Orientation(Orientation_t *orientation, 
+                        float accX, 
+                        float accY, 
+                        float accZ, 
+                        float gyroX, 
+                        float gyroY, 
+                        float gyroZ, 
+                        float magX, 
+                        float magY, 
+                        float magZ);
 
 #ifdef __cplusplus
 }
